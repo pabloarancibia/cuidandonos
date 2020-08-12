@@ -3,5 +3,9 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def comedores (request):
+def infocomedores(request):
     return render(request, 'infocomedores.html')
+
+
+def formcomedores(request):
+    return render(request, 'formcomedores.html')

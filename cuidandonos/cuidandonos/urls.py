@@ -21,5 +21,7 @@ from comedores import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('comedores/',views.comedores),
+    path('comedores/', views.infocomedores),
+    path('formcomedores/', views.formcomedores),
+
 ]

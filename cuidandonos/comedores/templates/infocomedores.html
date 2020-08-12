@@ -10,11 +10,12 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <!-- CSS FILES -->
-    <link href="css/styleCustom.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/fontawesome.css" rel="stylesheet" type="text/css">
-    <link href="css/slick.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleCustom.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 </head>
 
 <body>
@@ -34,7 +35,7 @@
                 <!-- <nav class="navbar navbar-light navbar-expand-md"> -->
                 <div class="container">
                     <a class="eskimo-logo-link col-3" href="index.html">
-                        <img src="images/logo_gobierno2020.png" class="eskimo-logo" alt="eskimo" />
+                        <img src="{% static 'images/logo_gobierno2020.png' %}" class="eskimo-logo" alt="eskimo" />
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -138,12 +139,14 @@
                         inscripción.</p>
                     <!-- <hr> -->
                     <!-- <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
-                  </div>
+                </div>
                 <!-- <p class="h2 mt-5"></p> -->
                 <!-- DIVIDER -->
                 <hr />
                 <div class="card text-center mt-5">
-                    <div class="card-header"><h3>REGISTRO</h3></div>
+                    <div class="card-header">
+                        <h3>REGISTRO</h3>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Formulario de registro para comedores y merenderos comunitarios</h5>
                         <p class="card-text">INGRESÁ AL SIGUIENTE LINK PARA REGISTRARTE</p>
@@ -151,7 +154,7 @@
                     </div>
                     <div class="card-footer text-muted"></div>
                 </div>
-<hr />
+                <hr />
                 <div class="eskimo-widget-title mt-5">
                     <h3 class="eskimo-title-with-border"><span>DOCUMENTOS:</span></h3>
                 </div>
@@ -183,7 +186,8 @@
                     </div>
                     <div class="col-4 col-lg-4 mb-4 mb-lg-0">
                         <a href="http://www.chaco.gob.ar/" target="_blank">
-                            <img class="card-vertical-img" src="images/logo-footer.png" alt="Voluntariado Social" />
+                            <img class="card-vertical-img" src="{% static 'images/logo-footer.png' %}"
+                                alt="Voluntariado Social" />
                         </a>
                     </div>
                 </div>
@@ -193,13 +197,14 @@
     <!-- GO TO TOP BUTTON -->
     <a id="eskimo-gototop" href="#"><i class="fa fa-chevron-up"></i></a>
     <!-- JS FILES -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/salvattore.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/panel.js"></script>
-    <script src="js/reading-position-indicator.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/salvattore.min.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/panel.js' %}"></script>
+    <script src="{% static 'js/reading-position-indicator.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
     <!-- POST SLIDER -->
     <script>
         (function ($) {
