@@ -1,0 +1,780 @@
+
+          <div id="PersJur1" class="form-group row" style="display:none;">
+            <label for="inputPersJur" class="col-sm-2 col-form-label">Personeria Jurídica</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="inputPersJur" placeholder="Personeria Jurídica">
+            </div>
+          </div>
+          <div id="PersJur2" class="form-group row" style="display:none;">
+            <label for="inputPjCuit" class="col-sm-2 col-form-label">Cuit</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" id="inputPjCuit" placeholder="Cuit">
+            </div>
+          </div>
+
+          <hr />
+          <!-- ¿Reciben algún beneficio del Ministerio de Desarrollo Social? SI-NO -->
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Reciben algún beneficio del Ministerio de
+              Desarrollo Social?</label>
+            <div class="form-check m-2">
+              <input class="rdBenefMinDes form-check-input" type="radio" name="rdBenefMinDes" id="rdBenefMinDes1"
+                value="si">
+              <label class="form-check-label" for="rdBenefMinDes1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="rdBenefMinDes form-check-input" type="radio" name="rdBenefMinDes" id="rdBenefMinDes2"
+                value="no" checked>
+              <label class="form-check-label" for="rdBenefMinDes2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group row" id="BenefMinDes" style="display: none;">
+            <label for="selectBeneficios" class="col-sm-2 col-form-label">Qué tipo de beneficio reciben:</label>
+            <div class="col-sm-10">
+              <select id="selectBeneficios" class="selectpicker" multiple data-width="auto" data-container="body">
+                <option>Módulos alimentarios</option>
+                <option>Kits de merenderos</option>
+                <option>Programas sociales (RMP-Becas)</option>
+                <option>Inversión social</option>
+                <option>Insumos o materiales (chapas, ollas, gas, anafe, entre otras).</option>
+              </select>
+            </div>
+          </div>
+
+
+
+
+
+          <hr />
+          <!-- Georegferencia o ubicación -->
+          <div class="eskimo-widget-title mb-4">
+            <h5 class="eskimo-title-with-border"><span>Georeferencia o Ubicación (Dirección en donde funciona el
+                comedor):</span></h5">
+          </div>
+
+          <div class="form-group row">
+            <label for="inputCalle" class="col-sm-2 col-form-label">Calle</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="inputCalle" placeholder="Calle">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputNumCalle" class="col-sm-2 col-form-label">Número</label>
+            <div class="col-sm-2">
+              <input type="number" class="form-control" id="inputNumCalle" placeholder="Número">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputManzana" class="col-sm-2 col-form-label">Manzana - Parcela</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="inputManzana" placeholder="Manzana - Parcela">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputBarrio" class="col-sm-2 col-form-label">Barrio</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="inputBarrio" placeholder="Barrio">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="selProvincias" class="col-sm-2 col-form-label">Provincia</label>
+            <div class="col-sm-6">
+              <select class="form-control" id="selProvincias"></select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="selLocalidades" class="col-sm-2 col-form-label">Localidad</label>
+            <div class="col-sm-6">
+              <select class="form-control" id="selLocalidades"></select>
+            </div>
+          </div>
+
+
+          <hr />
+          <!-- Beneficiarios -->
+          <div class="eskimo-widget-title mb-4">
+            <h5 class="eskimo-title-with-border"><span>Beneficiarios:</span></h5">
+          </div>
+
+          <div class="form-group row">
+            <label for="inputCantAsistentes" class="col-4 col-form-label font-weight-bold">Cantidad de personas que
+              asisten</label>
+            <div class="col-1">
+              <input class="form-control" type="number" value="25" min="25" id="inputCantAsistentes">
+            </div>
+          </div>
+
+          <p>Grupos etarios que asisten(tildar lo que corresponda)</p>
+
+          <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="">Adultos y adultas mayores
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="">Mujeres embarazadas
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="">Jóvenes
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="">Adolescentes
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="">Niños y niñas
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="">Personas en situación de calle
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="">Personas con Discapacidad
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="eskimo-widget-title mt-5 mb-4">
+            <h5 class="eskimo-title-with-border"><span>Completar la nómina de beneficiarios</span></h5">
+          </div>
+          <div class="mt-4 mb-4">
+            <a href="#" class="btn btn-primary" id="add_field">Agregar Beneficiario</a>
+          </div>
+
+          <div id="divBeneficiarios">
+            <div>
+              <div class="form-group row">
+                <label for="inputNombreBenef[]" class="col-sm-6 col-form-label">Nombre y Apellido</label>
+                <label for="inputDniBenef[]" class="col-sm-6 col-form-label">DNI</label>
+                <div class="col-sm-6">
+                  <input type="text" name="inputNombreBenef[]" class="form-control" id="inputNombreBenef[]"
+                    placeholder="Nombre y Apellido">
+                </div>
+                <div class="col-sm-6">
+                  <input type="number" name="inputDniBenef[]" class="form-control" id="inputDniBenef[]"
+                    placeholder="DNI">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+          <!-- Esquema de Trabajo -->
+          <div class="eskimo-widget-title mt-5">
+            <h3 class="eskimo-title-with-border"><span>Esquema de Trabajo:</span></h3>
+          </div>
+          <p>Días y horarios en los que se brinda el servicio</p>
+
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <!-- <th scope="col">#</th> -->
+                <th scope="col" class="">
+                  Dias
+                </th>
+                <th scope="col">
+                  Horario
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+
+                  <div class="form-group row">
+                    <div class="col-sm-6 pr-1">
+                      <label class="switch ">
+                        <input type="checkbox" class="primary" id="swLunes">
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                    <label for="swLunes" class="col-sm-1 col-form-label">Lunes</label>
+                  </div>
+
+                </td>
+
+                <td>
+
+                  <div class="form-group row">
+                    <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
+                    <div class="col-3">
+                      <input class="form-control" type="time" value="08:00:00" id="timeComLunDesde">
+                    </div>
+
+                    <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
+                    <div class="col-3">
+                      <input class="form-control" type="time" value="12:00:00" id="timeComLunHasta">
+                    </div>
+                  </div>
+
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+
+                  <div class="form-group row">
+                    <div class="col-sm-6 pr-1">
+                      <label class="switch ">
+                        <input type="checkbox" class="primary" id="swMartes">
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                    <label for="swMartes" class="col-sm-1 col-form-label">Martes</label>
+                  </div>
+
+
+                </td>
+                <td>
+                  <div class="form-group row">
+                    <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
+                    <div class="col-3">
+                      <input class="form-control" type="time" value="08:00:00" id="timeComMarDesde">
+                    </div>
+
+                    <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
+                    <div class="col-3">
+                      <input class="form-control" type="time" value="12:00:00" id="timeComMarHasta">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-group row">
+                    <div class="col-sm-6 pr-1">
+                      <label class="switch ">
+                        <input type="checkbox" class="primary" id="swMiercoles">
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                    <label for="swMiercoles" class="col-sm-1 col-form-label">Miércoles</label>
+                  </div>
+
+                </td>
+                <td>
+                  <div class="form-group row">
+                    <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
+                    <div class="col-3">
+                      <input class="form-control" type="time" value="08:00:00" id="timeComMierDesde">
+                    </div>
+
+                    <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
+                    <div class="col-3">
+                      <input class="form-control" type="time" value="12:00:00" id="timeComMierHasta">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-group row">
+                    <div class="col-sm-6 pr-1">
+                      <label class="switch ">
+                        <input type="checkbox" class="primary" id="swJueves">
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                    <label for="swJueves" class="col-sm-1 col-form-label">Jueves</label>
+                  </div>
+
+                </td>
+                <td>
+                  <div class="form-group row">
+                    <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
+                    <div class="col-3">
+                      <input class="form-control" type="time" value="08:00:00" id="timeComJueDesde">
+                    </div>
+
+                    <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
+                    <div class="col-3">
+                      <input class="form-control" type="time" value="12:00:00" id="timeComJueHasta">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-group row">
+                    <div class="col-sm-6 pr-1">
+                      <label class="switch ">
+                        <input type="checkbox" class="primary" id="swViernes">
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                    <label for="swViernes" class="col-sm-1 col-form-label">Viernes</label>
+                  </div>
+
+                </td>
+                <td>
+                  <div class="form-group row">
+                    <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
+                    <div class="col-3">
+                      <input class="form-control" type="time" value="08:00:00" id="timeComVierDesde">
+                    </div>
+
+                    <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
+                    <div class="col-3">
+                      <input class="form-control" type="time" value="12:00:00" id="timeComVierHasta">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-group row">
+                    <div class="col-sm-6 pr-1">
+                      <label class="switch ">
+                        <input type="checkbox" class="primary" id="swSabado">
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                    <label for="swSabado" class="col-sm-1 col-form-label">Sábado</label>
+                  </div>
+
+                </td>
+                <td>
+                  <div class="form-group row">
+                    <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
+                    <div class="col-3">
+                      <input class="form-control" type="time" value="08:00:00" id="timeComSabDesde">
+                    </div>
+
+                    <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
+                    <div class="col-3">
+                      <input class="form-control" type="time" value="12:00:00" id="timeComSabHasta">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-group row">
+                    <div class="col-sm-6 pr-1">
+                      <label class="switch ">
+                        <input type="checkbox" class="primary" id="swDomingo">
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                    <label for="swDomingo" class="col-sm-1 col-form-label">Domingo</label>
+                  </div>
+
+                </td>
+                <td>
+
+                  <div class="form-group row">
+                    <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
+                    <div class="col-3">
+                      <input class="form-control" type="time" value="08:00:00" id="timeComDomDesde">
+                    </div>
+
+                    <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
+                    <div class="col-3">
+                      <input class="form-control" type="time" value="12:00:00" id="timeComDomHasta">
+                    </div>
+                  </div>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <hr />
+          <h3 class="eskimo-title-with-border mt-4"><span>Colaboradores:</span></h3>
+          <h5>Registrá a las personas que desarrollan alguna labor en el comedor o merendero.</h5>
+
+          <div class="form-group row">
+            <label for="inputCantColab" class="col-sm-5 col-form-label font-weight-bold">¿Cuántas personas trabajan en
+              el
+              comedor/merendero?</label>
+            <div class="col-sm-1">
+              <input type="number" class="form-control" id="inputCantColab" placeholder="1">
+            </div>
+          </div>
+
+          <p>Datos Personales de cada trabajador y trabajadora</p>
+          <a href="#" class="btn btn-primary" id="add_colab">Agregar Colaborador</a>
+          <div id="divColaboradores" class="mt-4">
+            <div>
+              <div class="form-group row">
+                <label for="inNomColab[]" class="col-sm-1 col-form-label">Nombre</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="inNomColab[]" placeholder="Nombre">
+                </div>
+                <!-- </div>
+              <div class="form-group row col-sm-8"> -->
+                <label for="inApColab[]" class="col-sm-1 col-form-label">Apellido</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="inApColab[]" placeholder="Apellido">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inDniColab[]" class="col-sm-1 col-form-label">Dni</label>
+                <div class="col-sm-4">
+                  <input type="number" class="form-control" id="inDniColab[]" placeholder="Dni">
+                </div>
+                <!-- </div>
+              <div class="form-group row"> -->
+                <label for="inCuilColab" class="col-sm-1 col-form-label">Cuil</label>
+                <div class="col-sm-4">
+                  <input type="number" class="form-control" id="inCuilColab[]" placeholder="00-00000000-00">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Cuentan con algún tipo de
+              remuneración proveniente del Ministerio de Desarrollo Social?</label>
+            <div class="form-check m-2">
+              <input class="rdRemMinDes form-check-input" type="radio" name="rdRemMinDes" id="rdRemMinDes1" value="si">
+              <label class="form-check-label" for="rdRemMinDes1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="rdRemMinDes form-check-input" type="radio" name="rdRemMinDes" id="rdRemMinDes2" value="no"
+                checked>
+              <label class="form-check-label" for="rdRemMinDes2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group row" id="RemMinDes" style="display: none;">
+            <label for="inputRemMinDes" class="col-sm-1 col-form-label">¿Cuál? </label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="inputRemMinDes" placeholder="">
+            </div>
+          </div>
+
+          <hr />
+          <h3 class="eskimo-title-with-border mt-4"><span>Informe Socio Ambiental</span></h3>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label ">¿El comedor/ merendero cuenta con Agua
+              Potable?</label>
+            <div class="form-check m-2">
+              <input class=" form-check-input rdAguaPot" type="radio" name="rdAguaPot" id="rdAguaPot1" value="si">
+              <label class="form-check-label" for="rdAguaPot1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class=" form-check-input rdAguaPot" type="radio" name="rdAguaPot" id="rdAguaPot2" value="no"
+                checked>
+              <label class="form-check-label" for="rdAguaPot2">
+                NO
+              </label>
+            </div>
+          </div>
+          <!-- segun radio anterior -->
+          <div class="form-group row mt-1">
+            <label id="tipoConex0" for="rdConexion" class="col-sm-5 col-form-label" style="display: none;">Tipo de
+              Conexión</label>
+            <div id="tipoConex1" class="form-check m-2" style="display: none;">
+              <input class="form-check-input" type="radio" name="rdConexion" id="rdConexion1" value="option1">
+              <label class="form-check-label" for="rdConexion1">
+                Interna
+              </label>
+            </div>
+            <div id="tipoConex2" class="form-check m-2" style="display: none;">
+              <input class="form-check-input" type="radio" name="rdConexion" id="rdConexion2" value="option2" checked>
+              <label class="form-check-label" for="rdConexion2">
+                Externa
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label ">¿Cuenta con instalación eléctrica?</label>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdInstElec" id="rdInstElec1" value="option1">
+              <label class="form-check-label" for="rdInstElec1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdInstElec" id="rdInstElec2" value="option2" checked>
+              <label class="form-check-label" for="rdInstElec2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label ">¿Es un espacio cerrado?</label>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdEspCerrado" id="rdEspCerrado1" value="option1">
+              <label class="form-check-label" for="rdEspCerrado1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdEspCerrado" id="rdEspCerrado2" value="option2"
+                checked>
+              <label class="form-check-label" for="rdEspCerrado2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label ">¿Dispone de Instalaciones sanitarias para las personas que
+              asisten?</label>
+            <div class="form-check m-2">
+              <input class="rdInstSanitarias form-check-input" type="radio" name="rdInstSanitarias"
+                id="rdInstSanitarias1" value="si">
+              <label class="form-check-label" for="rdInstSanitarias1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="rdInstSanitarias form-check-input" type="radio" name="rdInstSanitarias"
+                id="rdInstSanitarias2" value="no" checked>
+              <label class="form-check-label" for="rdInstSanitarias2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <!-- Segun respuesta anterior -->
+
+          <div class="form-group row" id="dChkSanitarios1" style="display: none;">
+            <!-- <div class="col-sm-2"></div> -->
+            <div class="col-sm-6">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="">Baño instalado
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row" id="dChkSanitarios2" style="display: none;">
+            <!-- <div class="col-sm-2"></div> -->
+            <div class="col-sm-6">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="">Letrina
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row" id="dChkSanitarios3" style="display: none;">
+            <!-- <div class="col-sm-2"></div> -->
+            <div class="col-sm-6">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="">Otros
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label ">¿Cuentan con un espacio o área exclusiva para la elaboración
+              de los alimentos (cocina)?</label>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdCocina" id="rdCocina1" value="option1">
+              <label class="form-check-label" for="rdCocina1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdCocina" id="rdCocina2" value="option2" checked>
+              <label class="form-check-label" for="rdCocina2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <hr />
+          <h3 class="eskimo-title-with-border mt-4"><span>Actividades Extras</span></h3>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label ">¿Cuenta con huerta comunitaria para la producción de
+              alimentos?</label>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdhuerta" id="rdhuerta1" value="option1">
+              <label class="form-check-label" for="rdhuerta1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdhuerta" id="rdhuerta2" value="option2" checked>
+              <label class="form-check-label" for="rdhuerta2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label ">¿Realizan actividades recreativas o deportivas?</label>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdDeportes" id="rdDeportes1" value="option1">
+              <label class="form-check-label" for="rdDeportes1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdDeportes" id="rdDeportes2" value="option2" checked>
+              <label class="form-check-label" for="rdDeportes2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <!-- segun anterior -->
+          <div class="form-group row">
+            <label for="inputActDep" class="col-form-label">¿Cuáles? </label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="inputActDep" placeholder="">
+            </div>
+          </div>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label ">¿Se brinda apoyo escolar?</label>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdApotoEscolar" id="rdApotoEscolar1" value="option1">
+              <label class="form-check-label" for="rdApotoEscolar1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdApotoEscolar" id="rdApotoEscolar2" value="option2"
+                checked>
+              <label class="form-check-label" for="rdApotoEscolar2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label ">¿Transmiten información acerca de los cuidados de higiene
+              básicas?</label>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdHigiene" id="rdHigiene1" value="option1">
+              <label class="form-check-label" for="rdHigiene1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdHigiene" id="rdHigiene2" value="option2" checked>
+              <label class="form-check-label" for="rdHigiene2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label ">¿Se dicta algún tipo de curso de Educación Sexual
+              Integral?</label>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdEdSex" id="rdEdSex1" value="option1">
+              <label class="form-check-label" for="rdEdSex1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdEdSex" id="rdEdSex2" value="option2" checked>
+              <label class="form-check-label" for="rdEdSex2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label ">¿Se dicta algún tipo de curso de Prevención y Erradicación de
+              Violencias?</label>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdViolencia" id="rdViolencia1" value="option1">
+              <label class="form-check-label" for="rdViolencia1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdViolencia" id="rdViolencia2" value="option2" checked>
+              <label class="form-check-label" for="rdViolencia2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label ">¿Se dicta algún tipo de curso de Prevención Comunitaria de
+              Consumo Problemático de Sustancias?</label>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdSustancias" id="rdSustancias1" value="option1">
+              <label class="form-check-label" for="rdSustancias1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="form-check-input" type="radio" name="rdSustancias" id="rdSustancias2" value="option2"
+                checked>
+              <label class="form-check-label" for="rdSustancias2">
+                NO
+              </label>
+            </div>
+          </div>
+          <hr />
+          <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Términos y Condiciones</h4>
+            <p>El registro estará a comprobación de los requerimientos solicitados por entidades que corresponda, quien
+              llevará adelante las acciones necesarias para la verificación en el territorio de los datos informados
+              mediante el formulario. El proceso de verificación concluye tras la emisión de una constancia de
+              relevamiento a cargo de un profesional habilitado por el Ministerio de Desarrollo Social quien visitará el
+              espacio en el que se desarrolla el merendero o comedor comunitario.</p>
+            <!-- <hr> -->
+            <!-- <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
+          </div>
