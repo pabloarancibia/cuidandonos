@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>Formulario de registro de Cuidadores Domiciliarios</title>
+  <!-- META TAGS -->
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <!-- CSS FILES -->
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap-toggle.min.css" rel="stylesheet" type="text/css">
+
+  <link href="css/fontawesome.css" rel="stylesheet" type="text/css">
+  <link href="css/slick.css" rel="stylesheet" type="text/css">
+  <link href="css/styleCustom.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+  <!-- READING POSITION INDICATOR -->
+  <progress value="0" id="eskimo-progress-bar">
+    <span class="eskimo-progress-container">
+      <span class="eskimo-progress-bar"></span>
+    </span>
+  </progress>
+  <!-- SITE WRAPPER -->
+  <div id="eskimo-site-wrapper">
+    <!-- MAIN CONTAINER -->
+    <main id="eskimo-main-container">
+      <!-- NAVBAR HORIZONTAL -->
+      <!-- <ul class="nav justify-content-center"> -->
+      <nav class="navbar navbar-custom navbar-expand-lg navbar-light bg-light">
+        <!-- <nav class="navbar navbar-light navbar-expand-md"> -->
+        <div class="container">
+          <a class="eskimo-logo-link col-3" href="index.html">
+            <img src="images/logo_gobierno2020.png" class="eskimo-logo" alt="eskimo" />
+          </a>
+          <!-- <a class="navbar-brand" href="#">LOGO</a> -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link text-light" href="#">INICIO <span class="sr-only">(current)</span></a>
+              </li>
+              <!-- <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li> -->
+              <li class="nav-item dropdown ">
+                <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  REGISTRAR
+                </a>
+                <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item text-white" href="infocomedores.html">Comedores y
+                    Merenderos</a>
+                  <a class="dropdown-item text-white" href="#">Cuidadores Domiciliarios</a>
+                  <!-- <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Something else here</a> -->
+                </div>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="#">MAPA <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="#">INFORMACIÓN<span class="sr-only">(current)</span></a>
+              </li>
+              <!-- <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Disabled</a>
+                            </li> -->
+            </ul>
+            <!-- <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form> -->
+          </div>
+        </div>
+      </nav>
+      </ul>
+      <!-- FIN NAVBAR HORIZONTAL -->
+      <div class="container">
+
+
+        <!-- TOP ICONS -->
+
+        <div class="clearfix"></div>
+
+        <!-- DIVIDER -->
+        <!-- <hr class="section-divider" /> -->
+        <hr />
+        <!-- CAROUSEL -->
+        <div class="eskimo-widget-title">
+          <!-- <h3 class="eskimo-carousel-title"><span>REGISTRAR:</span></h3> -->
+          <h3 class="eskimo-title-with-border"><span>Formulario para el registro de Cuidadores Domiciliarios</span></h3>
+          <h5>(Todos los campos son obligatorios)</h5>
+        </div>
+
+        <form>
+          <hr />
+          <div class="eskimo-widget-title mt-5 ">
+            <h5 class="eskimo-title-with-border"><span>Datos Personales:</span></h5">
+          </div>
+          <div class="form-group row">
+            <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="inputNombre" placeholder="Nombre">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputApellido" class="col-sm-2 col-form-label">Apellido</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="inputApellido" placeholder="Apellido">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputDni" class="col-sm-2 col-form-label">Dni</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" id="inputDni" placeholder="Dni">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputApellido" class="col-sm-2 col-form-label">Lugar y Fecha de Nacimiento</label>
+
+            <div class="col-sm-3">
+              <input type="text" class="form-control" id="inputApellido" placeholder="Lugar">
+            </div>
+            <!-- </div>
+          <div class="form-group row"> -->
+            <!-- <label for="input-date-input" class="col-2 col-form-label">Date</label> -->
+            <div class="col-3">
+              <input class="form-control" type="date" value="1980-01-19" id="input-date-input">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="" class="col-sm-2 col-form-label ">Rango de edad:</label>
+            <div class="form-check m-2">
+              <input class="rdRngEdad form-check-input" type="radio" name="rdRngEdad" id="rdRngEdad1" value="28a25">
+              <label class="form-check-label" for="rdRngEdad1">
+                18 a 25 años
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="rdRngEdad form-check-input" type="radio" name="rdRngEdad" id="rdRngEdad2" value="26a30">
+              <label class="form-check-label" for="rdRngEdad2">
+                26 a 30 años
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="rdRngEdad form-check-input" type="radio" name="rdRngEdad" id="rdRngEdad3" value="31a40"
+                checked>
+              <label class="form-check-label" for="rdRngEdad3">
+                31 a 40 años
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="rdRngEdad form-check-input" type="radio" name="rdRngEdad" id="rdRngEdad4" value="mas40">
+              <label class="form-check-label" for="rdRngEdad4">
+                Más de 40 años
+              </label>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputApellido" class="col-sm-2 col-form-label">Género con el cual se identifica:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="inputGenero" placeholder="Genero">
+            </div>
+          </div>
+
+          <p>Domicilio legal:</p>
+
+          <div class="form-group row">
+            <label for="inputDireccion" class="col-sm-2 col-form-label">Dirección</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputBarrio" class="col-sm-2 col-form-label">Barrio</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="inputBarrio" placeholder="Barrio">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="selLocalidades" class="col-sm-2 col-form-label">Localidad</label>
+            <div class="col-sm-6">
+              <select class="form-control" id="selLocalidades"></select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="selProvincias" class="col-sm-2 col-form-label">Provincia</label>
+            <div class="col-sm-6">
+              <select class="form-control" id="selProvincias"></select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputCelular" class="col-sm-2 col-form-label">Celular</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" id="inputCelular" placeholder="Celular">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-6">
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+          </div>
+
+          <div class="eskimo-widget-title mb-4">
+            <h5 class="eskimo-title-with-border"><span>Datos de Formación</span></h5">
+          </div>
+
+          <h5>Estudio máximo alcanzado</h5>
+
+          <div class="form-group row">
+            <label for="" class="col-sm-2 col-form-label ">Rango de edad:</label>
+            <div class="form-check m-2">
+              <input class="rdEstudioMax form-check-input" type="radio" name="rdEstudioMax" id="rdEstudioMax1"
+                value="secundario" checked>
+              <label class="form-check-label" for="rdEstudioMax1">
+                Secundario
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="rdEstudioMax form-check-input" type="radio" name="rdEstudioMax" id="rdEstudioMax2"
+                value="terciario">
+              <label class="form-check-label" for="rdEstudioMax2">
+                Terciario
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="rdEstudioMax form-check-input" type="radio" name="rdEstudioMax" id="rdEstudioMax3"
+                value="universitario">
+              <label class="form-check-label" for="rdEstudioMax3">
+                Universitario
+              </label>
+            </div>
+          </div>
+
+          <div id="dvTitulo" class="form-group row">
+            <label for="tituloSec" class="col-sm-3 col-form-label">Título obtenido</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="tituloSec" placeholder="Título obtenido">
+            </div>
+          </div>
+          <div id="dvNomInst" class="form-group row">
+            <label for="institucionSec" class="col-sm-3 col-form-label">Nombre de la Institución de formación</label>
+            <div class="col-sm-5">
+              <input type="number" class="form-control" id="institucionSec" placeholder="Nombre">
+            </div>
+          </div>
+
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Realizó alguna formación y/o cursos sobre
+              Gerontología/Geriatría?</label>
+            <div class="form-check m-2">
+              <input class="rdGeriatria form-check-input" type="radio" name="rdGeriatria" id="rdGeriatria1" value="si">
+              <label class="form-check-label" for="rdGeriatria1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="rdGeriatria form-check-input" type="radio" name="rdGeriatria" id="rdGeriatria2" value="no"
+                checked>
+              <label class="form-check-label" for="rdGeriatria2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <!-- mostrar/ocultar div para documentacion -->
+          <div id="dvSubirDoc" style="display: none;">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupFileAddon01">Subir</span>
+              </div>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile01"
+                  aria-describedby="inputGroupFileAddon01">
+                <label class="custom-file-label" for="inputGroupFile01">Seleccionar archivo</label>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Se capacita periódicamente?</label>
+            <div class="form-check m-2">
+              <input class="rdCapacita form-check-input" type="radio" name="rdCapacita" id="rdCapacita1" value="si">
+              <label class="form-check-label" for="rdCapacita1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="rdCapacita form-check-input" type="radio" name="rdCapacita" id="rdCapacita2" value="no"
+                checked>
+              <label class="form-check-label" for="rdCapacita2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Conoce la Ley de Protección de los Derechos
+              Humanos de los Adultos Mayores?</label>
+            <div class="form-check m-2">
+              <input class="rdLeyDH form-check-input" type="radio" name="rdLeyDH" id="rdLeyDH1" value="si">
+              <label class="form-check-label" for="rdLeyDH1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="rdLeyDH form-check-input" type="radio" name="rdLeyDH" id="rdLeyDH2" value="no" checked>
+              <label class="form-check-label" for="rdLeyDH2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Realizó alguna capacitación sobre Educación
+              Sexual Integral?</label>
+            <div class="form-check m-2">
+              <input class="rdCapEdSex form-check-input" type="radio" name="rdCapEdSex" id="rdCapEdSex1" value="si">
+              <label class="form-check-label" for="rdCapEdSex1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="rdCapEdSex form-check-input" type="radio" name="rdCapEdSex" id="rdCapEdSex2" value="no"
+                checked>
+              <label class="form-check-label" for="rdCapEdSex2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <div class="eskimo-widget-title mt-5 mb-3">
+            <h5 class="eskimo-title-with-border"><span>Aptitud y Experiencia Previa con Adultos Mayores</span></h5">
+          </div>
+
+          <div class="form-group row">
+            <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Tiene experiencia como cuidador o cuidadora
+              a Personas Adultas Mayores?</label>
+            <div class="form-check m-2">
+              <input class="rdExperiencia form-check-input" type="radio" name="rdExperiencia" id="rdExperiencia1"
+                value="si">
+              <label class="form-check-label" for="rdExperiencia1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="rdExperiencia form-check-input" type="radio" name="rdExperiencia" id="rdExperiencia2"
+                value="no" checked>
+              <label class="form-check-label" for="rdExperiencia2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <!-- segun anterior -->
+          <div id="dvLugarExp" style="display: none;">
+            <p>Lugar donde se desempeña actualmente o el último comprobable:</p>
+            <div class="form-group row">
+              <div class="form-check m-2">
+                <input class="rdLugarExperiencia form-check-input" type="radio" name="rdLugarExperiencia"
+                  id="rdLugarExperiencia1" value="Institucion">
+                <label class="form-check-label" for="rdLugarExperiencia1" checked>
+                  Institución
+                </label>
+              </div>
+              <div class="form-check m-2">
+                <input class="rdLugarExperiencia form-check-input" type="radio" name="rdLugarExperiencia"
+                  id="rdLugarExperiencia2" value="Domicilio">
+                <label class="form-check-label" for="rdLugarExperiencia2">
+                  Domicilio Particular
+                </label>
+              </div>
+              <div class="form-check m-2">
+                <input class="rdLugarExperiencia form-check-input" type="radio" name="rdLugarExperiencia"
+                  id="rdLugarExperiencia3" value="Clinica">
+                <label class="form-check-label" for="rdLugarExperiencia3">
+                  Clinica/Hospital
+                </label>
+              </div>
+              <div class="form-check m-2">
+                <input class="rdLugarExperiencia form-check-input" type="radio" name="rdLugarExperiencia"
+                  id="rdLugarExperiencia4" value="familiar">
+                <label class="form-check-label" for="rdLugarExperiencia4">
+                  Contexto familiar propio
+                </label>
+              </div>
+            </div>
+
+            <!-- segun anterior--segundo nivel -->
+
+            <div id="dvInstitucion" style="display: none;">
+              <div class="form-group row">
+                <label for="nombreInstitucion" class="col-sm-2 col-form-label">Nombre de la institución</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="nombreInstitucion" placeholder="Nombre">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="direcInstitucion" class="col-sm-2 col-form-label">Apellido</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="direcInstitucion" placeholder="Apellido">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="contactoInstitucion" class="col-sm-2 col-form-label">Contacto de referencia</label>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control" id="contactoInstitucion" placeholder="">
+                </div>
+              </div>
+            </div>
+
+            <div id="dvDomicilio" style="display: none;">
+              <div class="form-group row">
+                <label for="contactoDomicilio" class="col-sm-2 col-form-label">Contacto de referencia</label>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control" id="contactoDomicilio" placeholder="">
+                </div>
+              </div>
+            </div>
+
+            <div id="dvClinica" style="display: none;">
+              <div class="form-group row">
+                <label for="nombreClinica" class="col-sm-2 col-form-label">Nombre de la institución</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="nombreClinica" placeholder="Nombre">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="direcClinica" class="col-sm-2 col-form-label">Apellido</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="direcClinica" placeholder="Apellido">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="contactoClinica" class="col-sm-2 col-form-label">Contacto de referencia</label>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control" id="contactoClinica" placeholder="">
+                </div>
+              </div>
+            </div>
+
+            <div id="dvFamiliar" style="display: none;">
+              <div class="form-group row">
+                <label for="contactoFamiliar" class="col-sm-2 col-form-label">Contacto de referencia</label>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control" id="contactoFamiliar" placeholder="">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- coop -->
+          <div class="form-group row mt-5">
+            <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Pertenece a alguna cooperativa de trabajo de
+              cuidadores domiciliario?</label>
+            <div class="form-check m-2">
+              <input class="rdCoopTr form-check-input" type="radio" name="rdCoopTr" id="rdCoopTr1" value="si">
+              <label class="form-check-label" for="rdCoopTr1">
+                SI
+              </label>
+            </div>
+            <div class="form-check m-2">
+              <input class="rdCoopTr form-check-input" type="radio" name="rdCoopTr" id="rdCoopTr2" value="no" checked>
+              <label class="form-check-label" for="rdCoopTr2">
+                NO
+              </label>
+            </div>
+          </div>
+
+          <div id="dvCoopTr" style="display:none;">
+            <div class="form-group row">
+              <label for="inputPersJur" class="col-sm-2 col-form-label">¿Cuál?</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="inputPersJur" placeholder="Nombre">
+              </div>
+            </div>
+          </div>
+
+          <hr />
+          <div class="eskimo-widget-title mb-4">
+            <h5 class="eskimo-title-with-border"><span>El aspirante deberá adjuntar la siguiente Documentación:</span>
+              </h5">
+          </div>
+
+
+
+          <label for="fileAspiranteDniAddon" class="col-form-label">DNI:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="fileAspiranteDniAddon">Subir</span>
+            </div>
+            <div class="custom-file">
+              <div class="col-sm-6">
+                <input type="file" class="custom-file-input" id="fileAspiranteDni"
+                  aria-describedby="fileAspiranteDniAddon">
+                <label class="custom-file-label" for="fileAspiranteDni">Seleccionar archivo</label>
+              </div>
+            </div>
+          </div>
+
+          <label for="fileAspiranteCertCuidadorAddon" class="col-form-label">Certificado de Cuidador Domiciliario o
+            equivalente:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="fileAspiranteCertCuidadorAddon">Subir</span>
+            </div>
+            <div class="custom-file">
+              <div class="col-sm-6">
+                <input type="file" class="custom-file-input" id="fileAspiranteCertCuidador"
+                  aria-describedby="fileAspiranteCertCuidadorAddon">
+                <label class="custom-file-label" for="fileAspiranteCertCuidador">Seleccionar archivo</label>
+              </div>
+            </div>
+          </div>
+
+          <label for="fileAspiranteCertDomAddon" class="col-form-label">Certificado de Domicilio:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="fileAspiranteCertDomAddon">Subir</span>
+            </div>
+            <div class="custom-file">
+              <div class="col-sm-6">
+                <input type="file" class="custom-file-input" id="fileAspiranteCertDom"
+                  aria-describedby="fileAspiranteCertDomAddon">
+                <label class="custom-file-label" for="fileAspiranteCertDom">Seleccionar archivo</label>
+              </div>
+            </div>
+          </div>
+
+          <label for="fileAspirantecCertPsfAddon" class="col-form-label">Certificado de aptitud psicofísica expedido por
+            organismo público de salud:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="fileAspirantecCertPsfAddon">Subir</span>
+            </div>
+            <div class="custom-file">
+              <div class="col-sm-6">
+                <input type="file" class="custom-file-input" id="fileAspirantecCertPsf"
+                  aria-describedby="fileAspirantecCertPsfAddon">
+                <label class="custom-file-label" for="fileAspirantecCertPsf">Seleccionar archivo</label>
+              </div>
+            </div>
+          </div>
+
+          <label for="fileAspirantecCertReincAddon" class="col-sm-6 pl-0 col-form-label">Certificado expedido por el
+            Registro Nacional de Reincidencia Criminal, que acredite que el aspirante no posee antecedentes por delitos
+            de carácter doloso:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="fileAspirantecCertReincAddon">Subir</span>
+            </div>
+            <div class="custom-file">
+              <div class="col-sm-6">
+                <input type="file" class="custom-file-input" id="fileAspirantecCertReinc"
+                  aria-describedby="fileAspirantecCertReincAddon">
+                <label class="custom-file-label" for="fileAspirantecCertReinc">Seleccionar archivo</label>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+          <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Térmnos y Condiciones</h4>
+            <p>La Subsecretaria de Personas Adultas Mayores, será la dependencia que tendrá a su cargo el funcionamiento
+              del Registro Provincial de Cuidadores Domiciliarios y/o Polivalentes. A tal fin, se establecerán las bases
+              y condiciones que deben reunir los postulantes para validar su inscripción y, posteriormente, dicha
+              inscripción, estará sujeta a la aprobación por la autoridad de aplicación, que deberá corroborar la
+              validez de la capacitación y ratificar, en función de los contenidos, que el perfil del egresado se ajuste
+              a las especificidades de un Cuidador Domiciliario.</p>
+            <!-- <hr> -->
+            <!-- <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar formulario</button>
+
+
+        </form>
+      </div>
+    </main>
+    <!-- FOOTER -->
+    <footer id="eskimo-footer" class="bg-dark text-white">
+      <div class="container">
+        <div class="row eskimo-footer-wrapper">
+          <!-- FOOTER WIDGET 1 -->
+          <div class="col-8 col-lg-8 mb-4 mb-lg-0">
+            <h5 class="eskimo-title-with-border"><span class="text-white">Ministerio de Desarrollo Social de
+                la Provincia del
+                Chaco</span></h5>
+            <p>Dirección: Avenida 25 de Mayo 855</br>
+              Teléfono: 3624688384</br>
+              Correo: <a target="_blank" href="https://mailhide.io/e/p1qx7">d......@chaco.gob.ar</a> </br>
+            </p>
+          </div>
+          <div class="col-4 col-lg-4 mb-4 mb-lg-0">
+            <a href="http://www.chaco.gob.ar/" target="_blank">
+              <img class="card-vertical-img" src="images/logo-footer.png" alt="Voluntariado Social" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- GO TO TOP BUTTON -->
+  <a id="eskimo-gototop" href="#"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JS FILES -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-select.min.js"></script>
+  <script src="js/bootstrap-toggle.min.js"></script>
+  <script src="js/salvattore.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/panel.js"></script>
+  <script src="js/reading-position-indicator.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="js/insert.js"></script>
+
+
+
+
+
+  <!-- POST SLIDER -->
+  <script>
+    (function ($) {
+      "use strict";
+      $(document).ready(function () {
+        $('#eskimo-post-slider').slick({
+          autoplay: true,
+          autoplaySpeed: 5000,
+          slidesToScroll: 1,
+          adaptiveHeight: true,
+          slidesToShow: 1,
+          arrows: true,
+          dots: false,
+          fade: true
+        });
+      });
+      $(window).on('load', function () {
+        $('#eskimo-post-slider').css('opacity', '1');
+        $('#eskimo-post-slider').parent().removeClass('eskimo-bg-loader');
+      });
+    })(jQuery);
+  </script>
+  <!-- POST CAROUSEL -->
+  <script>
+    (function ($) {
+      "use strict";
+      $(document).ready(function () {
+        $('#eskimo-post-carousel').slick({
+          infinite: false,
+          slidesToScroll: 1,
+          arrows: true,
+          dots: false,
+          slidesToShow: 3,
+          responsive: [{
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 2
+            }
+          }, {
+            breakpoint: 576,
+            settings: {
+              slidesToShow: 1
+            }
+          }]
+
+        });
+        $('#eskimo-post-carousel').css('opacity', '1');
+      });
+    })(jQuery);
+  </script>
+</body>
+
+</html>
