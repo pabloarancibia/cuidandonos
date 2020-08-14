@@ -15,4 +15,4 @@ class comedoresForm(forms.ModelForm):
         """Form settings."""
 
         model = comedores
-        fields = ('nombreCM',)
+        fields = ('__all__')
