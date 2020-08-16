@@ -78,9 +78,9 @@ class comedores (models.Model):
     instElec = models.CharField(max_length=2, default='no')
     espacioCerradoCM = models.CharField(max_length=2, default='no')
     sanitarioCM = models.CharField(max_length=2, default='no')
-    banoCM = models.BooleanField(default=False)#
-    letrinaCM = models.BooleanField(default=False)#
-    otrosCM = models.BooleanField(default=False)#
+    banoCM = models.BooleanField(default=False)
+    letrinaCM = models.BooleanField(default=False)
+    otrosCM = models.BooleanField(default=False)
     cocinaCM = models.CharField(max_length=2, default='no')
 
     huerta = models.CharField(max_length=2, default='no')
@@ -91,3 +91,45 @@ class comedores (models.Model):
     educSex = models.CharField(max_length=2, default='no')
     prevViolencia = models.CharField(max_length=2, default='no')
     prevConsumo = models.CharField(max_length=2, default='no')
+
+
+class cuidadores (models.Model):
+    """ cuidadores Model"""
+
+    nombre = models.CharField(max_length=80)
+    apellido = models.CharField(max_length=80)
+    dni = models.IntegerField()
+    lugarNac = models.CharField(max_length=80)
+    fechaNac = models.DateField()
+    genero = models.CharField(max_length=80)
+    direccion = models.CharField(max_length=80)
+    barrio = models.CharField(max_length=80)
+    localidad = models.CharField(max_length=80)
+    provincia = models.CharField(max_length=80)
+    celular = models.IntegerField()
+    email = models.EmailField()
+    rdEstudioMax = models.CharField(max_length=80)
+    titulo = models.CharField(max_length=80)
+    institucion = models.CharField(max_length=80)
+    rdGeriatria = models.CharField(max_length=80)
+    archivoGeriatria = models.FileField(upload_to='cuidadores/archivos')
+    rdCapacita = models.CharField(max_length=80)
+    rdLeyDH = models.CharField(max_length=80)
+    rdCapEdSex = models.CharField(max_length=80)
+    rdExperiencia = models.CharField(max_length=80)
+    rdLugarExperiencia = models.CharField(max_length=80)
+    nombreInst = models.CharField(max_length=80, blank=True)
+    direcInst = models.CharField(max_length=80, blank=True)
+    contactoInst = models.CharField(max_length=80, blank=True)
+    contactoDom = models.CharField(max_length=80, blank=True)
+    nombreClinica = models.CharField(max_length=80, blank=True)
+    direcClinica = models.CharField(max_length=80, blank=True)
+    contactoClinica = models.CharField(max_length=80, blank=True)
+    contactoFamiliar = models.CharField(max_length=80, blank=True)
+    rdCoopTr = models.CharField(max_length=80)
+    nombreCoop = models.CharField(max_length=80)
+    archivoDniAsp = models.FileField(upload_to='cuidadores/archivos')
+    archivoCertAsp = models.FileField(upload_to='cuidadores/archivos')
+    archivoCertDomAsp = models.FileField(upload_to='cuidadores/archivos')
+    arhivoCertPsfAsp = models.FileField(upload_to='cuidadores/archivos')
+    archivoCertReinc = models.FileField(upload_to='cuidadores/archivos')

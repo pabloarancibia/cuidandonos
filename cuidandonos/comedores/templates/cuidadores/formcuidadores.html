@@ -11,14 +11,13 @@
   <meta name="keywords" content="">
   <!-- CSS FILES -->
 
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
-  <link href="css/bootstrap-toggle.min.css" rel="stylesheet" type="text/css">
-
-  <link href="css/fontawesome.css" rel="stylesheet" type="text/css">
-  <link href="css/slick.css" rel="stylesheet" type="text/css">
-  <link href="css/styleCustom.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styleCustom.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-select.min.css' %}" />
 
 </head>
 
@@ -104,7 +103,12 @@
           <h5>(Todos los campos son obligatorios)</h5>
         </div>
 
-        <form>
+        <form action="{% url 'formcuidadores' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          {% if form.errors %}
+          <p>{{ form.errors }}</p>
+          {% endif %}
           <hr />
           <div class="eskimo-widget-title mt-5 ">
             <h5 class="eskimo-title-with-border"><span>Datos Personales:</span></h5">
@@ -112,67 +116,39 @@
           <div class="form-group row">
             <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputNombre" placeholder="Nombre">
+              <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Nombre">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputApellido" class="col-sm-2 col-form-label">Apellido</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputApellido" placeholder="Apellido">
+              <input type="text" class="form-control" id="inputApellido" name="apellido" placeholder="Apellido">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputDni" class="col-sm-2 col-form-label">Dni</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" id="inputDni" placeholder="Dni">
+              <input type="number" class="form-control" id="inputDni" name="dni" placeholder="Dni">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputApellido" class="col-sm-2 col-form-label">Lugar y Fecha de Nacimiento</label>
 
             <div class="col-sm-3">
-              <input type="text" class="form-control" id="inputApellido" placeholder="Lugar">
+              <input type="text" class="form-control" id="inputApellido" name="lugarNac" placeholder="Lugar">
             </div>
             <!-- </div>
           <div class="form-group row"> -->
             <!-- <label for="input-date-input" class="col-2 col-form-label">Date</label> -->
             <div class="col-3">
-              <input class="form-control" type="date" value="1980-01-19" id="input-date-input">
+              <input class="form-control" type="date" value="1980-01-19" name="fechaNac" id="input-date-input">
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="" class="col-sm-2 col-form-label ">Rango de edad:</label>
-            <div class="form-check m-2">
-              <input class="rdRngEdad form-check-input" type="radio" name="rdRngEdad" id="rdRngEdad1" value="28a25">
-              <label class="form-check-label" for="rdRngEdad1">
-                18 a 25 años
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="rdRngEdad form-check-input" type="radio" name="rdRngEdad" id="rdRngEdad2" value="26a30">
-              <label class="form-check-label" for="rdRngEdad2">
-                26 a 30 años
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="rdRngEdad form-check-input" type="radio" name="rdRngEdad" id="rdRngEdad3" value="31a40"
-                checked>
-              <label class="form-check-label" for="rdRngEdad3">
-                31 a 40 años
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="rdRngEdad form-check-input" type="radio" name="rdRngEdad" id="rdRngEdad4" value="mas40">
-              <label class="form-check-label" for="rdRngEdad4">
-                Más de 40 años
-              </label>
-            </div>
-          </div>
-          <div class="form-group row">
             <label for="inputApellido" class="col-sm-2 col-form-label">Género con el cual se identifica:</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputGenero" placeholder="Genero">
+              <input type="text" class="form-control" id="inputGenero" name="genero" placeholder="Genero">
             </div>
           </div>
 
@@ -181,39 +157,40 @@
           <div class="form-group row">
             <label for="inputDireccion" class="col-sm-2 col-form-label">Dirección</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección">
+              <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Dirección">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputBarrio" class="col-sm-2 col-form-label">Barrio</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputBarrio" placeholder="Barrio">
+              <input type="text" class="form-control" id="inputBarrio" name="barrio" placeholder="Barrio">
             </div>
           </div>
 
-          <div class="form-group row">
-            <label for="selLocalidades" class="col-sm-2 col-form-label">Localidad</label>
-            <div class="col-sm-6">
-              <select class="form-control" id="selLocalidades"></select>
-            </div>
-          </div>
+
           <div class="form-group row">
             <label for="selProvincias" class="col-sm-2 col-form-label">Provincia</label>
             <div class="col-sm-6">
-              <select class="form-control" id="selProvincias"></select>
+              <select class="form-control" id="selProvincias" name="provincia"></select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="selLocalidades" class="col-sm-2 col-form-label">Localidad</label>
+            <div class="col-sm-6">
+              <select class="form-control" id="selLocalidades" name="localidad"></select>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputCelular" class="col-sm-2 col-form-label">Celular</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" id="inputCelular" placeholder="Celular">
+              <input type="number" class="form-control" id="inputCelular" name="celular" placeholder="Celular">
             </div>
           </div>
 
           <div class="form-group row">
             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+              <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
             </div>
           </div>
 
@@ -224,7 +201,7 @@
           <h5>Estudio máximo alcanzado</h5>
 
           <div class="form-group row">
-            <label for="" class="col-sm-2 col-form-label ">Rango de edad:</label>
+            <label for="" class="col-sm-2 col-form-label "></label>
             <div class="form-check m-2">
               <input class="rdEstudioMax form-check-input" type="radio" name="rdEstudioMax" id="rdEstudioMax1"
                 value="secundario" checked>
@@ -251,13 +228,13 @@
           <div id="dvTitulo" class="form-group row">
             <label for="tituloSec" class="col-sm-3 col-form-label">Título obtenido</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" id="tituloSec" placeholder="Título obtenido">
+              <input type="text" class="form-control" id="tituloSec" name="titulo" placeholder="Título obtenido">
             </div>
           </div>
           <div id="dvNomInst" class="form-group row">
             <label for="institucionSec" class="col-sm-3 col-form-label">Nombre de la Institución de formación</label>
             <div class="col-sm-5">
-              <input type="number" class="form-control" id="institucionSec" placeholder="Nombre">
+              <input type="text" class="form-control" id="institucionSec" name="institucion" placeholder="Nombre">
             </div>
           </div>
 
@@ -288,7 +265,7 @@
               </div>
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="inputGroupFile01"
-                  aria-describedby="inputGroupFileAddon01">
+                  aria-describedby="inputGroupFileAddon01" name="archivoGeriatria">
                 <label class="custom-file-label" for="inputGroupFile01">Seleccionar archivo</label>
               </div>
             </div>
@@ -410,19 +387,20 @@
               <div class="form-group row">
                 <label for="nombreInstitucion" class="col-sm-2 col-form-label">Nombre de la institución</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" id="nombreInstitucion" placeholder="Nombre">
+                  <input type="text" class="form-control" id="nombreInstitucion" name="nombreInst" placeholder="Nombre">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="direcInstitucion" class="col-sm-2 col-form-label">Apellido</label>
+                <label for="direcInstitucion" class="col-sm-2 col-form-label">Dirección</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" id="direcInstitucion" placeholder="Apellido">
+                  <input type="text" class="form-control" id="direcInstitucion" name="direcInst"
+                    placeholder="Dirección">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="contactoInstitucion" class="col-sm-2 col-form-label">Contacto de referencia</label>
                 <div class="col-sm-6">
-                  <input type="number" class="form-control" id="contactoInstitucion" placeholder="">
+                  <input type="number" class="form-control" id="contactoInstitucion" name="contactoInst" placeholder="">
                 </div>
               </div>
             </div>
@@ -431,7 +409,7 @@
               <div class="form-group row">
                 <label for="contactoDomicilio" class="col-sm-2 col-form-label">Contacto de referencia</label>
                 <div class="col-sm-6">
-                  <input type="number" class="form-control" id="contactoDomicilio" placeholder="">
+                  <input type="number" class="form-control" id="contactoDomicilio" name="contactoDom" placeholder="">
                 </div>
               </div>
             </div>
@@ -440,19 +418,19 @@
               <div class="form-group row">
                 <label for="nombreClinica" class="col-sm-2 col-form-label">Nombre de la institución</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" id="nombreClinica" placeholder="Nombre">
+                  <input type="text" class="form-control" id="nombreClinica" name="nombreClinica" placeholder="Nombre">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="direcClinica" class="col-sm-2 col-form-label">Apellido</label>
+                <label for="direcClinica" class="col-sm-2 col-form-label">Dirección</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" id="direcClinica" placeholder="Apellido">
+                  <input type="text" class="form-control" id="direcClinica" name="direcClinica" placeholder="Dirección">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="contactoClinica" class="col-sm-2 col-form-label">Contacto de referencia</label>
                 <div class="col-sm-6">
-                  <input type="number" class="form-control" id="contactoClinica" placeholder="">
+                  <input type="number" class="form-control" id="contactoClinica" name="contactoClinica" placeholder="">
                 </div>
               </div>
             </div>
@@ -461,7 +439,8 @@
               <div class="form-group row">
                 <label for="contactoFamiliar" class="col-sm-2 col-form-label">Contacto de referencia</label>
                 <div class="col-sm-6">
-                  <input type="number" class="form-control" id="contactoFamiliar" placeholder="">
+                  <input type="number" class="form-control" id="contactoFamiliar" name="contactoFamiliar"
+                    placeholder="">
                 </div>
               </div>
             </div>
@@ -488,9 +467,9 @@
 
           <div id="dvCoopTr" style="display:none;">
             <div class="form-group row">
-              <label for="inputPersJur" class="col-sm-2 col-form-label">¿Cuál?</label>
+              <label for="" class="col-sm-2 col-form-label">¿Cuál?</label>
               <div class="col-sm-6">
-                <input type="text" class="form-control" id="inputPersJur" placeholder="Nombre">
+                <input type="text" class="form-control" id="" name="nombreCoop" placeholder="Nombre">
               </div>
             </div>
           </div>
@@ -510,7 +489,7 @@
             </div>
             <div class="custom-file">
               <div class="col-sm-6">
-                <input type="file" class="custom-file-input" id="fileAspiranteDni"
+                <input type="file" class="custom-file-input" id="fileAspiranteDni" name="archivoDniAsp"
                   aria-describedby="fileAspiranteDniAddon">
                 <label class="custom-file-label" for="fileAspiranteDni">Seleccionar archivo</label>
               </div>
@@ -525,7 +504,7 @@
             </div>
             <div class="custom-file">
               <div class="col-sm-6">
-                <input type="file" class="custom-file-input" id="fileAspiranteCertCuidador"
+                <input type="file" class="custom-file-input" id="fileAspiranteCertCuidador" name="archivoCertAsp"
                   aria-describedby="fileAspiranteCertCuidadorAddon">
                 <label class="custom-file-label" for="fileAspiranteCertCuidador">Seleccionar archivo</label>
               </div>
@@ -539,7 +518,7 @@
             </div>
             <div class="custom-file">
               <div class="col-sm-6">
-                <input type="file" class="custom-file-input" id="fileAspiranteCertDom"
+                <input type="file" class="custom-file-input" id="fileAspiranteCertDom" name="archivoCertDomAsp"
                   aria-describedby="fileAspiranteCertDomAddon">
                 <label class="custom-file-label" for="fileAspiranteCertDom">Seleccionar archivo</label>
               </div>
@@ -554,7 +533,7 @@
             </div>
             <div class="custom-file">
               <div class="col-sm-6">
-                <input type="file" class="custom-file-input" id="fileAspirantecCertPsf"
+                <input type="file" class="custom-file-input" id="fileAspirantecCertPsf" name="arhivoCertPsfAsp"
                   aria-describedby="fileAspirantecCertPsfAddon">
                 <label class="custom-file-label" for="fileAspirantecCertPsf">Seleccionar archivo</label>
               </div>
@@ -570,7 +549,7 @@
             </div>
             <div class="custom-file">
               <div class="col-sm-6">
-                <input type="file" class="custom-file-input" id="fileAspirantecCertReinc"
+                <input type="file" class="custom-file-input" id="fileAspirantecCertReinc" name="archivoCertReinc"
                   aria-describedby="fileAspirantecCertReincAddon">
                 <label class="custom-file-label" for="fileAspirantecCertReinc">Seleccionar archivo</label>
               </div>
@@ -622,16 +601,16 @@
   <a id="eskimo-gototop" href="#"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JS FILES -->
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/bootstrap-select.min.js"></script>
-  <script src="js/bootstrap-toggle.min.js"></script>
-  <script src="js/salvattore.min.js"></script>
-  <script src="js/slick.min.js"></script>
-  <script src="js/panel.js"></script>
-  <script src="js/reading-position-indicator.js"></script>
-  <script src="js/custom.js"></script>
-  <script src="js/insert.js"></script>
+  <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap-select.min.js'%}"></script>
+  <!-- <script src="{% static 'js/bootstrap-toggle.min.js'%}"></script> -->
+  <script src="{% static 'js/salvattore.min.js' %}"></script>
+  <script src="{% static 'js/slick.min.js' %}"></script>
+  <script src="{% static 'js/panel.js' %}"></script>
+  <script src="{% static 'js/reading-position-indicator.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+  <script src="{% static 'js/insert.js'%}"></script>
 
 
 

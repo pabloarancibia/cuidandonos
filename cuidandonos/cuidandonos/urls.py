@@ -19,9 +19,23 @@ from django.urls import path
 
 from comedores import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('comedores/', views.infocomedores, name='comedores'),
-    path('formcomedores/', views.formcomedores, name='formcomedores'),
+    path('comedores/infocomedores/',
+         views.infocomedores, name='infocomedores'),
+    path('comedores/formcomedores/',
+         views.formcomedores, name='formcomedores'),
+    path('cuidadores/infocuidadores/',
+         views.infocuidadores, name='infocuidadores'),
+    path('cuidadores/formcuidadores/',
+         views.formcuidadores, name='formcuidadores'),
+    # path('voluntariado/infovoluntarios/',
+    #      views.infovoluntarios, name='infovoluntarios'),
+    # path('voluntariado/formvoluntarios/',
+    #      views.formvoluntarios, name='formvoluntarios'),
+
+
+
 
 ]

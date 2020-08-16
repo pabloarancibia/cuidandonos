@@ -262,7 +262,7 @@ $(document).ready(function () {
 
         // COMEDORES LOCALIDADES / PROVINCIAS
 
-        $.getJSON('../static/js/provincias.json', function (data) {
+        $.getJSON('../../static/js/provincias.json', function (data) {
                 $.each(data.provincias, function (i, provincias) {
                         $("#selProvincias").append('<option value=" ' + provincias.id + '" name="' + provincias.id + '">' + provincias.iso_nombre + '</option>');
                 }); // close each()
@@ -276,7 +276,7 @@ $(document).ready(function () {
                 var selected = $('#selProvincias').val();
                 if (!selected) { selected = 22; }
                 $('#selLocalidades').empty();
-                $.getJSON('../static/js/municipios.json', function (data) {
+                $.getJSON('../../static/js/municipios.json', function (data) {
                         //console.log(selected);
 
 
