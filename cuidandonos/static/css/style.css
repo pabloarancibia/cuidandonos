@@ -1932,7 +1932,7 @@ textarea.form-control {
 }
 
 .nav-tabs .nav-link.active {
-    background-color: #fff;
+    background-color: rgb(91, 139, 228);
 }
 
 .nav-tabs .nav-item.show .nav-link,

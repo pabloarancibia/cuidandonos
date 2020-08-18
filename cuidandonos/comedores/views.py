@@ -3,9 +3,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # Forms
 from comedores.forms import comedoresForm, beneficiariosForm, colaboradoresForm
-from comedores.forms import cuidadoresForm
+from comedores.forms import cuidadoresForm, voluntariosForm
 
-from comedores.models import comedores, cuidadores, beneficiarios, colaboradores
+from comedores.models import comedores, cuidadores, beneficiarios, colaboradores, voluntarios
 
 
 def infocomedores(request):
@@ -16,12 +16,8 @@ def formcomedores(request):
     """mostrar Formulario / registrar Comedores/Merenderos"""
     if request.method == 'POST':
         cmform = comedoresForm(request.POST, instance=comedores())
-        print("cmform guardado")
         cm_valid = cmform.is_valid()
-
         if cm_valid:
-            print("cm valid")
-
             # recorrer lista beneficiarios y colaboradores segun
             cantBenef = cmform.cleaned_data["cantBenef"]
             cantColab = cmform.cleaned_data["cantColab"]
@@ -32,11 +28,6 @@ def formcomedores(request):
 
             bn_valid = all([bnf.is_valid() for bnf in bnforms])
             cl_valid = all([clf.is_valid() for clf in clforms])
-
-            if bn_valid:
-                print("all bn valid")
-            if cl_valid:
-                print("all cl valid")
 
             if cm_valid and bn_valid and cl_valid:
                 cm = cmform.save()
@@ -63,7 +54,6 @@ def formcomedores(request):
         clforms = [colaboradoresForm(request.POST, prefix=str(
             x), instance=colaboradores()) for x in range(0, 1)]
 
-        print("no es post")
     return render(request,
                   'comedores/formcomedores.html',
                   {
@@ -81,27 +71,27 @@ def formcuidadores(request):
         form = cuidadoresForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            print(form.cleaned_data)
+            # print(form.cleaned_data)
             return redirect('infocuidadores')
     else:
         form = cuidadoresForm()
-        print("else view")
+        # print("else view")
     return render(request, 'cuidadores/formcuidadores.html', {'form': form})
 
 
 def infovoluntarios(request):
-    return render(request, 'infovoluntarios.html')
+    return render(request, 'voluntariado/infovoluntarios.html')
 
 
-# def formvoluntarios(request):
-#     """mostrar Formulario / registrar voluntarios"""
-#     if request.method == 'POST':
-#         form = voluntariosForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             print(form.cleaned_data)
-#             return redirect('infovoluntarios')
-#     else:
-#         form = voluntariosForm()
-#         print("else view")
-#     return render(request, 'formvoluntarios.html', {'form': form})
+def formvoluntarios(request):
+    """mostrar Formulario / registrar voluntarios"""
+    if request.method == 'POST':
+        form = voluntariosForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # print(form.cleaned_data)
+            return redirect('infovoluntarios')
+    else:
+        form = voluntariosForm()
+        # print("else view")
+    return render(request, 'voluntariado/formvoluntarios.html', {'form': form})

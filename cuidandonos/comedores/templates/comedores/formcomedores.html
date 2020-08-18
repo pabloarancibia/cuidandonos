@@ -187,7 +187,7 @@
           <div class="form-group row">
             <label for="inputCuil" class="col-sm-2 col-form-label">Cuil</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" name="cuilRes" placeholder="00-00000000-00">
+              <input type="number" class="form-control" name="cuilRes" placeholder="000000000000">
             </div>
           </div>
           <div class="form-group row">
@@ -343,7 +343,7 @@
           <!-- Georegferencia o ubicación -->
           <div class="eskimo-widget-title mb-4">
             <h5 class="eskimo-title-with-border"><span>Georeferencia o Ubicación (Dirección en donde funciona el
-                comedor):</span></h5">
+                comedor/merendero):</span></h5">
           </div>
 
           <div class="form-group row">
@@ -730,7 +730,7 @@
           <h5>Registrá a las personas que desarrollan alguna labor en el comedor o merendero.</h5>
 
           <div class="form-group row">
-            <label for="inputCantColab" class="col-sm-5 col-form-label font-weight-bold">¿Cuántas personas trabajan en
+            <label for="inputCantColab" class="col-sm-5 col-form-label font-weight-bold">¿Cuántas personas colaboran en
               el
               comedor/merendero?</label>
             <div class="col-sm-1">
@@ -764,7 +764,7 @@
               <div class="form-group row"> -->
                 <label for="inCuilColab" class="col-sm-1 col-form-label">Cuil</label>
                 <div class="col-sm-4">
-                  <input type="number" class="form-control" id="inCuilColab" placeholder="00-00000000-00">
+                  <input type="text" class="form-control" id="inCuilColab" placeholder="000000000000">
                 </div>
               </div>
             </div>
@@ -789,12 +789,21 @@
             </div>
           </div>
 
-          <div class="form-group row" id="RemMinDes" style="display: none;">
-            <label for="inputRemMinDes" class="col-sm-1 col-form-label">¿Cuál? </label>
-            <div class="col-sm-4">
-              <input type="text" class="form-control" id="inputRemMinDes" name="tipoRemuneracionDS" placeholder="">
+          <div id="RemMinDes" style="display: none;">
+            <div class="form-group row">
+              <label for="inputRemMinDes" class="col-sm-1 col-form-label">¿Cuál? </label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="inputRemMinDes" name="tipoRemuneracionDS" placeholder="">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputRemMinDes" class="col-sm-1 col-form-label">Monto </label>
+              <div class="col-sm-2">
+                <input type="number" class="form-control" id="inputRemMinDes" name="montoRemuneracionDS" placeholder="">
+              </div>
             </div>
           </div>
+
 
           <hr />
           <h3 class="eskimo-title-with-border mt-4"><span>Informe Socio Ambiental</span></h3>

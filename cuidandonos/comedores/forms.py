@@ -4,7 +4,7 @@
 from django import forms
 
 # Models
-from comedores.models import comedores, beneficiarios, colaboradores, cuidadores
+from comedores.models import comedores, beneficiarios, colaboradores, cuidadores, voluntarios
 # from comedores.models import vountarios
 
 
@@ -39,11 +39,12 @@ class cuidadoresForm(forms.ModelForm):
         model = cuidadores
         fields = ('__all__')
 
-# class vountariosForm(forms.ModelForm):
-#     """Form definition for vountarios."""
 
-#     class Meta:
-#         """Form settings."""
+class voluntariosForm(forms.ModelForm):
+    """Form definition for vountarios."""
 
-#         model = vountarios
-#         fields = ('__all__')
+    class Meta:
+        """Form settings."""
+
+        model = voluntarios
+        fields = ('__all__')

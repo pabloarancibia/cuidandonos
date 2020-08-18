@@ -38,7 +38,7 @@
         <!-- <nav class="navbar navbar-light navbar-expand-md"> -->
         <div class="container">
           <a class="eskimo-logo-link col-3" href="index.html">
-            <img src="images/logo_gobierno2020.png" class="eskimo-logo" alt="eskimo" />
+            <img src="{% static 'images/logo_gobierno2020.png'%}" class="eskimo-logo" alt="eskimo" />
           </a>
           <!-- <a class="navbar-brand" href="#">LOGO</a> -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -60,9 +60,9 @@
                   REGISTRAR
                 </a>
                 <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item text-white" href="infocomedores.html">Comedores y
+                  <a class="dropdown-item text-white  bg-primary" href="infocomedores.html">Comedores y
                     Merenderos</a>
-                  <a class="dropdown-item text-white" href="#">Cuidadores Domiciliarios</a>
+                  <a class="dropdown-item text-white  bg-primary" href="#">Cuidadores Domiciliarios</a>
                   <!-- <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">Something else here</a> -->
                 </div>
@@ -116,26 +116,33 @@
           <div class="form-group row">
             <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Nombre">
+              <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Nombre" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputApellido" class="col-sm-2 col-form-label">Apellido</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputApellido" name="apellido" placeholder="Apellido">
+              <input type="text" class="form-control" id="inputApellido" name="apellido" placeholder="Apellido"
+                required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputDni" class="col-sm-2 col-form-label">Dni</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" id="inputDni" name="dni" placeholder="Dni">
+              <input type="number" class="form-control" id="inputDni" name="dni" placeholder="Dni" required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputCuil" class="col-sm-2 col-form-label">Cuil</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" name="cuil" placeholder="000000000000" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputApellido" class="col-sm-2 col-form-label">Lugar y Fecha de Nacimiento</label>
 
             <div class="col-sm-3">
-              <input type="text" class="form-control" id="inputApellido" name="lugarNac" placeholder="Lugar">
+              <input type="text" class="form-control" id="inputApellido" name="lugarNac" placeholder="Lugar" required>
             </div>
             <!-- </div>
           <div class="form-group row"> -->
@@ -146,9 +153,15 @@
           </div>
 
           <div class="form-group row">
-            <label for="inputApellido" class="col-sm-2 col-form-label">Género con el cual se identifica:</label>
+            <label for="selGenero" class="col-sm-2 col-form-label">Género</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputGenero" name="genero" placeholder="Genero">
+              <select class="form-control" id="selGenero" name="genero">
+                <option value="seleccionar" selected>Seleccionar</option>
+                <option value="masc">Masculino</option>
+                <option value="fem">Femenino</option>
+                <option value="nobinario">No binario</option>
+                <option value="otro">Otro</option>
+              </select>
             </div>
           </div>
 
@@ -157,13 +170,14 @@
           <div class="form-group row">
             <label for="inputDireccion" class="col-sm-2 col-form-label">Dirección</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Dirección">
+              <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Dirección"
+                required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputBarrio" class="col-sm-2 col-form-label">Barrio</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputBarrio" name="barrio" placeholder="Barrio">
+              <input type="text" class="form-control" id="inputBarrio" name="barrio" placeholder="Barrio" required>
             </div>
           </div>
 
@@ -183,14 +197,14 @@
           <div class="form-group row">
             <label for="inputCelular" class="col-sm-2 col-form-label">Celular</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" id="inputCelular" name="celular" placeholder="Celular">
+              <input type="number" class="form-control" id="inputCelular" name="celular" placeholder="Celular" required>
             </div>
           </div>
 
           <div class="form-group row">
             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
-              <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
+              <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" required>
             </div>
           </div>
 
@@ -228,13 +242,15 @@
           <div id="dvTitulo" class="form-group row">
             <label for="tituloSec" class="col-sm-3 col-form-label">Título obtenido</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" id="tituloSec" name="titulo" placeholder="Título obtenido">
+              <input type="text" class="form-control" id="tituloSec" name="titulo" placeholder="Título obtenido"
+                required>
             </div>
           </div>
           <div id="dvNomInst" class="form-group row">
             <label for="institucionSec" class="col-sm-3 col-form-label">Nombre de la Institución de formación</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" id="institucionSec" name="institucion" placeholder="Nombre">
+              <input type="text" class="form-control" id="institucionSec" name="institucion" placeholder="Nombre"
+                required>
             </div>
           </div>
 
@@ -558,7 +574,7 @@
 
           <hr />
           <div class="alert alert-warning" role="alert">
-            <h4 class="alert-heading">Térmnos y Condiciones</h4>
+            <h4 class="alert-heading">Términos y Condiciones</h4>
             <p>La Subsecretaria de Personas Adultas Mayores, será la dependencia que tendrá a su cargo el funcionamiento
               del Registro Provincial de Cuidadores Domiciliarios y/o Polivalentes. A tal fin, se establecerán las bases
               y condiciones que deben reunir los postulantes para validar su inscripción y, posteriormente, dicha
@@ -579,18 +595,33 @@
       <div class="container">
         <div class="row eskimo-footer-wrapper">
           <!-- FOOTER WIDGET 1 -->
-          <div class="col-8 col-lg-8 mb-4 mb-lg-0">
+          <div class="col-4 col-lg-4 mb-4 mb-lg-0">
+            <h5 class="eskimo-title-with-border"><span class="text-white">Subsecretaría de Personas Adultos
+                Mayores</span></h5>
+            <p>Dirección: Julio A. Roca 880</br>
+              Teléfono: 3625191003</br>
+              Correo: <a target="_blank" href="sub.personasadultas@chaco.gob.ar">sub.personasadultas@chaco.gob.ar</a>
+              </br>
+            </p>
+          </div>
+          <div class="col-4 col-lg-4 mb-4 mb-lg-0">
             <h5 class="eskimo-title-with-border"><span class="text-white">Ministerio de Desarrollo Social de
                 la Provincia del
                 Chaco</span></h5>
             <p>Dirección: Avenida 25 de Mayo 855</br>
               Teléfono: 3624688384</br>
-              Correo: <a target="_blank" href="https://mailhide.io/e/p1qx7">d......@chaco.gob.ar</a> </br>
+              Correo: <a target="_blank" href="desarrollosocial@chaco.gob.ar">desarrollosocial@chaco.gob.ar</a> </br>
             </p>
           </div>
-          <div class="col-4 col-lg-4 mb-4 mb-lg-0">
+          <div class="col-2 col-lg-2 mb-2 mb-lg-0">
             <a href="http://www.chaco.gob.ar/" target="_blank">
-              <img class="card-vertical-img" src="images/logo-footer.png" alt="Voluntariado Social" />
+              <img class="card-vertical-img" src="{% static 'images/MDS.png'%}" alt="cuidadores domiciliarios" />
+            </a>
+          </div>
+          <div class="col-2 col-lg-2 mb-2 mb-lg-0">
+            <a href="http://www.chaco.gob.ar/" target="_blank">
+              <img class="card-vertical-img" src="{% static 'images/logo-footer.png'%}"
+                alt="cuidadores domiciliarios" />
             </a>
           </div>
         </div>

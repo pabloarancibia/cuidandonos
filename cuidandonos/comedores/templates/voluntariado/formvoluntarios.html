@@ -10,15 +10,16 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <!-- CSS FILES -->
+  {% load static %}
 
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
-  <link href="css/bootstrap-toggle.min.css" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/bootstrap-select.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/bootstrap-toggle.min.css' %}" rel="stylesheet" type="text/css">
 
-  <link href="css/fontawesome.css" rel="stylesheet" type="text/css">
-  <link href="css/slick.css" rel="stylesheet" type="text/css">
-  <link href="css/styleCustom.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/slick.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/styleCustom.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -39,7 +40,7 @@
         <!-- <nav class="navbar navbar-light navbar-expand-md"> -->
         <div class="container">
           <a class="eskimo-logo-link col-3" href="index.html">
-            <img src="images/logo_gobierno2020.png" class="eskimo-logo" alt="eskimo" />
+            <img src="{% static 'images/logo_gobierno2020.png'%}" class="eskimo-logo" alt="eskimo" />
           </a>
           <!-- <a class="navbar-brand" href="#">LOGO</a> -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -104,7 +105,12 @@
           <h5>(Todos los campos son obligatorios)</h5>
         </div>
 
-        <form>
+        <form action="{% url 'formvoluntarios' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          {% if form.errors %}
+          <p>{{ form.errors }}</p>
+          {% endif %}
           <hr />
           <div class="eskimo-widget-title mt-5 mb-4">
             <h5 class="eskimo-title-with-border"><span>Datos Personales:</span></h5">
@@ -112,37 +118,50 @@
           <div class="form-group row">
             <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputNombre" placeholder="Nombre">
+              <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Nombre" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputApellido" class="col-sm-2 col-form-label">Apellido</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputApellido" placeholder="Apellido">
+              <input type="text" class="form-control" id="inputApellido" name="apellido" placeholder="Apellido"
+                required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputDni" class="col-sm-2 col-form-label">Dni</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" id="inputDni" placeholder="Dni">
+              <input type="number" class="form-control" id="inputDni" name="dni" placeholder="Dni" required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputCuil" class="col-sm-2 col-form-label">Cuil</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" name="cuil" placeholder="000000000000" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputLugar" class="col-sm-2 col-form-label">Lugar y Fecha de Nacimiento</label>
 
             <div class="col-sm-3">
-              <input type="text" class="form-control" id="inputLugar" placeholder="Lugar">
+              <input type="text" class="form-control" id="inputLugar" name="lugarNac" placeholder="Lugar" required>
             </div>
             <div class="col-3">
-              <input class="form-control" type="date" value="1980-01-19" id="input-date-input">
+              <input class="form-control" type="date" value="1980-01-19" name="fechaNac" id="input-date-input">
             </div>
           </div>
 
 
           <div class="form-group row">
-            <label for="inputApellido" class="col-sm-2 col-form-label">Género con el cual se identifica:</label>
+            <label for="selGenero" class="col-sm-2 col-form-label">Género</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputGenero" placeholder="Genero">
+              <select class="form-control" id="selGenero" name="genero">
+                <option value="seleccionar" selected>Seleccionar</option>
+                <option value="masc">Masculino</option>
+                <option value="fem">Femenino</option>
+                <option value="nobinario">No binario</option>
+                <option value="otro">Otro</option>
+              </select>
             </div>
           </div>
 
@@ -151,39 +170,40 @@
           <div class="form-group row">
             <label for="inputDireccion" class="col-sm-2 col-form-label">Dirección</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección">
+              <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Dirección"
+                required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputBarrio" class="col-sm-2 col-form-label">Barrio</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputBarrio" placeholder="Barrio">
+              <input type="text" class="form-control" id="inputBarrio" name="barrio" placeholder="Barrio" required>
             </div>
           </div>
 
           <div class="form-group row">
             <label for="selLocalidades" class="col-sm-2 col-form-label">Localidad</label>
             <div class="col-sm-6">
-              <select class="form-control" id="selLocalidades"></select>
+              <select class="form-control" id="selLocalidades" name="localidad"></select>
             </div>
           </div>
           <div class="form-group row">
             <label for="selProvincias" class="col-sm-2 col-form-label">Provincia</label>
             <div class="col-sm-6">
-              <select class="form-control" id="selProvincias"></select>
+              <select class="form-control" id="selProvincias" name="provincia"></select>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputCelular" class="col-sm-2 col-form-label">Celular</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" id="inputCelular" placeholder="Celular">
+              <input type="number" class="form-control" id="inputCelular" name="celular" placeholder="Celular" required>
             </div>
           </div>
 
           <div class="form-group row">
             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+              <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" required>
             </div>
           </div>
 
@@ -213,7 +233,7 @@
             <div class="form-group row">
               <label for="inputEsdudios" class="col-sm-2 col-form-label">¿Qué estudiás?</label>
               <div class="col-sm-6">
-                <input type="text" class="form-control" id="inputEsdudios" placeholder="¿Qué estudiás?">
+                <input type="text" class="form-control" id="inputEsdudios" name="estudios" placeholder="¿Qué estudiás?">
               </div>
             </div>
           </div>
@@ -239,7 +259,7 @@
             <div class="form-group row">
               <label for="inputOrg" class="col-sm-2 col-form-label">¿Cuál?</label>
               <div class="col-sm-6">
-                <input type="text" class="form-control" id="inputOrg" placeholder="¿Cuál?">
+                <input type="text" class="form-control" id="inputOrg" name="nomOrg" placeholder="¿Cuál?">
               </div>
             </div>
           </div>
@@ -265,7 +285,7 @@
             <div class="form-group row">
               <label for="inputTrabaja" class="col-sm-2 col-form-label">¿Dónde?</label>
               <div class="col-sm-6">
-                <input type="text" class="form-control" id="inputTrabaja" placeholder="¿Dónde?">
+                <input type="text" class="form-control" id="inputTrabaja" name="lugarTrab" placeholder="¿Dónde?">
               </div>
             </div>
           </div>
@@ -291,7 +311,7 @@
             <div class="form-group row">
               <label for="inputProfesion" class="col-sm-2 col-form-label">¿Cuál es?</label>
               <div class="col-sm-6">
-                <input type="text" class="form-control" id="inputProfesion" placeholder="¿Cuál es?">
+                <input type="text" class="form-control" id="inputProfesion" name="profesion" placeholder="¿Cuál es?">
               </div>
             </div>
           </div>
@@ -323,7 +343,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swLunes">
+                        <input type="checkbox" class="primary" name="trLunes" id="swLunes">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -337,12 +357,12 @@
                   <div class="form-group row">
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeVolLunDesde">
+                      <input class="form-control" type="time" value="08:00:00" name="hrDesdeLun" id="timeVolLunDesde">
                     </div>
 
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeVolLunHasta">
+                      <input class="form-control" type="time" value="12:00:00" name="hrHastaLun" id="timeVolLunHasta">
                     </div>
                   </div>
 
@@ -355,7 +375,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swMartes">
+                        <input type="checkbox" class="primary" name="trMartes" id="swMartes">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -368,12 +388,12 @@
                   <div class="form-group row">
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeVolMarDesde">
+                      <input class="form-control" type="time" value="08:00:00" name="hrDesdeMar" id="timeVolMarDesde">
                     </div>
 
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeVolMarHasta">
+                      <input class="form-control" type="time" value="12:00:00" name="hrHastaMar" id="timeVolMarHasta">
                     </div>
                   </div>
                 </td>
@@ -383,7 +403,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swMiercoles">
+                        <input type="checkbox" class="primary" name="trMierdoles" id="swMiercoles">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -395,12 +415,12 @@
                   <div class="form-group row">
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeVolMierDesde">
+                      <input class="form-control" type="time" value="08:00:00" name="hrDesdeMier" id="timeVolMierDesde">
                     </div>
 
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeVolMierHasta">
+                      <input class="form-control" type="time" value="12:00:00" name="hrHastaMier" id="timeVolMierHasta">
                     </div>
                   </div>
                 </td>
@@ -410,7 +430,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swJueves">
+                        <input type="checkbox" class="primary" name="trJueves" id="swJueves">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -422,12 +442,12 @@
                   <div class="form-group row">
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeVolJueDesde">
+                      <input class="form-control" type="time" value="08:00:00" name="hrDesdeJuev" id="timeVolJueDesde">
                     </div>
 
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeVolJueHasta">
+                      <input class="form-control" type="time" value="12:00:00" name="hrHastaJuev" id="timeVolJueHasta">
                     </div>
                   </div>
                 </td>
@@ -437,7 +457,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swViernes">
+                        <input type="checkbox" class="primary" name="trViernes" id="swViernes">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -449,12 +469,12 @@
                   <div class="form-group row">
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeVolVierDesde">
+                      <input class="form-control" type="time" value="08:00:00" name="hrDesdeVier" id="timeVolVierDesde">
                     </div>
 
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeVolVierHasta">
+                      <input class="form-control" type="time" value="12:00:00" name="hrHastaVier" id="timeVolVierHasta">
                     </div>
                   </div>
                 </td>
@@ -464,7 +484,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swSabado">
+                        <input type="checkbox" class="primary" name="trSabado" id="swSabado">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -476,12 +496,12 @@
                   <div class="form-group row">
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeVolSabDesde">
+                      <input class="form-control" type="time" value="08:00:00" name="hrDesdeSab" id="timeVolSabDesde">
                     </div>
 
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeVolSabHasta">
+                      <input class="form-control" type="time" value="12:00:00" name="hrHastaSab" id="timeVolSabHasta">
                     </div>
                   </div>
                 </td>
@@ -491,7 +511,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swDomingo">
+                        <input type="checkbox" class="primary" name="trDomingo" id="swDomingo">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -504,12 +524,12 @@
                   <div class="form-group row">
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeVolDomDesde">
+                      <input class="form-control" type="time" value="08:00:00" name="hrDesdeDom" id="timeVolDomDesde">
                     </div>
 
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeVolDomHasta">
+                      <input class="form-control" type="time" value="12:00:00" name="hrHastaDom" id="timeVolDomHasta">
                     </div>
                   </div>
                 </td>
@@ -521,7 +541,7 @@
           <div class="form-group">
             <label for="txtVolComentario">Contanos ¿Cómo te gustaría colaborar con nosotros?</label>
             <div class="col-8">
-              <textarea class="form-control" id="txtVolComentario" rows="5"></textarea>
+              <textarea class="form-control" id="txtVolComentario" name="comentario" rows="5" required></textarea>
             </div>
           </div>
 
@@ -566,12 +586,12 @@
                 Chaco</span></h5>
             <p>Dirección: Avenida 25 de Mayo 855</br>
               Teléfono: 3624688384</br>
-              Correo: <a target="_blank" href="https://mailhide.io/e/p1qx7">d......@chaco.gob.ar</a> </br>
+              Correo: <a target="_blank" href="desarrollosocial@chaco.gob.ar">desarrollosocial@chaco.gob.ar</a> </br>
             </p>
           </div>
           <div class="col-4 col-lg-4 mb-4 mb-lg-0">
             <a href="http://www.chaco.gob.ar/" target="_blank">
-              <img class="card-vertical-img" src="images/logo-footer.png" alt="Voluntariado Social" />
+              <img class="card-vertical-img" src="{% static 'images/logo-footer.png'%}" alt="Voluntariado Social" />
             </a>
           </div>
         </div>
@@ -582,16 +602,16 @@
   <a id="eskimo-gototop" href="#"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JS FILES -->
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/bootstrap-select.min.js"></script>
-  <script src="js/bootstrap-toggle.min.js"></script>
-  <script src="js/salvattore.min.js"></script>
-  <script src="js/slick.min.js"></script>
-  <script src="js/panel.js"></script>
-  <script src="js/reading-position-indicator.js"></script>
-  <script src="js/custom.js"></script>
-  <script src="js/insert.js"></script>
+  <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap-select.min.js'%}"></script>
+  <!-- <script src="{% static 'js/bootstrap-toggle.min.js'%}"></script> -->
+  <script src="{% static 'js/salvattore.min.js' %}"></script>
+  <script src="{% static 'js/slick.min.js' %}"></script>
+  <script src="{% static 'js/panel.js' %}"></script>
+  <script src="{% static 'js/reading-position-indicator.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+  <script src="{% static 'js/insert.js'%}"></script>
 
 
 

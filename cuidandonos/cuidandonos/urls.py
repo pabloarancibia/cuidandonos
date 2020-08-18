@@ -30,10 +30,10 @@ urlpatterns = [
          views.infocuidadores, name='infocuidadores'),
     path('cuidadores/formcuidadores/',
          views.formcuidadores, name='formcuidadores'),
-    # path('voluntariado/infovoluntarios/',
-    #      views.infovoluntarios, name='infovoluntarios'),
-    # path('voluntariado/formvoluntarios/',
-    #      views.formvoluntarios, name='formvoluntarios'),
+    path('voluntariado/infovoluntarios/',
+         views.infovoluntarios, name='infovoluntarios'),
+    path('voluntariado/formvoluntarios/',
+         views.formvoluntarios, name='formvoluntarios'),
 
 
 
