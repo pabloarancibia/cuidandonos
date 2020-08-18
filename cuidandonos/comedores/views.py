@@ -35,42 +35,40 @@ def formcomedores(request):
 
             if bn_valid:
                 print("all bn valid")
-            if cm_valid and bn_valid:
+            if cl_valid:
+                print("all cl valid")
+
+            if cm_valid and bn_valid and cl_valid:
                 cm = cmform.save()
                 for bnf in bnforms:
                     bn = bnf.save(commit=False)
                     bn.comMerBenef = cm
                     bn.save()
+                for clf in clforms:
+                    cl = clf.save(commit=False)
+                    cl.comMerCol = cm
+                    cl.save()
             else:
                 print("algun formulario no es valido")
         else:
             print("formulario CM no válido")
-        # por hora no redirecciono return redirect('infocomedores')
-
-        # cmform = comedoresForm(request.POST, instance=comedores())
-        # bnforms = [beneficiariosForm(
-        #     request.POST, prefix=str(x), instance=beneficiarios()) for x in range(0, 1)]
-        # if cmform.is_valid() and all([bf.is_valid() for bf in bnforms]):
-        #     new_cm = cmform.save()
-        #     for bn in bnforms:
-        #         new_bn = bn.save(commit=False)
-        #         new_bn.comMerBenef = new_cm
-        #         new_bn.save()
-        #     return redirect('infocomedores')
-
-        # if cmform.is_valid():
-        #     cmform.save()
-        #     print(cmform.cleaned_data)
-        #     return redirect('infocomedores')
+            bnforms = [beneficiariosForm(prefix=str(
+                x), instance=beneficiarios())for x in range(0, 1)]
+            clforms = [colaboradoresForm(request.POST, prefix=str(
+                x), instance=colaboradores()) for x in range(0, 1)]
     else:
         cmform = comedoresForm(instance=comedores())
         bnforms = [beneficiariosForm(prefix=str(
             x), instance=beneficiarios())for x in range(0, 1)]
+        clforms = [colaboradoresForm(request.POST, prefix=str(
+            x), instance=colaboradores()) for x in range(0, 1)]
 
-        # bnforms = [beneficiariosForm(prefix=str(
-        #     x), instance=beneficiarios()) for x in range(0, 1)]
         print("no es post")
-    return render(request, 'comedores/formcomedores.html', {'cmform': cmform, 'bnforms': bnforms})
+    return render(request,
+                  'comedores/formcomedores.html',
+                  {
+                      'cmform': cmform, 'bnforms': bnforms, 'clforms': clforms
+                  })
 
 
 def infocuidadores(request):

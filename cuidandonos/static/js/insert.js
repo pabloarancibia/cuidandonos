@@ -31,28 +31,28 @@ $('#add_colab').click(function (e) {
         // eliminar campos actuales
         $('#divColaboradores').empty();
 
-        var cantConf = $('#inputCantColab').val();
-        for (var cant = 0; cant < cantConf; cant++) {
+        var cantCLConf = $('#inputCantColab').val();
+        for (var cant = 0; cant < cantCLConf; cant++) {
                 $('#divColaboradores').append(
                         '<div>\
                         <div class="form-group row">\
                             <label for="inNomColab" class="col-sm-1 col-form-label">Nombre</label>\
                             <div class="col-sm-4">\
-                            <input type="text" class="form-control" name="'+ cant + '" id="inNomColab" placeholder="Nombre">\
+                            <input type="text" class="form-control" name="'+ cant + '-nomCol" id="inNomColab" placeholder="Nombre">\
                             </div>\
                             <label for="inApColab" class="col-sm-1 col-form-label">Apellido</label>\
                             <div class="col-sm-4">\
-                            <input type="text" class="form-control" name="'+ cant + '" id="inApColab" placeholder="Apellido">\
+                            <input type="text" class="form-control" name="'+ cant + '-apCol" id="inApColab" placeholder="Apellido">\
                             </div>\
                         </div>\
                         <div class="form-group row">\
                             <label for="inDniColab" class="col-sm-1 col-form-label">Dni</label>\
                             <div class="col-sm-4">\
-                            <input type="number" class="form-control" name="'+ cant + '" id="inDniColab" placeholder="Dni">\
+                            <input type="number" class="form-control" name="'+ cant + '-dniCol" id="inDniColab" placeholder="Dni">\
                             </div>\
                             <label for="inCuilColab" class="col-sm-1 col-form-label">Cuil</label>\
                             <div class="col-sm-4">\
-                            <input type="number" class="form-control" name="'+ cant + '" id="inCuilColab" placeholder="00-00000000-00">\
+                            <input type="number" class="form-control" name="'+ cant + '-cuilCol" id="inCuilColab" placeholder="00-00000000-00">\
                             </div>\
                         </div>\
                 </div>\
