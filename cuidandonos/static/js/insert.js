@@ -133,6 +133,21 @@ $(document).ready(function () {
                 }
         });
 
+        $(".rdDeporte").click(function (evento) {
+
+                var valor = $(this).val();
+
+                if (valor == 'si') {
+                        $("#dvDeporte").css("display", "block");
+
+                } else {
+                        $("#dvDeporte").css("display", "none");
+
+                }
+        });
+
+
+
         $(".rdGeriatria").click(function (evento) {
 
                 var valor = $(this).val();

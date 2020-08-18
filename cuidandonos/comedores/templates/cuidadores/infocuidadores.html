@@ -34,38 +34,58 @@
             <nav class="navbar navbar-custom navbar-expand-lg navbar-light bg-light">
                 <!-- <nav class="navbar navbar-light navbar-expand-md"> -->
                 <div class="container">
-                    <a class="eskimo-logo-link col-3" href="index.html">
-                        <img src="images/logo_gobierno2020.png" class="eskimo-logo" alt="eskimo" />
+                    <a class="eskimo-logo-link col-3" href="#">
+                        <img src="{% static 'images/logo_gobierno2020.png'%}" class="eskimo-logo" alt="eskimo" />
                     </a>
+                    <!-- <a class="navbar-brand" href="#">LOGO</a> -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link text-light" href="index.html">INICIO <span
+                                <a class="nav-link text-light" href="#">INICIO <span
                                         class="sr-only">(current)</span></a>
                             </li>
+                            <!-- <li class="nav-item">
+                                            <a class="nav-link" href="#">Link</a>
+                                        </li> -->
                             <li class="nav-item dropdown ">
                                 <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     REGISTRAR
                                 </a>
                                 <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item text-white" href="#">Comedores y Merenderos</a>
-                                    <a class="dropdown-item text-white" href="#">Cuidadores Domiciliarios</a>
+                                    <a class="dropdown-item text-white  bg-primary"
+                                        href="{% url "infocomedores" %}">Comedores y
+                                        Merenderos</a>
+                                    <a class="dropdown-item text-white  bg-primary"
+                                        href="{% url "infocuidadores" %}">Cuidadores
+                                        Domiciliarios</a>
+                                    <a class="dropdown-item text-white  bg-primary"
+                                        href="{% url "infovoluntarios" %}">Voluntarios
+                                        Sociales</a>
+
                                 </div>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link text-white" href="#">INFORMACIÓN <span
-                                        class="sr-only">(current)</span></a>
+                                <a class="nav-link text-white" href="#">MAPA <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link text-white" href="#">MAPA<span class="sr-only">(current)</span></a>
+                                <a class="nav-link text-white" href="#">INFORMACIÓN<span
+                                        class="sr-only">(current)</span></a>
                             </li>
+                            <!-- <li class="nav-item">
+                                            <a class="nav-link disabled" href="#">Disabled</a>
+                                        </li> -->
                         </ul>
+                        <!-- <form class="form-inline my-2 my-lg-0">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                    </form> -->
                     </div>
                 </div>
             </nav>
@@ -146,7 +166,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Formulario de Registro para Cuidadores Domiciliarios</h5>
                         <p class="card-text">INGRESÁ AL SIGUIENTE LINK PARA REGISTRARTE</p>
-                        <a href="#" class="btn btn-primary mt-3">Ir al Formulario</a>
+                        <a href="{%url "formcuidadores"%}" class="btn btn-primary mt-3">Ir al Formulario</a>
                     </div>
                     <div class="card-footer text-muted"></div>
                 </div>
@@ -157,23 +177,70 @@
         <footer id="eskimo-footer" class="bg-dark text-white">
             <div class="container">
                 <div class="row eskimo-footer-wrapper">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card bg-dark text-white">
+                                <div class="card-body">
+                                    <h5 class="card-title text-white">Subsecretaría de Personas Adultos Mayores</h5>
+                                    <p class="card-text">Dirección: Julio A. Roca 880</br>
+                                        Teléfono: 3625191003</br>
+                                        Correo: <a target="_blank"
+                                            href="mailto:sub.personasadultas@chaco.gob.ar">sub.personasadultas@chaco.gob.ar</a>
+                                        </br></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <div class="card-body bg-dark text-white">
+                                    <h5 class="card-title text-white">Ministerio de Desarrollo Social de
+                                        la Provincia del
+                                        Chaco</h5>
+                                    <p class="card-text">Dirección: Avenida 25 de Mayo 855</br>
+                                        Líneas rotativas: (0362)4452620 / 4452621 / 4433005 / 4452986 / 4437456 /
+                                        4428319</br>
+                                        Correo: <a target="_blank"
+                                            href="mailto:desarrollosocial@chaco.gob.ar">desarrollosocial@chaco.gob.ar</a>
+                                        </br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-2 col-lg-2 mb-2 mb-lg-0">
+                    
+                  </div> -->
+                        <div class="col-4 col-lg-4 mb-4 mb-lg-0">
+                            <a href="http://www.chaco.gob.ar/" target="_blank">
+                                <img class="mt-5" src="{% static 'images/MDS.png'%}" alt="desarrollo social" />
+                            </a>
+                            <!-- <a href="http://www.chaco.gob.ar/" target="_blank">
+                      <img class="card-vertical-img" src="{% static 'images/logo-footer.png'%}"
+                        alt="cuidadores domiciliarios" />
+                    </a> -->
+                        </div>
+                    </div>
                     <!-- FOOTER WIDGET 1 -->
-                    <div class="col-8 col-lg-8 mb-4 mb-lg-0">
-                        <p>Para más información podés comunicarte o acercarte a:</p>
-                        <h5 class="eskimo-title-with-border"><span class="text-white">Subsecretaría de Personas Adultos
-                                Mayores</span></h5>
-                        <p>Dirección: Julio A. Roca 880</br>
-                            Teléfono: 3625191003</br>
-                            Correo: <a
-                                href="mailto:sub.personasadultas@chaco.gob.ar">sub.personasadultas@chaco.gob.ar</a>
-                            </br>
-                        </p>
-                    </div>
-                    <div class="col-4 col-lg-4 mb-4 mb-lg-0">
-                        <a href="http://www.chaco.gob.ar/" target="_blank">
-                            <img class="card-vertical-img" src="images/logo-footer.png" alt="Voluntariado Social" />
-                        </a>
-                    </div>
+                    <!-- <div class="col-4 col-lg-4 mb-4 mb-lg-0">
+                  <h5 class="eskimo-title-with-border"><span class="text-white">Ministerio de Desarrollo Social de
+                      la Provincia del
+                      Chaco</span></h5>
+                  <p>Dirección: Julio A. Roca 880</br>
+                    Teléfono: 3625191003</br>
+                    Correo: <a target="_blank" href="sub.personasadultas@chaco.gob.ar">sub.personasadultas@chaco.gob.ar</a>
+                    </br>
+                  </p>
+                </div>
+                <div class="col-4 col-lg-4 mb-4 mb-lg-0">
+                  <h5 class="eskimo-title-with-border"><span class="text-white">Ministerio de Desarrollo Social de
+                      la Provincia del
+                      Chaco</span></h5>
+                  <p>Dirección: Avenida 25 de Mayo 855</br>
+                    Teléfono: 3624688384</br>
+                    Correo: <a target="_blank" href="desarrollosocial@chaco.gob.ar">desarrollosocial@chaco.gob.ar</a> </br>
+                  </p>
+                </div> -->
+
                 </div>
             </div>
         </footer>
