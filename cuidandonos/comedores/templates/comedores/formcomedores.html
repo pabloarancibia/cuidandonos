@@ -104,7 +104,7 @@
 
           </div>
         </div> -->
-        
+
         <!-- DIVIDER -->
         <!-- <hr class="section-divider" /> -->
         <hr />
@@ -116,12 +116,12 @@
           <h5>(Todos los campos son obligatorios)</h5>
         </div>
 
-        <form action="{% url 'formcomedores' %}" method="POST" enctype="multipart/form-data" >
+        <form action="{% url 'formcomedores' %}" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
 
           {% if form.errors %}
           <p>{{ form.errors }}</p>
-      {% endif %}
+          {% endif %}
 
           <hr />
           <h3 class="eskimo-title-with-border mb-3"><span>Selecciona la opción que corresponda de acuerdo al
@@ -157,11 +157,7 @@
 
           <div class="form-group row">
             <div class="col-sm-8">
-              <input 
-              type="text" 
-              class="form-control"  
-              name="nombreCM" 
-              placeholder="Nombre">
+              <input type="text" class="form-control" name="nombreCM" placeholder="Nombre">
             </div>
           </div>
 
@@ -173,42 +169,37 @@
           <div class="form-group row">
             <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-6">
-              <input 
-              type="text" 
-              class="form-control" 
-               
-              name="nombreRes"
-              placeholder="Nombre">
+              <input type="text" class="form-control" name="nombreRes" placeholder="Nombre">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputApellido" class="col-sm-2 col-form-label">Apellido</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control"  name="apellidoRes" placeholder="Apellido">
+              <input type="text" class="form-control" name="apellidoRes" placeholder="Apellido">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputDni" class="col-sm-2 col-form-label">Dni</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control"  name="dniRes" placeholder="Dni">
+              <input type="number" class="form-control" name="dniRes" placeholder="Dni">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputCuil" class="col-sm-2 col-form-label">Cuil</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control"  name="cuilRes" placeholder="00-00000000-00">
+              <input type="number" class="form-control" name="cuilRes" placeholder="00-00000000-00">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputNumCont" class="col-sm-2 col-form-label">Número de Contacto</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control"  name="contactoRes" placeholder="Número de Contacto">
+              <input type="number" class="form-control" name="contactoRes" placeholder="Número de Contacto">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
-              <input type="email" class="form-control"  name="emailRes" placeholder="Email">
+              <input type="email" class="form-control" name="emailRes" placeholder="Email">
             </div>
           </div>
 
@@ -234,11 +225,12 @@
             </div>
           </div>
 
-          
+
           <div id="PersJur1" class="form-group row" style="display:none;">
             <label for="inputPersJur" class="col-sm-2 col-form-label">Personeria Jurídica</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputPersJur" name="personeria" placeholder="Personeria Jurídica">
+              <input type="text" class="form-control" id="inputPersJur" name="personeria"
+                placeholder="Personeria Jurídica">
             </div>
           </div>
           <div id="PersJur2" class="form-group row" style="display:none;">
@@ -254,80 +246,82 @@
             <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Reciben algún beneficio del Ministerio de
               Desarrollo Social?</label>
             <div class="form-check m-2">
-              <input class="rdBenefMinDes form-check-input" type="radio" name="benefDS" id="rdBenefMinDes1"
-                value="si">
+              <input class="rdBenefMinDes form-check-input" type="radio" name="benefDS" id="rdBenefMinDes1" value="si">
               <label class="form-check-label" for="rdBenefMinDes1">
                 SI
               </label>
             </div>
             <div class="form-check m-2">
-              <input class="rdBenefMinDes form-check-input" type="radio" name="benefDS" id="rdBenefMinDes2"
-                value="no" checked>
+              <input class="rdBenefMinDes form-check-input" type="radio" name="benefDS" id="rdBenefMinDes2" value="no"
+                checked>
               <label class="form-check-label" for="rdBenefMinDes2">
                 NO
               </label>
             </div>
           </div>
-<div id="BenefMinDes" style="display: none;">
-  <label for="" class="col-sm-2 col-form-label">Qué tipo de beneficio reciben:</label>
-  
-  <div class="form-group row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" id="" name="tipoModulos">Módulos alimentarios</option>
-        </label>
-      </div>
-    </div>
-  </div>
+          <div id="BenefMinDes" style="display: none;">
+            <label for="" class="col-sm-2 col-form-label">Qué tipo de beneficio reciben:</label>
 
-  <div class="form-group row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" id="" name="tipoKit" >Kits de merenderos</option>
-        </label>
-      </div>
-    </div>
-  </div>
+            <div class="form-group row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="" name="tipoModulos">Módulos alimentarios
+                    </option>
+                  </label>
+                </div>
+              </div>
+            </div>
 
-  <div class="form-group row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" id="" name="tipoPrograma" >Programas sociales (RMP-Becas)</option>
-        </label>
-      </div>
-    </div>
-  </div>
+            <div class="form-group row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="" name="tipoKit">Kits de merenderos</option>
+                  </label>
+                </div>
+              </div>
+            </div>
 
-  <div class="form-group row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" id="" name="tipoInversion" >Inversión social</option>
-        </label>
-      </div>
-    </div>
-  </div>
+            <div class="form-group row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="" name="tipoPrograma">Programas sociales
+                    (RMP-Becas)</option>
+                  </label>
+                </div>
+              </div>
+            </div>
 
-  <div class="form-group row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" id="" name="tipoInsumo" >Insumos o materiales (chapas, ollas, gas, anafe, entre otras).</option>
-        </label>
-      </div>
-    </div>
-  </div>
+            <div class="form-group row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="" name="tipoInversion">Inversión social</option>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="" name="tipoInsumo">Insumos o materiales
+                    (chapas, ollas, gas, anafe, entre otras).</option>
+                  </label>
+                </div>
+              </div>
+            </div>
 
 
-</div>
+          </div>
           <!-- <div class="form-group row" id="BenefMinDes" style="display: none;">
             <label for="selectBeneficios" class="col-sm-2 col-form-label">Qué tipo de beneficio reciben:</label>
             <div class="col-sm-10">
@@ -367,7 +361,8 @@
           <div class="form-group row">
             <label for="inputManzana" class="col-sm-2 col-form-label">Manzana - Parcela</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputManzana" name="manzanaCM" placeholder="Manzana - Parcela">
+              <input type="text" class="form-control" id="inputManzana" name="manzanaCM"
+                placeholder="Manzana - Parcela">
             </div>
           </div>
 
@@ -405,6 +400,9 @@
             <div class="col-1">
               <input class="form-control" type="number" value="25" min="25" id="inputCantAsistentes" name="cantBenef">
             </div>
+          </div>
+          <div class="mt-4 mb-4">
+            <a href="#" class="btn btn-primary" id="add_field">Confirmar</a>
           </div>
 
           <p>Grupos etarios que asisten(tildar lo que corresponda)</p>
@@ -482,26 +480,27 @@
           <div class="eskimo-widget-title mt-5 mb-4">
             <h5 class="eskimo-title-with-border"><span>Completar la nómina de beneficiarios</span></h5">
           </div>
-          <div class="mt-4 mb-4">
-            <a href="#" class="btn btn-primary" id="add_field">Agregar Beneficiario</a>
-          </div>
 
+
+          <!-- FORM BENEFICIARIOS -->
+          <!-- agregar cantidad de campos segun el input cantidad de beneficiarios -->
           <div id="divBeneficiarios">
             <div>
               <div class="form-group row">
                 <label for="inputNombreBenef[]" class="col-sm-6 col-form-label">Nombre y Apellido</label>
                 <label for="inputDniBenef[]" class="col-sm-6 col-form-label">DNI</label>
                 <div class="col-sm-6">
-                  <input type="text" name="inputNombreBenef[]" class="form-control" id="inputNombreBenef[]"
+                  <input type="text" name="0-inputNombreBenef" class="form-control" id="inputNombreBenef[]"
                     placeholder="Nombre y Apellido">
                 </div>
                 <div class="col-sm-6">
-                  <input type="number" name="inputDniBenef[]" class="form-control" id="inputDniBenef[]"
+                  <input type="number" name="0-inputDniBenef" class="form-control" id="inputDniBenef[]"
                     placeholder="DNI">
                 </div>
               </div>
             </div>
           </div>
+
 
           <hr />
           <!-- Esquema de Trabajo -->
@@ -529,7 +528,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swLunes" name ="trLunes">
+                        <input type="checkbox" class="primary" id="swLunes" name="trLunes">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -543,12 +542,12 @@
                   <div class="form-group row">
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeComLunDesde" name ="hrDesdeLun">
+                      <input class="form-control" type="time" value="08:00:00" id="timeComLunDesde" name="hrDesdeLun">
                     </div>
 
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeComLunHasta" name ="hrHastaLun">
+                      <input class="form-control" type="time" value="12:00:00" id="timeComLunHasta" name="hrHastaLun">
                     </div>
                   </div>
 
@@ -561,7 +560,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swMartes" name ="trMartes">
+                        <input type="checkbox" class="primary" id="swMartes" name="trMartes">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -574,12 +573,12 @@
                   <div class="form-group row">
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeComMarDesde" name ="hrDesdeMar">
+                      <input class="form-control" type="time" value="08:00:00" id="timeComMarDesde" name="hrDesdeMar">
                     </div>
 
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeComMarHasta" name ="hrHastaMar">
+                      <input class="form-control" type="time" value="12:00:00" id="timeComMarHasta" name="hrHastaMar">
                     </div>
                   </div>
                 </td>
@@ -589,7 +588,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swMiercoles" name ="trMierdoles">
+                        <input type="checkbox" class="primary" id="swMiercoles" name="trMierdoles">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -601,12 +600,12 @@
                   <div class="form-group row">
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeComMierDesde" name ="hrDesdeMier">
+                      <input class="form-control" type="time" value="08:00:00" id="timeComMierDesde" name="hrDesdeMier">
                     </div>
 
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeComMierHasta" name ="hrHastaMier">
+                      <input class="form-control" type="time" value="12:00:00" id="timeComMierHasta" name="hrHastaMier">
                     </div>
                   </div>
                 </td>
@@ -616,7 +615,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swJueves" name ="trJueves">
+                        <input type="checkbox" class="primary" id="swJueves" name="trJueves">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -628,12 +627,12 @@
                   <div class="form-group row">
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeComJueDesde" name ="hrDesdeJuev">
+                      <input class="form-control" type="time" value="08:00:00" id="timeComJueDesde" name="hrDesdeJuev">
                     </div>
 
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeComJueHasta" name ="hrHastaJuev">
+                      <input class="form-control" type="time" value="12:00:00" id="timeComJueHasta" name="hrHastaJuev">
                     </div>
                   </div>
                 </td>
@@ -643,7 +642,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swViernes" name ="trViernes">
+                        <input type="checkbox" class="primary" id="swViernes" name="trViernes">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -655,12 +654,12 @@
                   <div class="form-group row">
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeComVierDesde" name ="hrDesdeVier">
+                      <input class="form-control" type="time" value="08:00:00" id="timeComVierDesde" name="hrDesdeVier">
                     </div>
 
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeComVierHasta" name ="hrHastaVier">
+                      <input class="form-control" type="time" value="12:00:00" id="timeComVierHasta" name="hrHastaVier">
                     </div>
                   </div>
                 </td>
@@ -670,7 +669,8 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swSabado" name ="trSabado = models.BooleanField(default=False)">
+                        <input type="checkbox" class="primary" id="swSabado"
+                          name="trSabado = models.BooleanField(default=False)">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -682,12 +682,13 @@
                   <div class="form-group row">
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeComSabDesde" name ="    hrDesdeSab">
+                      <input class="form-control" type="time" value="08:00:00" id="timeComSabDesde"
+                        name="    hrDesdeSab">
                     </div>
 
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeComSabHasta" name ="hrHastaSab">
+                      <input class="form-control" type="time" value="12:00:00" id="timeComSabHasta" name="hrHastaSab">
                     </div>
                   </div>
                 </td>
@@ -697,7 +698,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swDomingo" name ="trDomingo">
+                        <input type="checkbox" class="primary" id="swDomingo" name="trDomingo">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -710,12 +711,12 @@
                   <div class="form-group row">
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeComDomDesde" name ="hrDesdeDom">
+                      <input class="form-control" type="time" value="08:00:00" id="timeComDomDesde" name="hrDesdeDom">
                     </div>
 
                     <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
                     <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeComDomHasta" name ="hrHastaDom">
+                      <input class="form-control" type="time" value="12:00:00" id="timeComDomHasta" name="hrHastaDom">
                     </div>
                   </div>
 
@@ -733,12 +734,13 @@
               el
               comedor/merendero?</label>
             <div class="col-sm-1">
-              <input type="number" class="form-control" id="inputCantColab" placeholder="1">
+              <input type="number" class="form-control" id="inputCantColab" name="cantColab" placeholder="1">
             </div>
           </div>
+          <a href="#" class="btn btn-primary" id="add_colab">Confirmar</a>
 
-          <p>Datos Personales de cada trabajador y trabajadora</p>
-          <a href="#" class="btn btn-primary" id="add_colab">Agregar Colaborador</a>
+          <p>Datos Personales de cada colaborador y colaboradora</p>
+
           <div id="divColaboradores" class="mt-4">
             <div>
               <div class="form-group row">
@@ -772,14 +774,15 @@
             <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Cuentan con algún tipo de
               remuneración proveniente del Ministerio de Desarrollo Social?</label>
             <div class="form-check m-2">
-              <input class="rdRemMinDes form-check-input" type="radio" name="remuneracionDS" id="rdRemMinDes1" value="si">
+              <input class="rdRemMinDes form-check-input" type="radio" name="remuneracionDS" id="rdRemMinDes1"
+                value="si">
               <label class="form-check-label" for="rdRemMinDes1">
                 SI
               </label>
             </div>
             <div class="form-check m-2">
-              <input class="rdRemMinDes form-check-input" type="radio" name="remuneracionDS" id="rdRemMinDes2" value="no"
-                checked>
+              <input class="rdRemMinDes form-check-input" type="radio" name="remuneracionDS" id="rdRemMinDes2"
+                value="no" checked>
               <label class="form-check-label" for="rdRemMinDes2">
                 NO
               </label>
@@ -806,8 +809,7 @@
               </label>
             </div>
             <div class="form-check m-2">
-              <input class=" form-check-input rdAguaPot" type="radio" name="aguaCM" id="rdAguaPot2" value="no"
-                checked>
+              <input class=" form-check-input rdAguaPot" type="radio" name="aguaCM" id="rdAguaPot2" value="no" checked>
               <label class="form-check-label" for="rdAguaPot2">
                 NO
               </label>
@@ -818,13 +820,13 @@
             <label id="tipoConex0" for="rdConexion" class="col-sm-5 col-form-label" style="display: none;">Tipo de
               Conexión</label>
             <div id="tipoConex1" class="form-check m-2" style="display: none;">
-              <input class="form-check-input" type="radio" name="tipoConex" id="rdConexion1" value="Interna">
+              <input class="form-check-input" type="radio" name="tipoConex" id="rdConexion1" value="interna">
               <label class="form-check-label" for="rdConexion1">
                 Interna
               </label>
             </div>
             <div id="tipoConex2" class="form-check m-2" style="display: none;">
-              <input class="form-check-input" type="radio" name="tipoConex" id="rdConexion2" value="option2" checked>
+              <input class="form-check-input" type="radio" name="tipoConex" id="rdConexion2" value="externa" checked>
               <label class="form-check-label" for="Externa">
                 Externa
               </label>
@@ -868,15 +870,15 @@
             <label for="" class="col-sm-5 col-form-label ">¿Dispone de Instalaciones sanitarias para las personas que
               asisten?</label>
             <div class="form-check m-2">
-              <input class="rdInstSanitarias form-check-input" type="radio" name="sanitarioCM"
-                id="rdInstSanitarias1" value="si">
+              <input class="rdInstSanitarias form-check-input" type="radio" name="sanitarioCM" id="rdInstSanitarias1"
+                value="si">
               <label class="form-check-label" for="rdInstSanitarias1">
                 SI
               </label>
             </div>
             <div class="form-check m-2">
-              <input class="rdInstSanitarias form-check-input" type="radio" name="sanitarioCM"
-                id="rdInstSanitarias2" value="no" checked>
+              <input class="rdInstSanitarias form-check-input" type="radio" name="sanitarioCM" id="rdInstSanitarias2"
+                value="no" checked>
               <label class="form-check-label" for="rdInstSanitarias2">
                 NO
               </label>
@@ -986,8 +988,7 @@
               </label>
             </div>
             <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="apoyoEsc" id="rdApotoEscolar2" value="no"
-                checked>
+              <input class="form-check-input" type="radio" name="apoyoEsc" id="rdApotoEscolar2" value="no" checked>
               <label class="form-check-label" for="rdApotoEscolar2">
                 NO
               </label>
@@ -1055,8 +1056,7 @@
               </label>
             </div>
             <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="prevConsumo" id="rdSustancias2" value="no"
-                checked>
+              <input class="form-check-input" type="radio" name="prevConsumo" id="rdSustancias2" value="no" checked>
               <label class="form-check-label" for="rdSustancias2">
                 NO
               </label>

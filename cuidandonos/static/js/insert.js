@@ -1,74 +1,136 @@
-var campos_max = 100;   //max de campos
-var x = 0;
 $('#add_field').click(function (e) {
         e.preventDefault();     //prevenir nuevos clicks
-        if (x < campos_max) {
+
+        // eliminar campos actuales
+        $('#divBeneficiarios').empty();
+
+        var cantConf = $('#inputCantAsistentes').val();
+        for (var cant = 0; cant < cantConf; cant++) {
                 $('#divBeneficiarios').append(
                         '<div>\
                         <div class="form-group row">\
-                                        <label for="inputNombreBenef[]" class="col-sm-6 col-form-label">Nombre y Apellido</label>\
-                                        <label for="inputDniBenef[]" class="col-sm-6 col-form-label">DNI</label>\
+                                        <label for="inputNombreBenef" class="col-sm-6 col-form-label">Nombre y Apellido</label>\
+                                        <label for="inputDniBenef" class="col-sm-6 col-form-label">DNI</label>\
                                         <div class="col-sm-6">\
-                                                <input type="text" name="inputNombreBenef[]" class="form-control" id="inputNombreBenef[]"\
+                                                <input type="text" name="'+ cant + '-inputNombreBenef" class="form-control" id="inputNombreBenef"\
                                         placeholder="Nombre y Apellido">\
                                         </div>\
                                         <div class="col-sm-6">\
-                                                <input type="number" name="inputDniBenef[]" class="form-control" id="inputDniBenef[]"\
+                                                <input type="number" name="'+ cant + '-inputDniBenef" class="form-control" id="inputDniBenef"\
                                                 placeholder="DNI">\
                                         </div>\
                                 </div>\
-                        <a href="#" class="remover_campo">Remover</a>\
                         </div >\
                         ');
-                x++;
-        }
-});
-// Remover div anterior
-$('#divBeneficiarios').on("click", ".remover_campo", function (e) {
-        e.preventDefault();
-        $(this).parent('div').remove();
-        x--;
-});
 
-var colab_max = 100;   //max de colab
-var y = 0;
+        }
+
+});
 $('#add_colab').click(function (e) {
         e.preventDefault();     //prevenir nuevos clicks
-        if (y < colab_max) {
+        // eliminar campos actuales
+        $('#divColaboradores').empty();
+
+        var cantConf = $('#inputCantColab').val();
+        for (var cant = 0; cant < cantConf; cant++) {
                 $('#divColaboradores').append(
                         '<div>\
                         <div class="form-group row">\
-                            <label for="inNomColab[]" class="col-sm-1 col-form-label">Nombre</label>\
+                            <label for="inNomColab" class="col-sm-1 col-form-label">Nombre</label>\
                             <div class="col-sm-4">\
-                            <input type="text" class="form-control" id="inNomColab[]" placeholder="Nombre">\
+                            <input type="text" class="form-control" name="'+ cant + '" id="inNomColab" placeholder="Nombre">\
                             </div>\
-                            <label for="inApColab[]" class="col-sm-1 col-form-label">Apellido</label>\
+                            <label for="inApColab" class="col-sm-1 col-form-label">Apellido</label>\
                             <div class="col-sm-4">\
-                            <input type="text" class="form-control" id="inApColab[]" placeholder="Apellido">\
+                            <input type="text" class="form-control" name="'+ cant + '" id="inApColab" placeholder="Apellido">\
                             </div>\
                         </div>\
                         <div class="form-group row">\
-                            <label for="inDniColab[]" class="col-sm-1 col-form-label">Dni</label>\
+                            <label for="inDniColab" class="col-sm-1 col-form-label">Dni</label>\
                             <div class="col-sm-4">\
-                            <input type="number" class="form-control" id="inDniColab[]" placeholder="Dni">\
+                            <input type="number" class="form-control" name="'+ cant + '" id="inDniColab" placeholder="Dni">\
                             </div>\
                             <label for="inCuilColab" class="col-sm-1 col-form-label">Cuil</label>\
                             <div class="col-sm-4">\
-                            <input type="number" class="form-control" id="inCuilColab[]" placeholder="00-00000000-00">\
+                            <input type="number" class="form-control" name="'+ cant + '" id="inCuilColab" placeholder="00-00000000-00">\
                             </div>\
                         </div>\
-                    <a href="#" class="remover_campo">Remover</a>\
                 </div>\
               ');
-                y++;
+
         }
 });
-// Remover div anterior
-$('#divColaboradores').on("click", ".remover_campo", function (e) {
-        e.preventDefault();
-        $(this).parent('div').remove();
-        y--;
-});
+// var campos_max = 5;   //max de campos
+// var x = 0;
+// $('#add_field').click(function (e) {
+//         e.preventDefault();     //prevenir nuevos clicks
+//         if (x < campos_max) {
+//                 $('#divBeneficiarios').append(
+//                         '<div>\
+//                         <div class="form-group row">\
+//                                         <label for="inputNombreBenef[]" class="col-sm-6 col-form-label">Nombre y Apellido</label>\
+//                                         <label for="inputDniBenef[]" class="col-sm-6 col-form-label">DNI</label>\
+//                                         <div class="col-sm-6">\
+//                                                 <input type="text" name="inputNombreBenef" class="form-control" id="inputNombreBenef[]"\
+//                                         placeholder="Nombre y Apellido">\
+//                                         </div>\
+//                                         <div class="col-sm-6">\
+//                                                 <input type="number" name="inputDniBenef" class="form-control" id="inputDniBenef[]"\
+//                                                 placeholder="DNI">\
+//                                         </div>\
+//                                 </div>\
+//                         <a href="#" class="remover_campo">Remover</a>\
+//                         </div >\
+//                         ');
+//                 x++;
+//         }
+// });
+// // Remover div anterior
+// $('#divBeneficiarios').on("click", ".remover_campo", function (e) {
+//         e.preventDefault();
+//         $(this).parent('div').remove();
+//         x--;
+// });
+
+// var colab_max = 100;   //max de colab
+// var y = 0;
+// $('#add_colab').click(function (e) {
+//         e.preventDefault();     //prevenir nuevos clicks
+//         if (y < colab_max) {
+//                 $('#divColaboradores').append(
+//                         '<div>\
+//                         <div class="form-group row">\
+//                             <label for="inNomColab[]" class="col-sm-1 col-form-label">Nombre</label>\
+//                             <div class="col-sm-4">\
+//                             <input type="text" class="form-control" id="inNomColab[]" placeholder="Nombre">\
+//                             </div>\
+//                             <label for="inApColab[]" class="col-sm-1 col-form-label">Apellido</label>\
+//                             <div class="col-sm-4">\
+//                             <input type="text" class="form-control" id="inApColab[]" placeholder="Apellido">\
+//                             </div>\
+//                         </div>\
+//                         <div class="form-group row">\
+//                             <label for="inDniColab[]" class="col-sm-1 col-form-label">Dni</label>\
+//                             <div class="col-sm-4">\
+//                             <input type="number" class="form-control" id="inDniColab[]" placeholder="Dni">\
+//                             </div>\
+//                             <label for="inCuilColab" class="col-sm-1 col-form-label">Cuil</label>\
+//                             <div class="col-sm-4">\
+//                             <input type="number" class="form-control" id="inCuilColab[]" placeholder="00-00000000-00">\
+//                             </div>\
+//                         </div>\
+//                     <a href="#" class="remover_campo">Remover</a>\
+//                 </div>\
+//               ');
+//                 y++;
+//         }
+// });
+// // Remover div anterior
+// $('#divColaboradores').on("click", ".remover_campo", function (e) {
+//         e.preventDefault();
+//         $(this).parent('div').remove();
+//         y--;
+// });
 
 // mostrar/ocultar 
 $(document).ready(function () {

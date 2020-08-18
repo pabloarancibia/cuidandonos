@@ -1,3 +1,4 @@
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
 # Create your models here.
@@ -7,7 +8,8 @@ class comedores (models.Model):
     """Comedores Model"""
     srvComedor = models.BooleanField(default=False)
     srvMerendero = models.BooleanField(default=False)
-    nombreCM = models.CharField(max_length=60)
+    nombreCM = models.CharField(
+        max_length=60, help_text="Debe ingresar un nombre para el comedor/merendero")
 
     nombreRes = models.CharField(max_length=60)
     apellidoRes = models.CharField(max_length=60)
@@ -17,8 +19,8 @@ class comedores (models.Model):
     emailRes = models.EmailField()
 
     perteneceOrg = models.CharField(max_length=2, default='no')
-    personeria = models.CharField(max_length=60)
-    cuitPersoneria = models.IntegerField()
+    personeria = models.CharField(max_length=60, blank=True, null=True)
+    cuitPersoneria = models.IntegerField(blank=True, null=True)
 
     benefDS = models.CharField(max_length=2, default='no')
     tipoModulos = models.BooleanField(default=False)
@@ -44,7 +46,7 @@ class comedores (models.Model):
     grupoDisc = models.BooleanField(default=False)
 
     # aparte clase beneficiarios ya que es una relacion 1 comedor N beneficiarios
-    # en esta deberá ir idComedor nombre apellido.
+    # en aquella deberá ir idComedor nombre apellido.
 
     trLunes = models.BooleanField(default=False)
     hrDesdeLun = models.TimeField()
@@ -69,12 +71,13 @@ class comedores (models.Model):
     hrHastaDom = models.TimeField()
 
     # colaboradores lo mismo que beneficiarios
+    cantColab = models.IntegerField()
 
     remuneracionDS = models.CharField(max_length=2, default='no')
-    tipoRemuneracionDS = models.CharField(max_length=60)
+    tipoRemuneracionDS = models.CharField(max_length=60, blank=True, null=True)
 
     aguaCM = models.CharField(max_length=2, default='no')
-    tipoConex = models.CharField(max_length=10)
+    tipoConex = models.CharField(max_length=10, default='externa')
     instElec = models.CharField(max_length=2, default='no')
     espacioCerradoCM = models.CharField(max_length=2, default='no')
     sanitarioCM = models.CharField(max_length=2, default='no')
@@ -85,12 +88,30 @@ class comedores (models.Model):
 
     huerta = models.CharField(max_length=2, default='no')
     deporte = models.CharField(max_length=2, default='no')
-    tipoDeporte = models.CharField(max_length=60)
+    tipoDeporte = models.CharField(max_length=60, blank=True, null=True)
     apoyoEsc = models.CharField(max_length=2, default='no')
     infoHigiene = models.CharField(max_length=2, default='no')
     educSex = models.CharField(max_length=2, default='no')
     prevViolencia = models.CharField(max_length=2, default='no')
     prevConsumo = models.CharField(max_length=2, default='no')
+
+
+class beneficiarios (models.Model):
+    """ Beneficiarios de Comedores/Merenderos Model"""
+    inputNombreBenef = models.CharField(max_length=100)
+    inputDniBenef = models.IntegerField()
+    comMerBenef = models.ForeignKey(
+        comedores, on_delete=models.SET_NULL, null=True)
+
+
+class colaboradores (models.Model):
+    """ Colaboradores de Com/Mer Model"""
+    nomCol = models.CharField(max_length=80)
+    apCol = models.CharField(max_length=80)
+    dniCol = models.IntegerField()
+    cuilCol = models.IntegerField()
+    comMerCol = models.ForeignKey(
+        comedores, on_delete=models.SET_NULL, null=True)
 
 
 class cuidadores (models.Model):

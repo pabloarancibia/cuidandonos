@@ -4,8 +4,7 @@
 from django import forms
 
 # Models
-from comedores.models import comedores
-from comedores.models import cuidadores
+from comedores.models import comedores, beneficiarios, colaboradores, cuidadores
 # from comedores.models import vountarios
 
 
@@ -13,23 +12,32 @@ from comedores.models import cuidadores
 # nombreCM = forms.CharField(max_length=60, required=False)
 class comedoresForm(forms.ModelForm):
     """Form definition for comedores."""
-
     class Meta:
         """Form settings."""
-
         model = comedores
         fields = ('__all__')
 
 
+class beneficiariosForm(forms.ModelForm):
+    """seccion beneficiarios form"""
+    class Meta:
+        model = beneficiarios
+        exclude = ('comMerBenef',)
+
+
+class colaboradoresForm(forms.ModelForm):
+    """seccion colaboradores form"""
+    class Meta:
+        model = colaboradores
+        exclude = ('comMerCol',)
+
+
 class cuidadoresForm(forms.ModelForm):
     """Form definition for cuidadores."""
-
     class Meta:
         """Form settings."""
-
         model = cuidadores
         fields = ('__all__')
-
 
 # class vountariosForm(forms.ModelForm):
 #     """Form definition for vountarios."""
