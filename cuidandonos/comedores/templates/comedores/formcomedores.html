@@ -159,7 +159,7 @@
 
           <div class="form-group row">
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="nombreCM" placeholder="Nombre">
+              <input type="text" class="form-control" name="nombreCM" placeholder="Nombre" required>
             </div>
           </div>
 
@@ -171,37 +171,37 @@
           <div class="form-group row">
             <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" name="nombreRes" placeholder="Nombre">
+              <input type="text" class="form-control" name="nombreRes" placeholder="Nombre" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputApellido" class="col-sm-2 col-form-label">Apellido</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" name="apellidoRes" placeholder="Apellido">
+              <input type="text" class="form-control" name="apellidoRes" placeholder="Apellido" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputDni" class="col-sm-2 col-form-label">Dni</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" name="dniRes" placeholder="Dni">
+              <input type="number" class="form-control" name="dniRes" placeholder="Dni" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputCuil" class="col-sm-2 col-form-label">Cuil</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" name="cuilRes" placeholder="000000000000">
+              <input type="number" class="form-control" name="cuilRes" placeholder="000000000000" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputNumCont" class="col-sm-2 col-form-label">Número de Contacto</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" name="contactoRes" placeholder="Número de Contacto">
+              <input type="number" class="form-control" name="contactoRes" placeholder="Número de Contacto" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
-              <input type="email" class="form-control" name="emailRes" placeholder="Email">
+              <input type="email" class="form-control" name="emailRes" placeholder="Email" required>
             </div>
           </div>
 
@@ -351,27 +351,28 @@
           <div class="form-group row">
             <label for="inputCalle" class="col-sm-2 col-form-label">Calle</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputCalle" name="calleCM" placeholder="Calle">
+              <input type="text" class="form-control" id="inputCalle" name="calleCM" placeholder="Calle" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputNumCalle" class="col-sm-2 col-form-label">Número</label>
             <div class="col-sm-2">
-              <input type="number" class="form-control" id="inputNumCalle" name="numeroCM" placeholder="Número">
+              <input type="number" class="form-control" id="inputNumCalle" name="numeroCM" placeholder="Número"
+                required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputManzana" class="col-sm-2 col-form-label">Manzana - Parcela</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputManzana" name="manzanaCM"
-                placeholder="Manzana - Parcela">
+              <input type="text" class="form-control" id="inputManzana" name="manzanaCM" placeholder="Manzana - Parcela"
+                required>
             </div>
           </div>
 
           <div class="form-group row">
             <label for="inputBarrio" class="col-sm-2 col-form-label">Barrio</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputBarrio" name="barrioCM" placeholder="Barrio">
+              <input type="text" class="form-control" id="inputBarrio" name="barrioCM" placeholder="Barrio" required>
             </div>
           </div>
 
@@ -1098,8 +1099,9 @@
       <div class="container">
         <div class="row eskimo-footer-wrapper">
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <div class="card bg-dark text-white">
+                <img class="card-img-top" src="{% static 'images/SEPS.png' %}" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title text-white">Subsecretaría de Economía y Políticas Sociales </h5>
                   <p class="card-text">Dirección: Avenida Juan Manuel Belgrano 550</br>
@@ -1123,6 +1125,7 @@
             </div>
             <div class="col-sm-4">
               <div class="card bg-dark text-white">
+                <img class="card-img-top" src="{% static 'images/UPSN.png' %}" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title text-white">Unidad Provincial de Seguimiento
                     Nutricional</h5>
@@ -1137,6 +1140,8 @@
             </div>
             <div class="col-sm-4">
               <div class="card">
+                <img class="card-img-top" src="{% static 'images/MDS.png' %}" alt="Card image cap">
+
                 <div class="card-body bg-dark text-white">
                   <h5 class="card-title text-white">Ministerio de Desarrollo Social de
                     la Provincia del
@@ -1152,15 +1157,15 @@
             </div>
             <!-- <div class="col-2 col-lg-2 mb-2 mb-lg-0">            
             </div> -->
-            <div class="col-4 col-lg-4 mb-4 mb-lg-0">
-              <a href="http://www.chaco.gob.ar/" target="_blank">
-                <img class="mt-5" src="{% static 'images/MDS.png'%}" alt="desarrollo social" />
-              </a>
-              <!-- <a href="http://www.chaco.gob.ar/" target="_blank">
-                <img class="card-vertical-img" src="{% static 'images/logo-footer.png'%}"
-                  alt="cuidadores domiciliarios" />
-              </a> -->
-            </div>
+            <!-- <div class="col-4 col-lg-4 mb-4 mb-lg-0">
+                <a href="http://www.chaco.gob.ar/" target="_blank">
+                  <img class="mt-5" src="{% static 'images/logo-footer.png'%}" alt="desarrollo social" />
+                </a>
+                 <a href="http://www.chaco.gob.ar/" target="_blank">
+                  <img class="card-vertical-img" src="{% static 'images/logo-footer.png'%}"
+                    alt="cuidadores domiciliarios" />
+                </a> 
+              </div> -->
           </div>
 
         </div>

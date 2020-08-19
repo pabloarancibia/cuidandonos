@@ -48,7 +48,7 @@ def formcomedores(request):
             clforms = [colaboradoresForm(request.POST, prefix=str(
                 x), instance=colaboradores()) for x in range(0, 1)]
     else:
-        cmform = comedoresForm(instance=comedores())
+        cmform = comedoresForm()
         bnforms = [beneficiariosForm(prefix=str(
             x), instance=beneficiarios())for x in range(0, 1)]
         clforms = [colaboradoresForm(request.POST, prefix=str(
@@ -57,7 +57,7 @@ def formcomedores(request):
     return render(request,
                   'comedores/formcomedores.html',
                   {
-                      'cmform': cmform, 'bnforms': bnforms, 'clforms': clforms
+                      'cmform': cmform
                   })
 
 
