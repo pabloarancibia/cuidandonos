@@ -13,11 +13,11 @@ $('#add_field').click(function (e) {
                                         <label for="inputDniBenef" class="col-sm-6 col-form-label">DNI</label>\
                                         <div class="col-sm-6">\
                                                 <input type="text" name="'+ cant + '-inputNombreBenef" class="form-control" id="inputNombreBenef"\
-                                        placeholder="Nombre y Apellido">\
+                                        placeholder="Nombre y Apellido" required>\
                                         </div>\
                                         <div class="col-sm-6">\
                                                 <input type="number" name="'+ cant + '-inputDniBenef" class="form-control" id="inputDniBenef"\
-                                                placeholder="DNI">\
+                                                placeholder="DNI" required>\
                                         </div>\
                                 </div>\
                         </div >\
@@ -38,21 +38,21 @@ $('#add_colab').click(function (e) {
                         <div class="form-group row">\
                             <label for="inNomColab" class="col-sm-1 col-form-label">Nombre</label>\
                             <div class="col-sm-4">\
-                            <input type="text" class="form-control" name="'+ cant + '-nomCol" id="inNomColab" placeholder="Nombre">\
+                            <input type="text" class="form-control" name="'+ cant + '-nomCol" id="inNomColab" placeholder="Nombre" required>\
                             </div>\
                             <label for="inApColab" class="col-sm-1 col-form-label">Apellido</label>\
                             <div class="col-sm-4">\
-                            <input type="text" class="form-control" name="'+ cant + '-apCol" id="inApColab" placeholder="Apellido">\
+                            <input type="text" class="form-control" name="'+ cant + '-apCol" id="inApColab" placeholder="Apellido" required>\
                             </div>\
                         </div>\
                         <div class="form-group row">\
                             <label for="inDniColab" class="col-sm-1 col-form-label">Dni</label>\
                             <div class="col-sm-4">\
-                            <input type="number" class="form-control" name="'+ cant + '-dniCol" id="inDniColab" placeholder="Dni">\
+                            <input type="number" class="form-control" name="'+ cant + '-dniCol" id="inDniColab" placeholder="Dni" required>\
                             </div>\
                             <label for="inCuilColab" class="col-sm-1 col-form-label">Cuil</label>\
                             <div class="col-sm-4">\
-                            <input type="text" class="form-control" name="'+ cant + '-cuilCol" id="inCuilColab" placeholder="00-00000000-00">\
+                            <input type="text" class="form-control" name="'+ cant + '-cuilCol" id="inCuilColab" placeholder="000000000000" required>\
                             </div>\
                         </div>\
                 </div>\

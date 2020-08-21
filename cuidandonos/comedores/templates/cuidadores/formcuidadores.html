@@ -108,9 +108,25 @@
         <form action="{% url 'formcuidadores' %}" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
 
+
           {% if form.errors %}
-          <p>{{ form.errors }}</p>
+          {% for field in form %}
+          {% for error in field.errors %}
+          <div class="alert alert-danger">
+
+            <strong>{{field.label}}: </strong>{{ error|escape }}
+          </div>
+          {% endfor %}
+          {% endfor %}
+          {% for error in form.non_field_errors %}
+          <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+          </div>
+          {% endfor %}
           {% endif %}
+
+
+
           <hr />
           <div class="eskimo-widget-title mt-5 ">
             <h5 class="eskimo-title-with-border"><span>Datos Personales:</span></h5">
@@ -118,33 +134,38 @@
           <div class="form-group row">
             <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Nombre" required>
+              <input type="text" class="form-control {% if form.nombre.errors %}is-invalid{% endif %}" id="inputNombre"
+                name="nombre" value="{%if form.errors%}{{form.nombre.value}}{%endif%}" placeholder="Nombre" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputApellido" class="col-sm-2 col-form-label">Apellido</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputApellido" name="apellido" placeholder="Apellido"
-                required>
+              <input type="text" class="form-control {% if form.apellido.errors %}is-invalid{% endif %}"
+                id="inputApellido" name="apellido" value="{%if form.errors%}{{form.apellido.value}}{%endif%}"
+                placeholder="Apellido" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputDni" class="col-sm-2 col-form-label">Dni</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" id="inputDni" name="dni" placeholder="Dni" required>
+              <input type="number" class="form-control" id="inputDni" name="dni" placeholder="Dni"
+                value="{%if form.errors%}{{form.dni.value}}{%endif%}" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputCuil" class="col-sm-2 col-form-label">Cuil</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" name="cuil" placeholder="000000000000" required>
+              <input type="text" class="form-control" name="cuil" placeholder="000000000000"
+                value="{%if form.errors%}{{form.cuil.value}}{%endif%}" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputApellido" class="col-sm-2 col-form-label">Lugar y Fecha de Nacimiento</label>
 
             <div class="col-sm-3">
-              <input type="text" class="form-control" id="inputApellido" name="lugarNac" placeholder="Lugar" required>
+              <input type="text" class="form-control" id="inputApellido" name="lugarNac" placeholder="Lugar"
+                value="{%if form.errors%}{{form.lugarNac.value}}{%endif%}" required>
             </div>
             <!-- </div>
           <div class="form-group row"> -->
@@ -173,13 +194,14 @@
             <label for="inputDireccion" class="col-sm-2 col-form-label">Dirección</label>
             <div class="col-sm-6">
               <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Dirección"
-                required>
+                value="{%if form.errors%}{{form.direccion.value}}{%endif%}" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputBarrio" class="col-sm-2 col-form-label">Barrio</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputBarrio" name="barrio" placeholder="Barrio" required>
+              <input type="text" class="form-control" id="inputBarrio" name="barrio" placeholder="Barrio"
+                value="{%if form.errors%}{{form.barrio.value}}{%endif%}" required>
             </div>
           </div>
 
@@ -199,18 +221,20 @@
           <div class="form-group row">
             <label for="inputCelular" class="col-sm-2 col-form-label">Celular</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" id="inputCelular" name="celular" placeholder="Celular" required>
+              <input type="number" class="form-control" id="inputCelular" name="celular" placeholder="Celular"
+                value="{%if form.errors%}{{form.celular.value}}{%endif%}" required>
             </div>
           </div>
 
           <div class="form-group row">
             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
-              <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" required>
+              <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email"
+                value="{%if form.errors%}{{form.email.value}}{%endif%}" required>
             </div>
           </div>
 
-          <div class="eskimo-widget-title mb-4">
+          <div class="eskimo-widget-title mt-5 mb-4">
             <h5 class="eskimo-title-with-border"><span>Datos de Formación</span></h5">
           </div>
 
@@ -245,14 +269,14 @@
             <label for="tituloSec" class="col-sm-3 col-form-label">Título obtenido</label>
             <div class="col-sm-5">
               <input type="text" class="form-control" id="tituloSec" name="titulo" placeholder="Título obtenido"
-                required>
+                value="{%if form.errors%}{{form.titulo.value}}{%endif%}" required>
             </div>
           </div>
           <div id="dvNomInst" class="form-group row">
             <label for="institucionSec" class="col-sm-3 col-form-label">Nombre de la Institución de formación</label>
             <div class="col-sm-5">
               <input type="text" class="form-control" id="institucionSec" name="institucion" placeholder="Nombre"
-                required>
+                value="{%if form.errors%}{{form.institucion.value}}{%endif%}" required>
             </div>
           </div>
 
@@ -508,7 +532,7 @@
             <div class="custom-file">
               <div class="col-sm-6">
                 <input type="file" class="custom-file-input" id="fileAspiranteDni" name="archivoDniAsp"
-                  aria-describedby="fileAspiranteDniAddon">
+                  aria-describedby="fileAspiranteDniAddon" required>
                 <label class="custom-file-label" for="fileAspiranteDni">Seleccionar archivo</label>
               </div>
             </div>
@@ -523,7 +547,7 @@
             <div class="custom-file">
               <div class="col-sm-6">
                 <input type="file" class="custom-file-input" id="fileAspiranteCertCuidador" name="archivoCertAsp"
-                  aria-describedby="fileAspiranteCertCuidadorAddon">
+                  aria-describedby="fileAspiranteCertCuidadorAddon" required>
                 <label class="custom-file-label" for="fileAspiranteCertCuidador">Seleccionar archivo</label>
               </div>
             </div>
@@ -537,7 +561,7 @@
             <div class="custom-file">
               <div class="col-sm-6">
                 <input type="file" class="custom-file-input" id="fileAspiranteCertDom" name="archivoCertDomAsp"
-                  aria-describedby="fileAspiranteCertDomAddon">
+                  aria-describedby="fileAspiranteCertDomAddon" required>
                 <label class="custom-file-label" for="fileAspiranteCertDom">Seleccionar archivo</label>
               </div>
             </div>
@@ -552,7 +576,7 @@
             <div class="custom-file">
               <div class="col-sm-6">
                 <input type="file" class="custom-file-input" id="fileAspirantecCertPsf" name="arhivoCertPsfAsp"
-                  aria-describedby="fileAspirantecCertPsfAddon">
+                  aria-describedby="fileAspirantecCertPsfAddon" required>
                 <label class="custom-file-label" for="fileAspirantecCertPsf">Seleccionar archivo</label>
               </div>
             </div>
@@ -568,7 +592,7 @@
             <div class="custom-file">
               <div class="col-sm-6">
                 <input type="file" class="custom-file-input" id="fileAspirantecCertReinc" name="archivoCertReinc"
-                  aria-describedby="fileAspirantecCertReincAddon">
+                  aria-describedby="fileAspirantecCertReincAddon" required>
                 <label class="custom-file-label" for="fileAspirantecCertReinc">Seleccionar archivo</label>
               </div>
             </div>

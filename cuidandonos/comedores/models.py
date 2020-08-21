@@ -13,7 +13,7 @@ class comedores (models.Model):
 
     nombreRes = models.CharField(max_length=60)
     apellidoRes = models.CharField(max_length=60)
-    dniRes = models.IntegerField()
+    dniRes = models.BigIntegerField()
     cuilRes = models.CharField(max_length=11)
     contactoRes = models.IntegerField()
     emailRes = models.EmailField()
@@ -120,7 +120,7 @@ class cuidadores (models.Model):
 
     nombre = models.CharField(max_length=80)
     apellido = models.CharField(max_length=80)
-    dni = models.IntegerField()
+    dni = models.BigIntegerField()
     cuil = models.CharField(max_length=11)
     lugarNac = models.CharField(max_length=80)
     fechaNac = models.DateField()

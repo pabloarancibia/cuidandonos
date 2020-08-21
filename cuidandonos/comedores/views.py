@@ -57,7 +57,9 @@ def formcomedores(request):
     return render(request,
                   'comedores/formcomedores.html',
                   {
-                      'cmform': cmform
+                      'form': cmform,
+                      'bnform': bnforms,
+                      'clform': clforms
                   })
 
 

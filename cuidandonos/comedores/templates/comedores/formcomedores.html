@@ -118,12 +118,55 @@
           <h5>(Todos los campos son obligatorios)</h5>
         </div>
 
+        {% if form.errors %}
+        {% for field in form %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger">
+
+          <strong>{{field.label}}: </strong>{{ error|escape }}
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+          <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        {% if bnform.errors %}
+        {% for field in bnform %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger">
+          <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% for error in bnform.non_field_errors %}
+        <div class="alert alert-danger">
+          <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        {% if clform.errors %}
+        {% for field in clform %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger">
+          <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% for error in clform.non_field_errors %}
+        <div class="alert alert-danger">
+          <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
         <form action="{% url 'formcomedores' %}" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
 
-          {% if form.errors %}
-          <p>{{ form.errors }}</p>
-          {% endif %}
+
 
           <hr />
           <h3 class="eskimo-title-with-border mb-3"><span>Selecciona la opción que corresponda de acuerdo al
@@ -135,7 +178,7 @@
             <div class="col-sm-10">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="srvComedor">Comedor Comunitario
+                  <input class="form-check-input" type="checkbox" name="srvComedor" checked>Comedor Comunitario
                 </label>
               </div>
             </div>
@@ -488,20 +531,7 @@
           <!-- FORM BENEFICIARIOS -->
           <!-- agregar cantidad de campos segun el input cantidad de beneficiarios -->
           <div id="divBeneficiarios">
-            <div>
-              <div class="form-group row">
-                <label for="inputNombreBenef[]" class="col-sm-6 col-form-label">Nombre y Apellido</label>
-                <label for="inputDniBenef[]" class="col-sm-6 col-form-label">DNI</label>
-                <div class="col-sm-6">
-                  <input type="text" name="0-inputNombreBenef" class="form-control" id="inputNombreBenef[]"
-                    placeholder="Nombre y Apellido">
-                </div>
-                <div class="col-sm-6">
-                  <input type="number" name="0-inputDniBenef" class="form-control" id="inputDniBenef[]"
-                    placeholder="DNI">
-                </div>
-              </div>
-            </div>
+
           </div>
 
 
@@ -737,7 +767,7 @@
               el
               comedor/merendero?</label>
             <div class="col-sm-1">
-              <input type="number" class="form-control" id="inputCantColab" name="cantColab" placeholder="1">
+              <input type="number" class="form-control" id="inputCantColab" name="cantColab" value="1">
             </div>
           </div>
           <a href="#" class="btn btn-primary" id="add_colab">Confirmar</a>
@@ -745,32 +775,7 @@
           <p>Datos Personales de cada colaborador y colaboradora</p>
 
           <div id="divColaboradores" class="mt-4">
-            <div>
-              <div class="form-group row">
-                <label for="inNomColab[]" class="col-sm-1 col-form-label">Nombre</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" id="inNomColab" placeholder="Nombre">
-                </div>
-                <!-- </div>
-              <div class="form-group row col-sm-8"> -->
-                <label for="inApColab" class="col-sm-1 col-form-label">Apellido</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" id="inApColab" placeholder="Apellido">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="inDniColab" class="col-sm-1 col-form-label">Dni</label>
-                <div class="col-sm-4">
-                  <input type="number" class="form-control" id="inDniColab" placeholder="Dni">
-                </div>
-                <!-- </div>
-              <div class="form-group row"> -->
-                <label for="inCuilColab" class="col-sm-1 col-form-label">Cuil</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" id="inCuilColab" placeholder="000000000000">
-                </div>
-              </div>
-            </div>
+
           </div>
 
           <div class="form-group row mt-5">
