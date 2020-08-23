@@ -14,7 +14,7 @@
 
   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
   <link href="{% static 'css/bootstrap-select.min.css' %}" rel="stylesheet" type="text/css">
-  <link href="{% static 'css/bootstrap-toggle.min.css' %}" rel="stylesheet" type="text/css">
+  <!-- <link href="{% static 'css/bootstrap-toggle.min.css' %}" rel="stylesheet" type="text/css"> -->
 
   <link href="{% static 'css/fontawesome.css' %}" rel="stylesheet" type="text/css">
   <link href="{% static 'css/slick.css' %}" rel="stylesheet" type="text/css">
@@ -132,36 +132,41 @@
           <div class="form-group row">
             <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Nombre" required>
+              <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Nombre"
+                value="{%if form.errors%}{{form.nombre.value}}{%endif%}" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputApellido" class="col-sm-2 col-form-label">Apellido</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputApellido" name="apellido" placeholder="Apellido"
-                required>
+              <input type="text" class="form-control" id="inputApellido" name="apellido"
+                value="{%if form.errors%}{{form.apellido.value}}{%endif%}" placeholder="Apellido" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputDni" class="col-sm-2 col-form-label">Dni</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" id="inputDni" name="dni" placeholder="Dni" required>
+              <input type="number" class="form-control" id="inputDni" name="dni"
+                value="{%if form.errors%}{{form.dni.value}}{%endif%}" placeholder="Dni" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputCuil" class="col-sm-2 col-form-label">Cuil</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" name="cuil" placeholder="000000000000" required>
+              <input type="number" class="form-control" name="cuil"
+                value="{%if form.errors%}{{form.cuil.value}}{%endif%}" placeholder="000000000000" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputLugar" class="col-sm-2 col-form-label">Lugar y Fecha de Nacimiento</label>
 
             <div class="col-sm-3">
-              <input type="text" class="form-control" id="inputLugar" name="lugarNac" placeholder="Lugar" required>
+              <input type="text" class="form-control" id="inputLugar" name="lugarNac"
+                value="{%if form.errors%}{{form.lugarNac.value}}{%endif%}" placeholder="Lugar" required>
             </div>
             <div class="col-3">
-              <input class="form-control" type="date" value="1980-01-19" name="fechaNac" id="input-date-input">
+              <input class="form-control" type="date" value="1980-01-19" name="fechaNac"
+                value="{%if form.errors%}{{form.fechaNac.value}}{%endif%}" id="input-date-input">
             </div>
           </div>
 
@@ -185,13 +190,14 @@
             <label for="inputDireccion" class="col-sm-2 col-form-label">Dirección</label>
             <div class="col-sm-6">
               <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Dirección"
-                required>
+                value="{%if form.errors%}{{form.direccion.value}}{%endif%}" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputBarrio" class="col-sm-2 col-form-label">Barrio</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputBarrio" name="barrio" placeholder="Barrio" required>
+              <input type="text" class="form-control" id="inputBarrio" name="barrio"
+                value="{%if form.errors%}{{form.inputBarrio.value}}{%endif%}" placeholder="Barrio" required>
             </div>
           </div>
 
@@ -210,14 +216,16 @@
           <div class="form-group row">
             <label for="inputCelular" class="col-sm-2 col-form-label">Celular</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" id="inputCelular" name="celular" placeholder="Celular" required>
+              <input type="number" class="form-control" id="inputCelular" name="celular"
+                value="{%if form.errors%}{{form.celular.value}}{%endif%}" placeholder="Celular" required>
             </div>
           </div>
 
           <div class="form-group row">
             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
-              <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" required>
+              <input type="email" class="form-control" id="inputEmail" name="email"
+                value="{%if form.errors%}{{form.email.value}}{%endif%}" placeholder="Email" required>
             </div>
           </div>
 
@@ -357,7 +365,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" name="trLunes" id="swLunes">
+                        <input type="checkbox" class="checksDias primary" name="trLunes" id="swLunes">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -389,7 +397,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" name="trMartes" id="swMartes">
+                        <input type="checkbox" class="checksDias primary" name="trMartes" id="swMartes">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -417,7 +425,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" name="trMierdoles" id="swMiercoles">
+                        <input type="checkbox" class="checksDias primary" name="trMierdoles" id="swMiercoles">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -444,7 +452,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" name="trJueves" id="swJueves">
+                        <input type="checkbox" class="checksDias primary" name="trJueves" id="swJueves">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -471,7 +479,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" name="trViernes" id="swViernes">
+                        <input type="checkbox" class="checksDias primary" name="trViernes" id="swViernes">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -498,7 +506,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" name="trSabado" id="swSabado">
+                        <input type="checkbox" class="checksDias primary" name="trSabado" id="swSabado">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -525,7 +533,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" name="trDomingo" id="swDomingo">
+                        <input type="checkbox" class="checksDias primary" name="trDomingo" id="swDomingo">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -550,12 +558,14 @@
               </tr>
             </tbody>
           </table>
+
           <hr />
 
           <div class="form-group">
             <label for="txtVolComentario">Contanos ¿Cómo te gustaría colaborar con nosotros?</label>
             <div class="col-8">
-              <textarea class="form-control" id="txtVolComentario" name="comentario" rows="5" required></textarea>
+              <textarea class="form-control" id="txtVolComentario" name="comentario"
+                value="{%if form.errors%}{{form.comentario.value}}{%endif%}" rows="5" required></textarea>
             </div>
           </div>
 

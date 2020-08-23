@@ -1,5 +1,7 @@
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
+from .validators import file_size
 
 # Create your models here.
 
@@ -14,13 +16,13 @@ class comedores (models.Model):
     nombreRes = models.CharField(max_length=60)
     apellidoRes = models.CharField(max_length=60)
     dniRes = models.BigIntegerField()
-    cuilRes = models.CharField(max_length=11)
-    contactoRes = models.IntegerField()
+    cuilRes = models.BigIntegerField(max_length=11)
+    contactoRes = models.BigIntegerField()
     emailRes = models.EmailField()
 
     perteneceOrg = models.CharField(max_length=2, default='no')
     personeria = models.CharField(max_length=60, blank=True, null=True)
-    cuitPersoneria = models.IntegerField(blank=True, null=True)
+    cuitPersoneria = models.BigIntegerField(blank=True, null=True)
 
     benefDS = models.CharField(max_length=2, default='no')
     tipoModulos = models.BooleanField(default=False)
@@ -45,9 +47,6 @@ class comedores (models.Model):
     grupoCalle = models.BooleanField(default=False)
     grupoDisc = models.BooleanField(default=False)
 
-    # aparte clase beneficiarios ya que es una relacion 1 comedor N beneficiarios
-    # en aquella deberá ir idComedor nombre apellido.
-
     trLunes = models.BooleanField(default=False)
     hrDesdeLun = models.TimeField()
     hrHastaLun = models.TimeField()
@@ -70,7 +69,9 @@ class comedores (models.Model):
     hrDesdeDom = models.TimeField()
     hrHastaDom = models.TimeField()
 
-    # colaboradores lo mismo que beneficiarios
+    dias = models.PositiveIntegerField(
+        default=0, validators=[MinValueValidator(2), MaxValueValidator(7)])
+
     cantColab = models.IntegerField()
 
     remuneracionDS = models.CharField(max_length=2, default='no')
@@ -100,7 +101,7 @@ class comedores (models.Model):
 class beneficiarios (models.Model):
     """ Beneficiarios de Comedores/Merenderos Model"""
     inputNombreBenef = models.CharField(max_length=100)
-    inputDniBenef = models.IntegerField()
+    inputDniBenef = models.BigIntegerField()
     comMerBenef = models.ForeignKey(
         comedores, on_delete=models.SET_NULL, null=True)
 
@@ -109,8 +110,8 @@ class colaboradores (models.Model):
     """ Colaboradores de Com/Mer Model"""
     nomCol = models.CharField(max_length=80)
     apCol = models.CharField(max_length=80)
-    dniCol = models.IntegerField()
-    cuilCol = models.CharField(max_length=11)
+    dniCol = models.BigIntegerField()
+    cuilCol = models.BigIntegerField()
     comMerCol = models.ForeignKey(
         comedores, on_delete=models.SET_NULL, null=True)
 
@@ -121,7 +122,7 @@ class cuidadores (models.Model):
     nombre = models.CharField(max_length=80)
     apellido = models.CharField(max_length=80)
     dni = models.BigIntegerField()
-    cuil = models.CharField(max_length=11)
+    cuil = models.BigIntegerField()
     lugarNac = models.CharField(max_length=80)
     fechaNac = models.DateField()
     genero = models.CharField(max_length=20)
@@ -129,14 +130,14 @@ class cuidadores (models.Model):
     barrio = models.CharField(max_length=80)
     localidad = models.CharField(max_length=80)
     provincia = models.CharField(max_length=80)
-    celular = models.IntegerField()
+    celular = models.BigIntegerField()
     email = models.EmailField()
     rdEstudioMax = models.CharField(max_length=80)
     titulo = models.CharField(max_length=80)
     institucion = models.CharField(max_length=80)
     rdGeriatria = models.CharField(max_length=80)
     archivoGeriatria = models.FileField(
-        upload_to='archivos/cuidadores', blank=True, null=True)
+        upload_to='archivos/cuidadores', blank=True, null=True, validators=[file_size])
     rdCapacita = models.CharField(max_length=80)
     rdLeyDH = models.CharField(max_length=80)
     rdCapEdSex = models.CharField(max_length=80)
@@ -152,19 +153,24 @@ class cuidadores (models.Model):
     contactoFamiliar = models.CharField(max_length=80, blank=True, null=True)
     rdCoopTr = models.CharField(max_length=80)
     nombreCoop = models.CharField(max_length=80, blank=True, null=True)
-    archivoDniAsp = models.FileField(upload_to='archivos/cuidadores')
-    archivoCertAsp = models.FileField(upload_to='archivos/cuidadores')
-    archivoCertDomAsp = models.FileField(upload_to='archivos/cuidadores')
-    arhivoCertPsfAsp = models.FileField(upload_to='archivos/cuidadores')
-    archivoCertReinc = models.FileField(upload_to='archivos/cuidadores')
+    archivoDniAsp = models.FileField(
+        upload_to='archivos/cuidadores', validators=[file_size])
+    archivoCertAsp = models.FileField(
+        upload_to='archivos/cuidadores', validators=[file_size])
+    archivoCertDomAsp = models.FileField(
+        upload_to='archivos/cuidadores', validators=[file_size])
+    arhivoCertPsfAsp = models.FileField(
+        upload_to='archivos/cuidadores', validators=[file_size])
+    archivoCertReinc = models.FileField(
+        upload_to='archivos/cuidadores', validators=[file_size])
 
 
 class voluntarios(models.Model):
     """ voluntarios model"""
     nombre = models.CharField(max_length=80)
     apellido = models.CharField(max_length=80)
-    dni = models.IntegerField()
-    cuil = models.CharField(max_length=11)
+    dni = models.BigIntegerField()
+    cuil = models.BigIntegerField()
     lugarNac = models.CharField(max_length=80)
     fechaNac = models.DateField()
     genero = models.CharField(max_length=20)
@@ -172,7 +178,7 @@ class voluntarios(models.Model):
     barrio = models.CharField(max_length=80)
     localidad = models.CharField(max_length=80)
     provincia = models.CharField(max_length=80)
-    celular = models.IntegerField()
+    celular = models.BigIntegerField()
     email = models.EmailField()
 
     rdEstudiante = models.CharField(max_length=2)

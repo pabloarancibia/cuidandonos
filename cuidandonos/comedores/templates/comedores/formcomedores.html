@@ -214,37 +214,43 @@
           <div class="form-group row">
             <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" name="nombreRes" placeholder="Nombre" required>
+              <input type="text" class="form-control" name="nombreRes"
+                value="{%if form.errors%}{{form.nombreRes.value}}{%endif%}" placeholder="Nombre" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputApellido" class="col-sm-2 col-form-label">Apellido</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" name="apellidoRes" placeholder="Apellido" required>
+              <input type="text" class="form-control" name="apellidoRes"
+                value="{%if form.errors%}{{form.apellidoRes.value}}{%endif%}" placeholder="Apellido" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputDni" class="col-sm-2 col-form-label">Dni</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" name="dniRes" placeholder="Dni" required>
+              <input type="number" class="form-control" name="dniRes"
+                value="{%if form.errors%}{{form.dniRes.value}}{%endif%}" placeholder="Dni" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputCuil" class="col-sm-2 col-form-label">Cuil</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" name="cuilRes" placeholder="000000000000" required>
+              <input type="number" class="form-control" name="cuilRes"
+                value="{%if form.errors%}{{form.cuilRes.value}}{%endif%}" placeholder="000000000000" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputNumCont" class="col-sm-2 col-form-label">Número de Contacto</label>
             <div class="col-sm-6">
-              <input type="number" class="form-control" name="contactoRes" placeholder="Número de Contacto" required>
+              <input type="number" class="form-control" name="contactoRes"
+                value="{%if form.errors%}{{form.contactoRes.value}}{%endif%}" placeholder="Número de Contacto" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
-              <input type="email" class="form-control" name="emailRes" placeholder="Email" required>
+              <input type="email" class="form-control" name="emailRes"
+                value="{%if form.errors%}{{form.emailRes.value}}{%endif%}" placeholder="Email" required>
             </div>
           </div>
 
@@ -394,28 +400,30 @@
           <div class="form-group row">
             <label for="inputCalle" class="col-sm-2 col-form-label">Calle</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputCalle" name="calleCM" placeholder="Calle" required>
+              <input type="text" class="form-control" id="inputCalle" name="calleCM"
+                value="{%if form.errors%}{{form.calleCM.value}}{%endif%}" placeholder="Calle" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputNumCalle" class="col-sm-2 col-form-label">Número</label>
             <div class="col-sm-2">
-              <input type="number" class="form-control" id="inputNumCalle" name="numeroCM" placeholder="Número"
-                required>
+              <input type="number" class="form-control" id="inputNumCalle" name="numeroCM"
+                value="{%if form.errors%}{{form.numeroCM.value}}{%endif%}" placeholder="Número" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputManzana" class="col-sm-2 col-form-label">Manzana - Parcela</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputManzana" name="manzanaCM" placeholder="Manzana - Parcela"
-                required>
+              <input type="text" class="form-control" id="inputManzana" name="manzanaCM"
+                value="{%if form.errors%}{{form.manzanaCM.value}}{%endif%}" placeholder="Manzana - Parcela" required>
             </div>
           </div>
 
           <div class="form-group row">
             <label for="inputBarrio" class="col-sm-2 col-form-label">Barrio</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputBarrio" name="barrioCM" placeholder="Barrio" required>
+              <input type="text" class="form-control" id="inputBarrio" name="barrioCM"
+                value="{%if form.errors%}{{form.barrioCM.value}}{%endif%}" placeholder="Barrio" required>
             </div>
           </div>
 
@@ -441,14 +449,16 @@
           </div>
 
           <div class="form-group row">
-            <label for="inputCantAsistentes" class="col-4 col-form-label font-weight-bold">Cantidad de personas que
-              asisten</label>
+            <label for="inputCantAsistentes" class="col-5 col-form-label font-weight-bold">Cantidad de personas que
+              asisten (mínimo 25): </label>
             <div class="col-1">
-              <input class="form-control" type="number" value="25" min="25" id="inputCantAsistentes" name="cantBenef">
+              <input class="form-control" type="number" value="0" min="25" id="inputCantAsistentes" name="cantBenef">
+
             </div>
+            <a href="#" class="btn btn-primary" id="add_field">Confirmar </a>
           </div>
           <div class="mt-4 mb-4">
-            <a href="#" class="btn btn-primary" id="add_field">Confirmar</a>
+
           </div>
 
           <p>Grupos etarios que asisten(tildar lo que corresponda)</p>
@@ -561,7 +571,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swLunes" name="trLunes">
+                        <input type="checkbox" class="checksDias primary" id="swLunes" name="trLunes">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -593,7 +603,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swMartes" name="trMartes">
+                        <input type="checkbox" class="checksDias primary" id="swMartes" name="trMartes">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -621,7 +631,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swMiercoles" name="trMierdoles">
+                        <input type="checkbox" class="checksDias primary" id="swMiercoles" name="trMierdoles">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -648,7 +658,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swJueves" name="trJueves">
+                        <input type="checkbox" class="checksDias primary" id="swJueves" name="trJueves">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -675,7 +685,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swViernes" name="trViernes">
+                        <input type="checkbox" class="checksDias primary" id="swViernes" name="trViernes">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -702,7 +712,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swSabado"
+                        <input type="checkbox" class="checksDias primary" id="swSabado"
                           name="trSabado = models.BooleanField(default=False)">
                         <span class="slider round"></span>
                       </label>
@@ -731,7 +741,7 @@
                   <div class="form-group row">
                     <div class="col-sm-6 pr-1">
                       <label class="switch ">
-                        <input type="checkbox" class="primary" id="swDomingo" name="trDomingo">
+                        <input type="checkbox" class="checksDias primary" id="swDomingo" name="trDomingo">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -757,6 +767,8 @@
               </tr>
             </tbody>
           </table>
+
+          <input type="number" name="dias" id="dias" value="0" style="display: none;">
 
           <hr />
           <h3 class="eskimo-title-with-border mt-4"><span>Colaboradores:</span></h3>

@@ -13,7 +13,7 @@ $('#add_field').click(function (e) {
                                         <label for="inputDniBenef" class="col-sm-6 col-form-label">DNI</label>\
                                         <div class="col-sm-6">\
                                                 <input type="text" name="'+ cant + '-inputNombreBenef" class="form-control" id="inputNombreBenef"\
-                                        placeholder="Nombre y Apellido" required>\
+                                                placeholder="Nombre y Apellido" required>\
                                         </div>\
                                         <div class="col-sm-6">\
                                                 <input type="number" name="'+ cant + '-inputDniBenef" class="form-control" id="inputDniBenef"\
@@ -52,7 +52,7 @@ $('#add_colab').click(function (e) {
                             </div>\
                             <label for="inCuilColab" class="col-sm-1 col-form-label">Cuil</label>\
                             <div class="col-sm-4">\
-                            <input type="text" class="form-control" name="'+ cant + '-cuilCol" id="inCuilColab" placeholder="000000000000" required>\
+                            <input type="number" class="form-control" name="'+ cant + '-cuilCol" id="inCuilColab" placeholder="000000000000" required>\
                             </div>\
                         </div>\
                 </div>\
@@ -60,10 +60,39 @@ $('#add_colab').click(function (e) {
 
         }
 });
-
+document.getElementById('fileAspiranteDni').onchange = function () {
+        console.log(this.value);
+        document.getElementById('fileDni').innerHTML = document.getElementById('fileAspiranteDni').files[0].name;
+}
+document.getElementById('fileAspiranteCertCuidador').onchange = function () {
+        console.log(this.value);
+        document.getElementById('fileCert').innerHTML = document.getElementById('fileAspiranteCertCuidador').files[0].name;
+}
+document.getElementById('fileAspiranteCertDom').onchange = function () {
+        console.log(this.value);
+        document.getElementById('fileCertDom').innerHTML = document.getElementById('fileAspiranteCertDom').files[0].name;
+}
+document.getElementById('fileAspirantecCertPsf').onchange = function () {
+        console.log(this.value);
+        document.getElementById('lblfileCertPsf').innerHTML = document.getElementById('fileAspirantecCertPsf').files[0].name;
+}
+document.getElementById('fileAspirantecCertReinc').onchange = function () {
+        console.log(this.value);
+        document.getElementById('lblfileCertReinc').innerHTML = document.getElementById('fileAspirantecCertReinc').files[0].name;
+}
 
 // mostrar/ocultar 
 $(document).ready(function () {
+        $('.checksDias').on('click', function () {
+                if ($(this).is(':checked')) {
+                        $("#dias").val(parseInt($('#dias').val()) + 1);
+                } else {
+                        // Hacer algo si el checkbox ha sido deseleccionado
+                        $("#dias").val(parseInt($('#dias').val()) - 1);
+                }
+        });
+
+
         $(".rdPersJur").click(function (evento) {
 
                 var valor = $(this).val();
