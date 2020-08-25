@@ -10,11 +10,12 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <!-- CSS FILES -->
-    <link href="css/styleCustom.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/fontawesome.css" rel="stylesheet" type="text/css">
-    <link href="css/slick.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    {% load static %}
+    <link href="{% static 'css/styleCustom.css'%}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/bootstrap.min'%}.css" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/fontawesome.css'%}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/slick.css'%}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -33,8 +34,8 @@
             <nav class="navbar navbar-custom navbar-expand-lg navbar-light bg-light">
                 <!-- <nav class="navbar navbar-light navbar-expand-md"> -->
                 <div class="container">
-                    <a class="eskimo-logo-link col-3" href="index.html">
-                        <img src="images/logo_gobierno2020.png" class="eskimo-logo" alt="eskimo" />
+                    <a class="eskimo-logo-link col-3" href="#">
+                        <img src="{% static 'images/logo_gobierno2020.png'%}" class="eskimo-logo" alt="eskimo" />
                     </a>
                     <!-- <a class="navbar-brand" href="#">LOGO</a> -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -50,36 +51,41 @@
                                         class="sr-only">(current)</span></a>
                             </li>
                             <!-- <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li> -->
+                                                <a class="nav-link" href="#">Link</a>
+                                            </li> -->
                             <li class="nav-item dropdown ">
                                 <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     REGISTRAR
                                 </a>
                                 <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item text-white" href="infocomedores.html">Comedores y
+                                    <a class="dropdown-item text-white  bg-primary"
+                                        href="{% url "infocomedores" %}">Comedores y
                                         Merenderos</a>
-                                    <a class="dropdown-item text-white" href="#">Cuidadores Domiciliarios</a>
-                                    <!-- <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Something else here</a> -->
+                                    <a class="dropdown-item text-white  bg-primary"
+                                        href="{% url "infocuidadores" %}">Cuidadores
+                                        Domiciliarios</a>
+                                    <a class="dropdown-item text-white  bg-primary"
+                                        href="{% url "infovoluntarios" %}">Voluntarios
+                                        Sociales</a>
+
                                 </div>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link text-white" href="#">MAPA <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link text-white" href="#">INFORMACIÓN<span
+                                <a class="nav-link text-white" href="{% url "contactos" %}">INFORMACIÓN<span
                                         class="sr-only">(current)</span></a>
                             </li>
                             <!-- <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Disabled</a>
-                            </li> -->
+                                                <a class="nav-link disabled" href="#">Disabled</a>
+                                            </li> -->
                         </ul>
                         <!-- <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form> -->
+                                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                        </form> -->
                     </div>
                 </div>
             </nav>
@@ -112,7 +118,7 @@
                                             Drink</span></a></li>
                             </ul>
                             <div class="clearfix"></div> -->
-                            <img src="images/banner_principal.jpg" alt="Ketchup Flavored Ice Cream!" />
+                            <img src="{% static 'images/banner1.jpg'%}" alt="comedores merenderos" />
                             <!-- <div class="eskimo-slider-desc">
                                 <div class="eskimo-slider-desc-inner">
                                     <h2 class="card-title">Ketchup Flavored Ice Cream!</h2>
@@ -124,16 +130,16 @@
                             </div> -->
                         </div>
                         <!-- SLIDE 2 -->
-                        <!-- <div>
-                            <a class="eskimo-slider-img" href="single-post.html"></a>
+                        <div>
+                            <!-- <a class="eskimo-slider-img" href="single-post.html"></a>
                             <ul class="eskimo-slider-image-meta eskimo-image-meta-post">
                                 <li><a href="single-post.html"><span class="badge badge-default">May 27, 2018</span></a>
                                 </li>
                                 <li><a href="category.html"><span class="badge badge-default">Lifestyle</span></a></li>
                             </ul>
-                            <div class="clearfix"></div>
-                            <img src="images/1200x600.png" alt="Hair You've Always Dreamed Of" />
-                            <div class="eskimo-slider-desc">
+                            <div class="clearfix"></div> -->
+                            <img src="{% static 'images/banner2.jpg'%}" alt="Hair You've Always Dreamed Of" />
+                            <!-- <div class="eskimo-slider-desc">
                                 <div class="eskimo-slider-desc-inner">
                                     <h2 class="card-title">Hair You've Always Dreamed Of</h2>
                                     <p>Ex si esse deserunt, et dolore occaecat, singulis tamen e possumus voluptatibus,
@@ -141,8 +147,8 @@
                                         irure. Ubi illum nostrud fidelissimae id occaecat duis probant. Occaecat hic
                                         quorum aliquip se</p>
                                 </div>
-                            </div>
-                        </div> -->
+                            </div> -->
+                        </div>
                         <!-- SLIDE 3 -->
                         <!-- <div>
                             <a class="eskimo-slider-img" href="single-post.html"></a>
@@ -365,13 +371,13 @@
     <a id="eskimo-gototop" href="#"><i class="fa fa-chevron-up"></i></a>
 
     <!-- JS FILES -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/salvattore.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/panel.js"></script>
-    <script src="js/reading-position-indicator.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/salvattore.min.js'%}"></script>
+    <script src="{% static 'js/slick.min.js'%}"></script>
+    <script src="{% static 'js/panel.js'%}"></script>
+    <script src="{% static 'js/reading-position-indicator.js'%}"></script>
+    <script src="{% static 'js/custom.js'%}"></script>
     <!-- POST SLIDER -->
     <script>
         (function ($) {

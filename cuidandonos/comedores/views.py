@@ -97,3 +97,11 @@ def formvoluntarios(request):
         form = voluntariosForm()
         # print("else view")
     return render(request, 'voluntariado/formvoluntarios.html', {'form': form})
+
+
+def contactos(request):
+    return render(request, 'informacion/contactos.html')
+
+
+def inicio(request):
+    return render(request, 'index.html')

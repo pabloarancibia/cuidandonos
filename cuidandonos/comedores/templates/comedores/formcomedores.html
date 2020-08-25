@@ -73,7 +73,8 @@
                 <a class="nav-link text-white" href="#">MAPA <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link text-white" href="#">INFORMACIÓN<span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="{% url "contactos" %}">INFORMACIÓN<span
+                    class="sr-only">(current)</span></a>
               </li>
               <!-- <li class="nav-item">
                                   <a class="nav-link disabled" href="#">Disabled</a>
@@ -1118,9 +1119,12 @@
           <div class="row">
             <div class="col-sm-4">
               <div class="card bg-dark text-white">
-                <img class="card-img-top" src="{% static 'images/SEPS.png' %}" alt="Card image cap">
+                <img class="card-img-top" src="{% static 'images/EPS.png' %}" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title text-white">Subsecretaría de Economía y Políticas Sociales </h5>
+                  <p class="card-text">
+                    <a href="{% url "contactos" %}">Información de contacto</a>
+                  </p>
+                  <!-- <h5 class="card-title text-white">Subsecretaría de Economía y Políticas Sociales </h5>
                   <p class="card-text">Dirección: Avenida Juan Manuel Belgrano 550</br>
                     Correo: <a href="mailto:sub.economiaypolsoc@chaco.gob.ar">sub.economiaypolsoc@chaco.gob.ar</a>
                     </br>
@@ -1135,7 +1139,7 @@
                     <br />
                     <a href="mailto:politicasinclusivas@chaco.gob.ar">politicasinclusivas@chaco.gob.ar</a>
                     <br />
-                    Facebook/Instagram: @juventudeschaco</p>
+                    Facebook/Instagram: @juventudeschaco</p> -->
 
                 </div>
               </div>
@@ -1144,23 +1148,30 @@
               <div class="card bg-dark text-white">
                 <img class="card-img-top" src="{% static 'images/UPSN.png' %}" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title text-white">Unidad Provincial de Seguimiento
+                  <p class="card-text">
+                    <a href="{% url "contactos" %}">Información de contacto</a>
+                  </p>
+                  <!-- <h5 class="card-title text-white">Unidad Provincial de Seguimiento
                     Nutricional</h5>
                   <p class="card-text">Dirección: Posadas 725</br>
                     Teléfono: 3624873827</br>
                     Correo: <a href="mailto:upsn.chaco@chaco.gov.ar">upsn.chaco@chaco.gov.ar</a>
                     </br>
-                  </p>
+                  </p> -->
 
                 </div>
               </div>
             </div>
             <div class="col-sm-4">
-              <div class="card">
+              <div class="card bg-dark text-white">
                 <img class="card-img-top" src="{% static 'images/MDS.png' %}" alt="Card image cap">
 
                 <div class="card-body bg-dark text-white">
-                  <h5 class="card-title text-white">Ministerio de Desarrollo Social de
+                  <p class="card-text">
+                    <a href="{% url "contactos" %}">Información de contacto</a>
+
+                  </p>
+                  <!-- <h5 class="card-title text-white">Ministerio de Desarrollo Social de
                     la Provincia del
                     Chaco</h5>
                   <p class="card-text">Dirección: Avenida 25 de Mayo 855</br>
@@ -1168,7 +1179,7 @@
                     Correo: <a target="_blank"
                       href="mailto:desarrollosocial@chaco.gob.ar">desarrollosocial@chaco.gob.ar</a>
                     </br>
-                  </p>
+                  </p> -->
                 </div>
               </div>
             </div>

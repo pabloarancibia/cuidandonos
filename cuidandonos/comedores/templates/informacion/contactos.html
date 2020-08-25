@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Voluntariado Social</title>
+    <!-- META TAGS -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- CSS FILES -->
+    {% load static %}
+    <link href="{% static 'css/styleCustom.css'%}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/bootstrap.min'%}.css" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/fontawesome.css'%}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/slick.css'%}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- READING POSITION INDICATOR -->
+    <progress value="0" id="eskimo-progress-bar">
+        <span class="eskimo-progress-container">
+            <span class="eskimo-progress-bar"></span>
+        </span>
+    </progress>
+    <!-- SITE WRAPPER -->
+    <div id="eskimo-site-wrapper">
+        <!-- MAIN CONTAINER -->
+        <main id="eskimo-main-container">
+            <!-- NAVBAR HORIZONTAL -->
+            <!-- <ul class="nav justify-content-center"> -->
+            <nav class="navbar navbar-custom navbar-expand-lg navbar-light bg-light">
+                <!-- <nav class="navbar navbar-light navbar-expand-md"> -->
+                <div class="container">
+                    <a class="eskimo-logo-link col-3" href="#">
+                        <img src="{% static 'images/logo_gobierno2020.png'%}" class="eskimo-logo" alt="eskimo" />
+                    </a>
+                    <!-- <a class="navbar-brand" href="#">LOGO</a> -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link text-light" href="#">INICIO <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                            <a class="nav-link" href="#">Link</a>
+                                        </li> -->
+                            <li class="nav-item dropdown ">
+                                <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    REGISTRAR
+                                </a>
+                                <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item text-white  bg-primary"
+                                        href="{% url "infocomedores" %}">Comedores y
+                                        Merenderos</a>
+                                    <a class="dropdown-item text-white  bg-primary"
+                                        href="{% url "infocuidadores" %}">Cuidadores
+                                        Domiciliarios</a>
+                                    <a class="dropdown-item text-white  bg-primary"
+                                        href="{% url "infovoluntarios" %}">Voluntarios
+                                        Sociales</a>
+
+                                </div>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link text-white" href="#">MAPA <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link text-white" href="{% url "contactos" %}">INFORMACIÓN<span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                            <a class="nav-link disabled" href="#">Disabled</a>
+                                        </li> -->
+                        </ul>
+                        <!-- <form class="form-inline my-2 my-lg-0">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                    </form> -->
+                    </div>
+                </div>
+            </nav>
+            </ul>
+            <!-- FIN NAVBAR HORIZONTAL -->
+            <div class="container">
+                <div class="clearfix"></div>
+                <!-- TABS -->
+                <div class="eskimo-widget-title mt-5 mb-4">
+                    <h2 class="eskimo-title-with-border"><span>COMEDORES Y MERENDEROS:</span></h2>
+                </div>
+                <div id="seps">
+                    <h5 class="">Subsecretaría de Economía y Políticas Sociales </h5>
+                    <p class="">
+                        <b>Dirección:</b> Avenida Juan Manuel Belgrano 550</br>
+                        <b>Correos:</b> <a
+                            href="mailto:sub.economiaypolsoc@chaco.gob.ar">sub.economiaypolsoc@chaco.gob.ar</a>
+                        </br>
+                        <a href="mailto:politicasinclusivas@chaco.gob.ar">politicasinclusivas@chaco.gob.ar</a>
+                        </br>
+                        <b>Celular:</b> 362 4024802</br>
+                        <li><b>Área Social:</b> 362 4337760</li></br>
+                        <li><b>Módulos alimentarios:</b> 362 4665789/ 362 4337878</li></br>
+                        <li><b>Merenderos:</b> 362 4247361 / 362 4905282</li></br>
+                        <b>Correos área merenderos:</b> <a
+                            href="mailto:nathaliapasmanter@chaco.gob.ar">nathaliapasmanter@chaco.gob.ar</a>
+                        <br />
+                        <a href="mailto:politicasinclusivas@chaco.gob.ar">politicasinclusivas@chaco.gob.ar</a>
+                        <br />
+                        <b>Facebook/Instagram:</b> @juventudeschaco
+                    </p>
+                </div>
+
+                <div id="upsn">
+                    <h5 class="">Unidad Provincial de Seguimiento
+                        Nutricional</h5>
+                    <p class="">
+                        <b>Dirección:</b> Posadas 725</br>
+                        <b>Teléfono:</b> 3624873827</br>
+                        <b>Correo:</b> <a href="mailto:upsn.chaco@chaco.gov.ar">upsn.chaco@chaco.gov.ar</a>
+                        </br>
+                    </p>
+                </div>
+
+                <div class="eskimo-widget-title mt-5 mb-4">
+                    <h2 class="eskimo-title-with-border"><span>CUIDADORES DOMICILIARIOS:</span></h2>
+                </div>
+
+                <div id="spam">
+                    <h5 class="">Subsecretaría de Personas Adultas Mayores</h5>
+                    <p class="">
+                        <b>Dirección:</b> Julio A. Roca 880</br>
+                        <b>Teléfono:</b> 3625191003</br>
+                        <b>Correo:</b> <a
+                            href="mailto:sub.personasadultas@chaco.gob.ar">sub.personasadultas@chaco.gob.ar</a>
+                        </br></p>
+                </div>
+
+                <div class="eskimo-widget-title mt-5 mb-4">
+                    <h2 class="eskimo-title-with-border"><span>VOLUNTARIADO SOCIAL:</span></h2>
+                </div>
+
+                <div id="sjd">
+                    <h5 class="">Subsecretaría de Juventudes y Diversidades</h5>
+                    <p class=""><b>Dirección:</b> Salta 63</br>
+                        <b>Celular:</b> 3624658825 <br />
+                        <b>Teléfono:</b> 3624453188 <br />
+                        <b>Correo:</b> <a target="_blank"
+                            href="mailto:sub.juventud@chaco.gov.ar">sub.juventud@chaco.gov.ar</a>
+                        </br>
+                        <b>Facebook/Instagram:</b> @juventudeschaco</p>
+                </div>
+                <div id="spc">
+                    <h5>Subsecretaría de Participación Ciudadana </h5>
+                    <p><b>Dirección:</b> Formosa 634 <br />
+                        <b>Celular:</b> 3625270273<br />
+                        <b>Teléfono:</b> 3624762741<br />
+
+                        <b>Correo:</b> <a
+                            href="mailto:sub.participacion@chaco.gob.ar">sub.participacion@chaco.gob.ar</a>
+                        </br>
+                        <b>Facebook:</b> Subsecretaría de Participación Ciudadana</br>
+                        <b>Instagram :</b> @participacion_ciudadana2020
+                    </p>
+                </div>
+                <div id="mds">
+                    <div class="eskimo-widget-title mt-5 mb-4">
+                        <h2 class="eskimo-title-with-border"><span>MINISTERIO DE DESARROLLO SOCIAL DE LA PROVINCIA DEL
+                                CHACO</span></h2>
+                    </div>
+
+                    <p><b>Dirección:</b> Avenida 25 de Mayo 855</br>
+                        <b>Líneas rotativas:</b> (0362)4452620 / 4452621 / 4433005 / 4452986 / 4437456 /
+                        4428319</br>
+                        <b>Correo:</b> <a target="_blank"
+                            href="mailto:desarrollosocial@chaco.gob.ar">desarrollosocial@chaco.gob.ar</a>
+                        </br>
+                    </p>
+                </div>
+
+
+                <hr />
+            </div>
+        </main>
+        <!-- FOOTER -->
+        <footer id="eskimo-footer" class="bg-dark text-white">
+            <div class="container">
+                <div class="row eskimo-footer-wrapper">
+                    <div class="row">
+
+                        <div class="col-sm-4">
+                            <div class="card bg-dark text-white">
+                                <img class="card-img-top" src="{% static 'images/MDS.png' %}" alt="Card image cap">
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- GO TO TOP BUTTON -->
+    <a id="eskimo-gototop" href="#"><i class="fa fa-chevron-up"></i></a>
+    <!-- JS FILES -->
+    <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/salvattore.min.js'%}"></script>
+    <script src="{% static 'js/slick.min.js'%}"></script>
+    <script src="{% static 'js/panel.js'%}"></script>
+    <script src="{% static 'js/reading-position-indicator.js'%}"></script>
+    <script src="{% static 'js/custom.js'%}"></script>
+    <!-- POST SLIDER -->
+    <script>
+        (function ($) {
+            "use strict";
+            $(document).ready(function () {
+                $('#eskimo-post-slider').slick({
+                    autoplay: true,
+                    autoplaySpeed: 5000,
+                    slidesToScroll: 1,
+                    adaptiveHeight: true,
+                    slidesToShow: 1,
+                    arrows: true,
+                    dots: false,
+                    fade: true
+                });
+            });
+            $(window).on('load', function () {
+                $('#eskimo-post-slider').css('opacity', '1');
+                $('#eskimo-post-slider').parent().removeClass('eskimo-bg-loader');
+            });
+        })(jQuery);
+    </script>
+    <!-- POST CAROUSEL -->
+    <script>
+        (function ($) {
+            "use strict";
+            $(document).ready(function () {
+                $('#eskimo-post-carousel').slick({
+                    infinite: false,
+                    slidesToScroll: 1,
+                    arrows: true,
+                    dots: false,
+                    slidesToShow: 3,
+                    responsive: [{
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    }, {
+                        breakpoint: 576,
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    }]
+
+                });
+                $('#eskimo-post-carousel').css('opacity', '1');
+            });
+        })(jQuery);
+    </script>
+</body>
+
+</html>

@@ -21,6 +21,7 @@ from comedores import views
 
 
 urlpatterns = [
+    path('inicio/', views.inicio, name="inicio"),
     path('admin/', admin.site.urls),
     path('comedores/infocomedores/',
          views.infocomedores, name='infocomedores'),
@@ -34,6 +35,8 @@ urlpatterns = [
          views.infovoluntarios, name='infovoluntarios'),
     path('voluntariado/formvoluntarios/',
          views.formvoluntarios, name='formvoluntarios'),
+    path('informacion/contactos/',
+         views.contactos, name='contactos'),
 
 
 
