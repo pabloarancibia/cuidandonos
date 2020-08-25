@@ -1,208 +1,124 @@
-<!DOCTYPE html>
-<html lang="en-US">
+{% extends "base.html" %}
+{%block head_content%}
+<title>Comedores y Merenderos</title>
+{%endblock%}
 
-<head>
-    <title>Comedores y Merenderos</title>
-    <!-- META TAGS -->
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <!-- CSS FILES -->
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styleCustom.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-</head>
+{%block container%}
+<div class="clearfix"></div>
+<!-- TABS -->
+<h2 class="mt-5">COMEDORES Y MERENDEROS</h2>
+<!-- ACCORDION -->
+<div id="mp-accordion-1" data-children=".mp-accordion-item" class="mp-accordion">
+    <!-- ACCORDION ITEM 1 -->
+    <div class="mp-accordion-item">
+        <a class="mp-accordion-title" data-toggle="collapse" data-parent="#mp-accordion-1" href="#mp-accordion-item-1"
+            aria-expanded="false" aria-controls="mp-accordion-item-1">¿A qué
+            apunta el registro a Comedores y Merenderos comunitarios?</a>
+        <div id="mp-accordion-item-1" class="collapse show" role="tabpanel">
+            <div class="mp-accordion-content">
+                <li>Implementar una plataforma digital para relevar comedores y merenderos comunitarios
+                    en
+                    funcionamiento.</li>
+                <li>Georeferenciar los espacios físicos donde funcionan, promoviendo una red solidaria
+                    comunitaria con los distintos efectores sociales, deportivos, culturales y
+                    religiosos.</li>
+                <li>Capacitar de forma gratuita y periódica a la persona responsable del comedor y/o
+                    merendero comunitario, brindándole asesoramiento técnico y nutricional.</li>
+                <li>Construir información confiable para la implementación de políticas públicas, que
+                    puedan
+                    garantizar la Seguridad y Soberanía alimentaria de toda la población.</li>
+                <li>Reconocer y visibilizar el trabajo que realizan organizaciones sociales y miembros
+                    activos de la comunidad. </li>
+                <li>Acompañar la labor social y humanitaria para fortalecer las iniciativas de estos
+                    dispositivos comunitarios. </li>
 
-<body>
-    <!-- READING POSITION INDICATOR -->
-    <progress value="0" id="eskimo-progress-bar">
-        <span class="eskimo-progress-container">
-            <span class="eskimo-progress-bar"></span>
-        </span>
-    </progress>
-    <!-- SITE WRAPPER -->
-    <div id="eskimo-site-wrapper">
-        <!-- MAIN CONTAINER -->
-        <main id="eskimo-main-container">
-            <!-- NAVBAR HORIZONTAL -->
-            <!-- <ul class="nav justify-content-center"> -->
-            <nav class="navbar navbar-custom navbar-expand-lg navbar-light bg-light">
-                <!-- <nav class="navbar navbar-light navbar-expand-md"> -->
-                <div class="container">
-                    <a class="eskimo-logo-link col-3" href="#">
-                        <img src="{% static 'images/logo_gobierno2020.png'%}" class="eskimo-logo" alt="eskimo" />
-                    </a>
-                    <!-- <a class="navbar-brand" href="#">LOGO</a> -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link text-light" href="#">INICIO <span
-                                        class="sr-only">(current)</span></a>
-                            </li>
-                            <!-- <li class="nav-item">
-                                            <a class="nav-link" href="#">Link</a>
-                                        </li> -->
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    REGISTRAR
-                                </a>
-                                <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item text-white  bg-primary"
-                                        href="{% url "infocomedores" %}">Comedores y
-                                        Merenderos</a>
-                                    <a class="dropdown-item text-white  bg-primary"
-                                        href="{% url "infocuidadores" %}">Cuidadores
-                                        Domiciliarios</a>
-                                    <a class="dropdown-item text-white  bg-primary"
-                                        href="{% url "infovoluntarios" %}">Voluntarios
-                                        Sociales</a>
-
-                                </div>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link text-white" href="#">MAPA <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link text-white" href="{% url "contactos" %}">INFORMACIÓN<span
-                                        class="sr-only">(current)</span></a>
-                            </li>
-                            <!-- <li class="nav-item">
-                                            <a class="nav-link disabled" href="#">Disabled</a>
-                                        </li> -->
-                        </ul>
-                        <!-- <form class="form-inline my-2 my-lg-0">
-                                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                                    </form> -->
-                    </div>
-                </div>
-            </nav>
-            </ul>
-            <!-- FIN NAVBAR HORIZONTAL -->
-            <div class="container">
-                <div class="clearfix"></div>
-                <!-- TABS -->
-                <h2 class="mt-5">COMEDORES Y MERENDEROS</h2>
-                <!-- ACCORDION -->
-                <div id="mp-accordion-1" data-children=".mp-accordion-item" class="mp-accordion">
-                    <!-- ACCORDION ITEM 1 -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title" data-toggle="collapse" data-parent="#mp-accordion-1"
-                            href="#mp-accordion-item-1" aria-expanded="false" aria-controls="mp-accordion-item-1">¿A qué
-                            apunta el registro a Comedores y Merenderos comunitarios?</a>
-                        <div id="mp-accordion-item-1" class="collapse show" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                <li>Implementar una plataforma digital para relevar comedores y merenderos comunitarios
-                                    en
-                                    funcionamiento.</li>
-                                <li>Georeferenciar los espacios físicos donde funcionan, promoviendo una red solidaria
-                                    comunitaria con los distintos efectores sociales, deportivos, culturales y
-                                    religiosos.</li>
-                                <li>Capacitar de forma gratuita y periódica a la persona responsable del comedor y/o
-                                    merendero comunitario, brindándole asesoramiento técnico y nutricional.</li>
-                                <li>Construir información confiable para la implementación de políticas públicas, que
-                                    puedan
-                                    garantizar la Seguridad y Soberanía alimentaria de toda la población.</li>
-                                <li>Reconocer y visibilizar el trabajo que realizan organizaciones sociales y miembros
-                                    activos de la comunidad. </li>
-                                <li>Acompañar la labor social y humanitaria para fortalecer las iniciativas de estos
-                                    dispositivos comunitarios. </li>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ACCORDION ITEM 2 -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
-                            href="#mp-accordion-item-2" aria-expanded="false"
-                            aria-controls="mp-accordion-item-2">¿Quiénes pueden registrarse? </a>
-                        <div id="mp-accordion-item-2" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                Todas aquellas organizaciones sociales o miembros activos de la comunidad que brinden
-                                servicio de comedores y/o merenderos comunitarios en diferentes barrios o localidades,
-                                que beneficien a más de veinticinco (25) personas, brinden servicio al menos dos veces
-                                por semana a la comunidad y que su trayectoria no sea menor a tres meses.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ACCORDION ITEM 3 -->
-                    <div class="mp-accordion-item">
-                        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
-                            href="#mp-accordion-item-3" aria-expanded="false" aria-controls="mp-accordion-item-3">¿Qué
-                            necesitas para registrarte?</a>
-                        <div id="mp-accordion-item-3" class="collapse" role="tabpanel">
-                            <div class="mp-accordion-content">
-                                Tener a mano el Padrón de beneficiarios y documentación de los trabajadores que
-                                desempeñan su labor en el comedor o merendero.
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- DIVIDER -->
-                <hr />
-                <div class="alert alert-success" role="alert">
-                    <h4 class="alert-heading">Vigencia</h4>
-                    <p>El registro es totalmente gratuito y tendrá vigencia de un año, una vez realizada la
-                        inscripción.</p>
-                    <!-- <hr> -->
-                    <!-- <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
-                </div>
-                <!-- <p class="h2 mt-5"></p> -->
-                <!-- DIVIDER -->
-                <hr />
-                <div class="card text-center mt-5">
-                    <div class="card-header">
-                        <h3>REGISTRO</h3>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Formulario de registro para comedores y merenderos comunitarios</h5>
-                        <p class="card-text">INGRESÁ AL SIGUIENTE LINK PARA REGISTRARTE</p>
-                        <a href="{%url "formcomedores"%}" class="btn btn-primary mt-3">Ir al Formulario</a>
-                    </div>
-                    <div class="card-footer text-muted"></div>
-                </div>
-                <hr />
-                <div class="eskimo-widget-title mt-5">
-                    <h3 class="eskimo-title-with-border"><span>DOCUMENTOS:</span></h3>
-                </div>
-                <div id="seccion-descargas" class="col-8 col-lg-8 mb-6 mb-lg-0 list-group">
-                    <p>Para contar con información nutricional y cuidados básicos de higiene y seguridad en comedores y
-                        merenderos podes descargar los siguientes archivos (archivos enviados por Unidad nutricional):
-                    </p>
-
-                    <a href="#" class="list-group-item list-group-item-action">nombre-documento</a>
-                    <a href="#" class="list-group-item list-group-item-action">nombre-documento</a>
-                    <a href="#" class="list-group-item list-group-item-action">nombre-documento</a>
-                    <a href="#" class="list-group-item list-group-item-action">nombre-documento</a>
-                </div>
             </div>
-        </main>
-        <!-- FOOTER -->
-        <footer id="eskimo-footer" class="bg-dark text-white">
-            <div class="container">
-                <div class="row eskimo-footer-wrapper">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="card bg-dark text-white">
-                                <img class="card-img-top" src="{% static 'images/EPS.png' %}" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <a href="{% url "contactos" %}">Información de contacto</a>
-                                    </p>
-                                    <!-- <h5 class="card-title text-white">Subsecretaría de Economía y Políticas Sociales </h5>
+        </div>
+    </div>
+    <!-- ACCORDION ITEM 2 -->
+    <div class="mp-accordion-item">
+        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
+            href="#mp-accordion-item-2" aria-expanded="false" aria-controls="mp-accordion-item-2">¿Quiénes pueden
+            registrarse? </a>
+        <div id="mp-accordion-item-2" class="collapse" role="tabpanel">
+            <div class="mp-accordion-content">
+                Todas aquellas organizaciones sociales o miembros activos de la comunidad que brinden
+                servicio de comedores y/o merenderos comunitarios en diferentes barrios o localidades,
+                que beneficien a más de veinticinco (25) personas, brinden servicio al menos dos veces
+                por semana a la comunidad y que su trayectoria no sea menor a tres meses.
+            </div>
+        </div>
+    </div>
+    <!-- ACCORDION ITEM 3 -->
+    <div class="mp-accordion-item">
+        <a class="mp-accordion-title collapsed" data-toggle="collapse" data-parent="#mp-accordion-1"
+            href="#mp-accordion-item-3" aria-expanded="false" aria-controls="mp-accordion-item-3">¿Qué
+            necesitas para registrarte?</a>
+        <div id="mp-accordion-item-3" class="collapse" role="tabpanel">
+            <div class="mp-accordion-content">
+                Tener a mano el Padrón de beneficiarios y documentación de los trabajadores que
+                desempeñan su labor en el comedor o merendero.
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- DIVIDER -->
+<hr />
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Vigencia</h4>
+    <p>El registro es totalmente gratuito y tendrá vigencia de un año, una vez realizada la
+        inscripción.</p>
+    <!-- <hr> -->
+    <!-- <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
+</div>
+<!-- <p class="h2 mt-5"></p> -->
+<!-- DIVIDER -->
+<hr />
+<div class="card text-center mt-5">
+    <div class="card-header">
+        <h3>REGISTRO</h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Formulario de registro para comedores y merenderos comunitarios</h5>
+        <p class="card-text">INGRESÁ AL SIGUIENTE LINK PARA REGISTRARTE</p>
+        <a href="{%url "formcomedores"%}" class="btn btn-primary mt-3">Ir al Formulario</a>
+    </div>
+    <div class="card-footer text-muted"></div>
+</div>
+<hr />
+<div class="eskimo-widget-title mt-5">
+    <h3 class="eskimo-title-with-border"><span>DOCUMENTOS:</span></h3>
+</div>
+<div id="seccion-descargas" class="col-8 col-lg-8 mb-6 mb-lg-0 list-group">
+    <p>Para contar con información nutricional y cuidados básicos de higiene y seguridad en comedores y
+        merenderos podes descargar los siguientes archivos (archivos enviados por Unidad nutricional):
+    </p>
+
+    <a href="#" class="list-group-item list-group-item-action">nombre-documento</a>
+    <a href="#" class="list-group-item list-group-item-action">nombre-documento</a>
+    <a href="#" class="list-group-item list-group-item-action">nombre-documento</a>
+    <a href="#" class="list-group-item list-group-item-action">nombre-documento</a>
+</div>
+
+
+{%endblock%}
+
+{%block footer%}
+<!-- FOOTER -->
+<footer id="eskimo-footer" class="bg-dark text-white">
+    <div class="container">
+        {% load static %}
+        <div class="row eskimo-footer-wrapper">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card bg-dark text-white">
+                        <img class="card-img-top" src="{% static 'images/EPS.png' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <a href="{% url "contactos" %}">Información de contacto</a>
+                            </p>
+                            <!-- <h5 class="card-title text-white">Subsecretaría de Economía y Políticas Sociales </h5>
                         <p class="card-text">Dirección: Avenida Juan Manuel Belgrano 550</br>
                           Correo: <a href="mailto:sub.economiaypolsoc@chaco.gob.ar">sub.economiaypolsoc@chaco.gob.ar</a>
                           </br>
@@ -219,17 +135,17 @@
                           <br />
                           Facebook/Instagram: @juventudeschaco</p> -->
 
-                                </div>
-                            </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="card bg-dark text-white">
-                                <img class="card-img-top" src="{% static 'images/UPSN.png' %}" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <a href="{% url "contactos" %}">Información de contacto</a>
-                                    </p>
-                                    <!-- <h5 class="card-title text-white">Unidad Provincial de Seguimiento
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card bg-dark text-white">
+                        <img class="card-img-top" src="{% static 'images/UPSN.png' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <a href="{% url "contactos" %}">Información de contacto</a>
+                            </p>
+                            <!-- <h5 class="card-title text-white">Unidad Provincial de Seguimiento
                           Nutricional</h5>
                         <p class="card-text">Dirección: Posadas 725</br>
                           Teléfono: 3624873827</br>
@@ -237,19 +153,19 @@
                           </br>
                         </p> -->
 
-                                </div>
-                            </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="card bg-dark text-white">
-                                <img class="card-img-top" src="{% static 'images/MDS.png' %}" alt="Card image cap">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card bg-dark text-white">
+                        <img class="card-img-top" src="{% static 'images/MDS.png' %}" alt="Card image cap">
 
-                                <div class="card-body bg-dark text-white">
-                                    <p class="card-text">
-                                        <a href="{% url "contactos" %}">Información de contacto</a>
+                        <div class="card-body bg-dark text-white">
+                            <p class="card-text">
+                                <a href="{% url "contactos" %}">Información de contacto</a>
 
-                                    </p>
-                                    <!-- <h5 class="card-title text-white">Ministerio de Desarrollo Social de
+                            </p>
+                            <!-- <h5 class="card-title text-white">Ministerio de Desarrollo Social de
                           la Provincia del
                           Chaco</h5>
                         <p class="card-text">Dirección: Avenida 25 de Mayo 855</br>
@@ -258,12 +174,12 @@
                             href="mailto:desarrollosocial@chaco.gob.ar">desarrollosocial@chaco.gob.ar</a>
                           </br>
                         </p> -->
-                                </div>
-                            </div>
                         </div>
-                        <!-- <div class="col-2 col-lg-2 mb-2 mb-lg-0">            
+                    </div>
+                </div>
+                <!-- <div class="col-2 col-lg-2 mb-2 mb-lg-0">            
                   </div> -->
-                        <!-- <div class="col-4 col-lg-4 mb-4 mb-lg-0">
+                <!-- <div class="col-4 col-lg-4 mb-4 mb-lg-0">
                       <a href="http://www.chaco.gob.ar/" target="_blank">
                         <img class="mt-5" src="{% static 'images/logo-footer.png'%}" alt="desarrollo social" />
                       </a>
@@ -272,73 +188,9 @@
                           alt="cuidadores domiciliarios" />
                       </a> 
                     </div> -->
-                    </div>
-
-                </div>
             </div>
-        </footer>
+
+        </div>
     </div>
-    <!-- GO TO TOP BUTTON -->
-    <a id="eskimo-gototop" href="#"><i class="fa fa-chevron-up"></i></a>
-    <!-- JS FILES -->
-    <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
-    <script src="{% static 'js/bootstrap.min.js'%}"></script>
-    <script src="{% static 'js/salvattore.min.js' %}"></script>
-    <script src="{% static 'js/slick.min.js' %}"></script>
-    <script src="{% static 'js/panel.js' %}"></script>
-    <script src="{% static 'js/reading-position-indicator.js' %}"></script>
-    <script src="{% static 'js/custom.js' %}"></script>
-
-    <!-- POST SLIDER -->
-    <script>
-        (function ($) {
-            "use strict";
-            $(document).ready(function () {
-                $('#eskimo-post-slider').slick({
-                    autoplay: true,
-                    autoplaySpeed: 5000,
-                    slidesToScroll: 1,
-                    adaptiveHeight: true,
-                    slidesToShow: 1,
-                    arrows: true,
-                    dots: false,
-                    fade: true
-                });
-            });
-            $(window).on('load', function () {
-                $('#eskimo-post-slider').css('opacity', '1');
-                $('#eskimo-post-slider').parent().removeClass('eskimo-bg-loader');
-            });
-        })(jQuery);
-    </script>
-    <!-- POST CAROUSEL -->
-    <script>
-        (function ($) {
-            "use strict";
-            $(document).ready(function () {
-                $('#eskimo-post-carousel').slick({
-                    infinite: false,
-                    slidesToScroll: 1,
-                    arrows: true,
-                    dots: false,
-                    slidesToShow: 3,
-                    responsive: [{
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: 2
-                        }
-                    }, {
-                        breakpoint: 576,
-                        settings: {
-                            slidesToShow: 1
-                        }
-                    }]
-
-                });
-                $('#eskimo-post-carousel').css('opacity', '1');
-            });
-        })(jQuery);
-    </script>
-</body>
-
-</html>
+</footer>
+{%endblock%}

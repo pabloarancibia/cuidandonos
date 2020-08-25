@@ -60,29 +60,14 @@ $('#add_colab').click(function (e) {
 
         }
 });
-document.getElementById('fileAspiranteDni').onchange = function () {
-        console.log(this.value);
-        document.getElementById('fileDni').innerHTML = document.getElementById('fileAspiranteDni').files[0].name;
-}
-document.getElementById('fileAspiranteCertCuidador').onchange = function () {
-        console.log(this.value);
-        document.getElementById('fileCert').innerHTML = document.getElementById('fileAspiranteCertCuidador').files[0].name;
-}
-document.getElementById('fileAspiranteCertDom').onchange = function () {
-        console.log(this.value);
-        document.getElementById('fileCertDom').innerHTML = document.getElementById('fileAspiranteCertDom').files[0].name;
-}
-document.getElementById('fileAspirantecCertPsf').onchange = function () {
-        console.log(this.value);
-        document.getElementById('lblfileCertPsf').innerHTML = document.getElementById('fileAspirantecCertPsf').files[0].name;
-}
-document.getElementById('fileAspirantecCertReinc').onchange = function () {
-        console.log(this.value);
-        document.getElementById('lblfileCertReinc').innerHTML = document.getElementById('fileAspirantecCertReinc').files[0].name;
-}
+
 
 // mostrar/ocultar 
 $(document).ready(function () {
+
+
+
+
         $('.checksDias').on('click', function () {
                 if ($(this).is(':checked')) {
                         $("#dias").val(parseInt($('#dias').val()) + 1);

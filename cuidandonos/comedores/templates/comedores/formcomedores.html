@@ -1,102 +1,14 @@
-<!DOCTYPE html>
-<html lang="en-US">
+{% extends "base.html" %}
+{%block head_content%}
+<title>Comedores y Merenderos</title>
+{%endblock%}
 
-<head>
-  <title>Formulario de registro de comedores y merenderos</title>
-  <!-- META TAGS -->
-  <meta charset="UTF-8">
-  <meta name="viewport"
-    content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <!-- CSS FILES -->
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/styleCustom.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-select.min.css' %}" />
+{%block container%}
+{%load static%}
 
-</head>
-
-<body>
-  <!-- READING POSITION INDICATOR -->
-  <progress value="0" id="eskimo-progress-bar">
-    <span class="eskimo-progress-container">
-      <span class="eskimo-progress-bar"></span>
-    </span>
-  </progress>
-  <!-- SITE WRAPPER -->
-  <div id="eskimo-site-wrapper">
-    <!-- MAIN CONTAINER -->
-    {% block container %}
-    <main id="eskimo-main-container">
-      <!-- NAVBAR HORIZONTAL -->
-      <!-- <ul class="nav justify-content-center"> -->
-      <nav class="navbar navbar-custom navbar-expand-lg navbar-light bg-light">
-        <!-- <nav class="navbar navbar-light navbar-expand-md"> -->
-        <div class="container">
-          <a class="eskimo-logo-link col-3" href="#">
-            <img src="{% static 'images/logo_gobierno2020.png'%}" class="eskimo-logo" alt="eskimo" />
-          </a>
-          <!-- <a class="navbar-brand" href="#">LOGO</a> -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link text-light" href="#">INICIO <span class="sr-only">(current)</span></a>
-              </li>
-              <!-- <li class="nav-item">
-                                  <a class="nav-link" href="#">Link</a>
-                              </li> -->
-              <li class="nav-item dropdown ">
-                <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  REGISTRAR
-                </a>
-                <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item text-white  bg-primary" href="{% url "infocomedores" %}">Comedores y
-                    Merenderos</a>
-                  <a class="dropdown-item text-white  bg-primary" href="{% url "infocuidadores" %}">Cuidadores
-                    Domiciliarios</a>
-                  <a class="dropdown-item text-white  bg-primary" href="{% url "infovoluntarios" %}">Voluntarios
-                    Sociales</a>
-
-                </div>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link text-white" href="#">MAPA <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link text-white" href="{% url "contactos" %}">INFORMACIÓN<span
-                    class="sr-only">(current)</span></a>
-              </li>
-              <!-- <li class="nav-item">
-                                  <a class="nav-link disabled" href="#">Disabled</a>
-                              </li> -->
-            </ul>
-            <!-- <form class="form-inline my-2 my-lg-0">
-                              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                          </form> -->
-          </div>
-        </div>
-      </nav>
-      </ul>
-      <!-- FIN NAVBAR HORIZONTAL -->
-      <div class="container">
-
-
-        <!-- TOP ICONS -->
-
-        <div class="clearfix"></div>
-        <!-- SLIDER -->
-        <!-- <div class="eskimo-carousel-container eskimo-bg-loader">
+<div class="clearfix"></div>
+<!-- SLIDER -->
+<!-- <div class="eskimo-carousel-container eskimo-bg-loader">
           <div id="eskimo-post-slider" class="eskimo-slider">
            
             <div>
@@ -108,273 +20,270 @@
           </div>
         </div> -->
 
-        <!-- DIVIDER -->
-        <!-- <hr class="section-divider" /> -->
-        <hr />
-        <!-- CAROUSEL -->
-        <div class="eskimo-widget-title">
-          <!-- <h3 class="eskimo-carousel-title"><span>REGISTRAR:</span></h3> -->
-          <h3 class="eskimo-title-with-border"><span>Formulario de registro para comedores y merenderos
-              comunitarios</span></h3>
-          <h5>(Todos los campos son obligatorios)</h5>
+<!-- DIVIDER -->
+<!-- <hr class="section-divider" /> -->
+<hr />
+<!-- CAROUSEL -->
+<div class="eskimo-widget-title">
+  <!-- <h3 class="eskimo-carousel-title"><span>REGISTRAR:</span></h3> -->
+  <h3 class="eskimo-title-with-border"><span>Formulario de registro para comedores y merenderos
+      comunitarios</span></h3>
+  <h5>(Todos los campos son obligatorios)</h5>
+</div>
+
+{% if form.errors %}
+{% for field in form %}
+{% for error in field.errors %}
+<div class="alert alert-danger">
+
+  <strong>{{field.label}}: </strong>{{ error|escape }}
+</div>
+{% endfor %}
+{% endfor %}
+{% for error in form.non_field_errors %}
+<div class="alert alert-danger">
+  <strong>{{ error|escape }}</strong>
+</div>
+{% endfor %}
+{% endif %}
+
+{% if bnform.errors %}
+{% for field in bnform %}
+{% for error in field.errors %}
+<div class="alert alert-danger">
+  <strong>{{ error|escape }}</strong>
+</div>
+{% endfor %}
+{% endfor %}
+{% for error in bnform.non_field_errors %}
+<div class="alert alert-danger">
+  <strong>{{ error|escape }}</strong>
+</div>
+{% endfor %}
+{% endif %}
+
+{% if clform.errors %}
+{% for field in clform %}
+{% for error in field.errors %}
+<div class="alert alert-danger">
+  <strong>{{ error|escape }}</strong>
+</div>
+{% endfor %}
+{% endfor %}
+{% for error in clform.non_field_errors %}
+<div class="alert alert-danger">
+  <strong>{{ error|escape }}</strong>
+</div>
+{% endfor %}
+{% endif %}
+<form action="{% url 'formcomedores' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+
+
+
+  <hr />
+  <h3 class="eskimo-title-with-border mb-3"><span>Selecciona la opción que corresponda de acuerdo al
+      servicio que brindes a la comunidad:</span></h3>
+
+  <!-- servicio -->
+  <div class="form-group row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" name="srvComedor" checked>Comedor Comunitario
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" name="srvMerendero">Merendero
+          Comunitario
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="eskimo-widget-title mt-5 ">
+    <h5 class="eskimo-title-with-border"><span>Nombre del Comedor o
+        Merendero:</span></h5">
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-8">
+      <input type="text" class="form-control" name="nombreCM" placeholder="Nombre" required>
+    </div>
+  </div>
+
+
+
+  <div class="eskimo-widget-title mt-5 mb-4">
+    <h5 class="eskimo-title-with-border"><span>Responsable a Cargo:</span></h5">
+  </div>
+  <div class="form-group row">
+    <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="nombreRes"
+        value="{%if form.errors%}{{form.nombreRes.value}}{%endif%}" placeholder="Nombre" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputApellido" class="col-sm-2 col-form-label">Apellido</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="apellidoRes"
+        value="{%if form.errors%}{{form.apellidoRes.value}}{%endif%}" placeholder="Apellido" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputDni" class="col-sm-2 col-form-label">Dni</label>
+    <div class="col-sm-6">
+      <input type="number" class="form-control" name="dniRes" value="{%if form.errors%}{{form.dniRes.value}}{%endif%}"
+        placeholder="Dni" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputCuil" class="col-sm-2 col-form-label">Cuil</label>
+    <div class="col-sm-6">
+      <input type="number" class="form-control" name="cuilRes" value="{%if form.errors%}{{form.cuilRes.value}}{%endif%}"
+        placeholder="000000000000" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputNumCont" class="col-sm-2 col-form-label">Número de Contacto</label>
+    <div class="col-sm-6">
+      <input type="number" class="form-control" name="contactoRes"
+        value="{%if form.errors%}{{form.contactoRes.value}}{%endif%}" placeholder="Número de Contacto" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-6">
+      <input type="email" class="form-control" name="emailRes"
+        value="{%if form.errors%}{{form.emailRes.value}}{%endif%}" placeholder="Email" required>
+    </div>
+  </div>
+
+  <hr />
+  <!-- personeria juridica -->
+
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Pertenece a una Organización social,
+      asociación civil o
+      fundación?</label>
+    <div class="form-check m-2">
+      <input class="rdPersJur form-check-input" type="radio" name="perteneceOrg" id="rdPersJur1" value="si">
+      <label class="form-check-label" for="rdPersJur1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class="rdPersJur form-check-input" type="radio" name="perteneceOrg" id="rdPersJur2" value="no" checked>
+      <label class="form-check-label" for="rdPersJur2">
+        NO
+      </label>
+    </div>
+  </div>
+
+
+  <div id="PersJur1" class="form-group row" style="display:none;">
+    <label for="inputPersJur" class="col-sm-2 col-form-label">Personeria Jurídica</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="inputPersJur" name="personeria" placeholder="Personeria Jurídica">
+    </div>
+  </div>
+  <div id="PersJur2" class="form-group row" style="display:none;">
+    <label for="inputPjCuit" class="col-sm-2 col-form-label">Cuit</label>
+    <div class="col-sm-6">
+      <input type="number" class="form-control" id="inputPjCuit" name="cuitPersoneria" placeholder="Cuit">
+    </div>
+  </div>
+
+  <hr />
+  <!-- ¿Reciben algún beneficio del Ministerio de Desarrollo Social? SI-NO -->
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Reciben algún beneficio del Ministerio de
+      Desarrollo Social?</label>
+    <div class="form-check m-2">
+      <input class="rdBenefMinDes form-check-input" type="radio" name="benefDS" id="rdBenefMinDes1" value="si">
+      <label class="form-check-label" for="rdBenefMinDes1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class="rdBenefMinDes form-check-input" type="radio" name="benefDS" id="rdBenefMinDes2" value="no" checked>
+      <label class="form-check-label" for="rdBenefMinDes2">
+        NO
+      </label>
+    </div>
+  </div>
+  <div id="BenefMinDes" style="display: none;">
+    <label for="" class="col-sm-2 col-form-label">Qué tipo de beneficio reciben:</label>
+
+    <div class="form-group row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" id="" name="tipoModulos">Módulos alimentarios
+            </option>
+          </label>
         </div>
+      </div>
+    </div>
 
-        {% if form.errors %}
-        {% for field in form %}
-        {% for error in field.errors %}
-        <div class="alert alert-danger">
-
-          <strong>{{field.label}}: </strong>{{ error|escape }}
+    <div class="form-group row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" id="" name="tipoKit">Kits de merenderos</option>
+          </label>
         </div>
-        {% endfor %}
-        {% endfor %}
-        {% for error in form.non_field_errors %}
-        <div class="alert alert-danger">
-          <strong>{{ error|escape }}</strong>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" id="" name="tipoPrograma">Programas sociales
+            (RMP-Becas)</option>
+          </label>
         </div>
-        {% endfor %}
-        {% endif %}
+      </div>
+    </div>
 
-        {% if bnform.errors %}
-        {% for field in bnform %}
-        {% for error in field.errors %}
-        <div class="alert alert-danger">
-          <strong>{{ error|escape }}</strong>
+    <div class="form-group row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" id="" name="tipoInversion">Inversión social</option>
+          </label>
         </div>
-        {% endfor %}
-        {% endfor %}
-        {% for error in bnform.non_field_errors %}
-        <div class="alert alert-danger">
-          <strong>{{ error|escape }}</strong>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" id="" name="tipoInsumo">Insumos o materiales
+            (chapas, ollas, gas, anafe, entre otras).</option>
+          </label>
         </div>
-        {% endfor %}
-        {% endif %}
-
-        {% if clform.errors %}
-        {% for field in clform %}
-        {% for error in field.errors %}
-        <div class="alert alert-danger">
-          <strong>{{ error|escape }}</strong>
-        </div>
-        {% endfor %}
-        {% endfor %}
-        {% for error in clform.non_field_errors %}
-        <div class="alert alert-danger">
-          <strong>{{ error|escape }}</strong>
-        </div>
-        {% endfor %}
-        {% endif %}
-        <form action="{% url 'formcomedores' %}" method="POST" enctype="multipart/form-data">
-          {% csrf_token %}
+      </div>
+    </div>
 
 
-
-          <hr />
-          <h3 class="eskimo-title-with-border mb-3"><span>Selecciona la opción que corresponda de acuerdo al
-              servicio que brindes a la comunidad:</span></h3>
-
-          <!-- servicio -->
-          <div class="form-group row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="srvComedor" checked>Comedor Comunitario
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="srvMerendero">Merendero
-                  Comunitario
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="eskimo-widget-title mt-5 ">
-            <h5 class="eskimo-title-with-border"><span>Nombre del Comedor o
-                Merendero:</span></h5">
-          </div>
-
-          <div class="form-group row">
-            <div class="col-sm-8">
-              <input type="text" class="form-control" name="nombreCM" placeholder="Nombre" required>
-            </div>
-          </div>
-
-
-
-          <div class="eskimo-widget-title mt-5 mb-4">
-            <h5 class="eskimo-title-with-border"><span>Responsable a Cargo:</span></h5">
-          </div>
-          <div class="form-group row">
-            <label for="inputNombre" class="col-sm-2 col-form-label">Nombre</label>
-            <div class="col-sm-6">
-              <input type="text" class="form-control" name="nombreRes"
-                value="{%if form.errors%}{{form.nombreRes.value}}{%endif%}" placeholder="Nombre" required>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="inputApellido" class="col-sm-2 col-form-label">Apellido</label>
-            <div class="col-sm-6">
-              <input type="text" class="form-control" name="apellidoRes"
-                value="{%if form.errors%}{{form.apellidoRes.value}}{%endif%}" placeholder="Apellido" required>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="inputDni" class="col-sm-2 col-form-label">Dni</label>
-            <div class="col-sm-6">
-              <input type="number" class="form-control" name="dniRes"
-                value="{%if form.errors%}{{form.dniRes.value}}{%endif%}" placeholder="Dni" required>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="inputCuil" class="col-sm-2 col-form-label">Cuil</label>
-            <div class="col-sm-6">
-              <input type="number" class="form-control" name="cuilRes"
-                value="{%if form.errors%}{{form.cuilRes.value}}{%endif%}" placeholder="000000000000" required>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="inputNumCont" class="col-sm-2 col-form-label">Número de Contacto</label>
-            <div class="col-sm-6">
-              <input type="number" class="form-control" name="contactoRes"
-                value="{%if form.errors%}{{form.contactoRes.value}}{%endif%}" placeholder="Número de Contacto" required>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-            <div class="col-sm-6">
-              <input type="email" class="form-control" name="emailRes"
-                value="{%if form.errors%}{{form.emailRes.value}}{%endif%}" placeholder="Email" required>
-            </div>
-          </div>
-
-          <hr />
-          <!-- personeria juridica -->
-
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Pertenece a una Organización social,
-              asociación civil o
-              fundación?</label>
-            <div class="form-check m-2">
-              <input class="rdPersJur form-check-input" type="radio" name="perteneceOrg" id="rdPersJur1" value="si">
-              <label class="form-check-label" for="rdPersJur1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="rdPersJur form-check-input" type="radio" name="perteneceOrg" id="rdPersJur2" value="no"
-                checked>
-              <label class="form-check-label" for="rdPersJur2">
-                NO
-              </label>
-            </div>
-          </div>
-
-
-          <div id="PersJur1" class="form-group row" style="display:none;">
-            <label for="inputPersJur" class="col-sm-2 col-form-label">Personeria Jurídica</label>
-            <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputPersJur" name="personeria"
-                placeholder="Personeria Jurídica">
-            </div>
-          </div>
-          <div id="PersJur2" class="form-group row" style="display:none;">
-            <label for="inputPjCuit" class="col-sm-2 col-form-label">Cuit</label>
-            <div class="col-sm-6">
-              <input type="number" class="form-control" id="inputPjCuit" name="cuitPersoneria" placeholder="Cuit">
-            </div>
-          </div>
-
-          <hr />
-          <!-- ¿Reciben algún beneficio del Ministerio de Desarrollo Social? SI-NO -->
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Reciben algún beneficio del Ministerio de
-              Desarrollo Social?</label>
-            <div class="form-check m-2">
-              <input class="rdBenefMinDes form-check-input" type="radio" name="benefDS" id="rdBenefMinDes1" value="si">
-              <label class="form-check-label" for="rdBenefMinDes1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="rdBenefMinDes form-check-input" type="radio" name="benefDS" id="rdBenefMinDes2" value="no"
-                checked>
-              <label class="form-check-label" for="rdBenefMinDes2">
-                NO
-              </label>
-            </div>
-          </div>
-          <div id="BenefMinDes" style="display: none;">
-            <label for="" class="col-sm-2 col-form-label">Qué tipo de beneficio reciben:</label>
-
-            <div class="form-group row">
-              <div class="col-sm-2"></div>
-              <div class="col-sm-10">
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" id="" name="tipoModulos">Módulos alimentarios
-                    </option>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <div class="col-sm-2"></div>
-              <div class="col-sm-10">
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" id="" name="tipoKit">Kits de merenderos</option>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <div class="col-sm-2"></div>
-              <div class="col-sm-10">
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" id="" name="tipoPrograma">Programas sociales
-                    (RMP-Becas)</option>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <div class="col-sm-2"></div>
-              <div class="col-sm-10">
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" id="" name="tipoInversion">Inversión social</option>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <div class="col-sm-2"></div>
-              <div class="col-sm-10">
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" id="" name="tipoInsumo">Insumos o materiales
-                    (chapas, ollas, gas, anafe, entre otras).</option>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-
-          </div>
-          <!-- <div class="form-group row" id="BenefMinDes" style="display: none;">
+  </div>
+  <!-- <div class="form-group row" id="BenefMinDes" style="display: none;">
             <label for="selectBeneficios" class="col-sm-2 col-form-label">Qué tipo de beneficio reciben:</label>
             <div class="col-sm-10">
               <select id="selectBeneficios" class="selectpicker" multiple data-width="auto" data-container="body">
@@ -391,740 +300,737 @@
 
 
 
-          <hr />
-          <!-- Georegferencia o ubicación -->
-          <div class="eskimo-widget-title mb-4">
-            <h5 class="eskimo-title-with-border"><span>Georeferencia o Ubicación (Dirección en donde funciona el
-                comedor/merendero):</span></h5">
-          </div>
-
-          <div class="form-group row">
-            <label for="inputCalle" class="col-sm-2 col-form-label">Calle</label>
-            <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputCalle" name="calleCM"
-                value="{%if form.errors%}{{form.calleCM.value}}{%endif%}" placeholder="Calle" required>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="inputNumCalle" class="col-sm-2 col-form-label">Número</label>
-            <div class="col-sm-2">
-              <input type="number" class="form-control" id="inputNumCalle" name="numeroCM"
-                value="{%if form.errors%}{{form.numeroCM.value}}{%endif%}" placeholder="Número" required>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="inputManzana" class="col-sm-2 col-form-label">Manzana - Parcela</label>
-            <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputManzana" name="manzanaCM"
-                value="{%if form.errors%}{{form.manzanaCM.value}}{%endif%}" placeholder="Manzana - Parcela" required>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="inputBarrio" class="col-sm-2 col-form-label">Barrio</label>
-            <div class="col-sm-6">
-              <input type="text" class="form-control" id="inputBarrio" name="barrioCM"
-                value="{%if form.errors%}{{form.barrioCM.value}}{%endif%}" placeholder="Barrio" required>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="selProvincias" class="col-sm-2 col-form-label">Provincia</label>
-            <div class="col-sm-6">
-              <select class="form-control" id="selProvincias" name="provinciaCM"></select>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="selLocalidades" class="col-sm-2 col-form-label">Localidad</label>
-            <div class="col-sm-6">
-              <select class="form-control" id="selLocalidades" name="localidadCM"></select>
-            </div>
-          </div>
-
-
-          <hr />
-          <!-- Beneficiarios -->
-          <div class="eskimo-widget-title mb-4">
-            <h5 class="eskimo-title-with-border"><span>Beneficiarios:</span></h5">
-          </div>
-
-          <div class="form-group row">
-            <label for="inputCantAsistentes" class="col-5 col-form-label font-weight-bold">Cantidad de personas que
-              asisten (mínimo 25): </label>
-            <div class="col-1">
-              <input class="form-control" type="number" value="0" min="25" id="inputCantAsistentes" name="cantBenef">
-
-            </div>
-            <a href="#" class="btn btn-primary" id="add_field">Confirmar </a>
-          </div>
-          <div class="mt-4 mb-4">
-
-          </div>
-
-          <p>Grupos etarios que asisten(tildar lo que corresponda)</p>
-
-          <div class="form-group row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="" name="grupoAdultos">Adultos y adultas mayores
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="" name="grupoMujEmb">Mujeres embarazadas
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="" name="grupoJov">Jóvenes
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="" name="grupoAdolec">Adolescentes
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="" name="grupoNino">Niños y niñas
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="" name="grupoCalle">Personas en situación de calle
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="" name="grupoDisc">Personas con Discapacidad
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="eskimo-widget-title mt-5 mb-4">
-            <h5 class="eskimo-title-with-border"><span>Completar la nómina de beneficiarios</span></h5">
-          </div>
-
-
-          <!-- FORM BENEFICIARIOS -->
-          <!-- agregar cantidad de campos segun el input cantidad de beneficiarios -->
-          <div id="divBeneficiarios">
-
-          </div>
-
-
-          <hr />
-          <!-- Esquema de Trabajo -->
-          <div class="eskimo-widget-title mt-5">
-            <h3 class="eskimo-title-with-border"><span>Esquema de Trabajo:</span></h3>
-          </div>
-          <p>Días y horarios en los que se brinda el servicio</p>
-
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <!-- <th scope="col">#</th> -->
-                <th scope="col" class="">
-                  Dias
-                </th>
-                <th scope="col">
-                  Horario
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-
-                  <div class="form-group row">
-                    <div class="col-sm-6 pr-1">
-                      <label class="switch ">
-                        <input type="checkbox" class="checksDias primary" id="swLunes" name="trLunes">
-                        <span class="slider round"></span>
-                      </label>
-                    </div>
-                    <label for="swLunes" class="col-sm-1 col-form-label">Lunes</label>
-                  </div>
-
-                </td>
-
-                <td>
-
-                  <div class="form-group row">
-                    <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
-                    <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeComLunDesde" name="hrDesdeLun">
-                    </div>
-
-                    <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
-                    <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeComLunHasta" name="hrHastaLun">
-                    </div>
-                  </div>
-
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-
-                  <div class="form-group row">
-                    <div class="col-sm-6 pr-1">
-                      <label class="switch ">
-                        <input type="checkbox" class="checksDias primary" id="swMartes" name="trMartes">
-                        <span class="slider round"></span>
-                      </label>
-                    </div>
-                    <label for="swMartes" class="col-sm-1 col-form-label">Martes</label>
-                  </div>
-
-
-                </td>
-                <td>
-                  <div class="form-group row">
-                    <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
-                    <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeComMarDesde" name="hrDesdeMar">
-                    </div>
-
-                    <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
-                    <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeComMarHasta" name="hrHastaMar">
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="form-group row">
-                    <div class="col-sm-6 pr-1">
-                      <label class="switch ">
-                        <input type="checkbox" class="checksDias primary" id="swMiercoles" name="trMierdoles">
-                        <span class="slider round"></span>
-                      </label>
-                    </div>
-                    <label for="swMiercoles" class="col-sm-1 col-form-label">Miércoles</label>
-                  </div>
-
-                </td>
-                <td>
-                  <div class="form-group row">
-                    <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
-                    <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeComMierDesde" name="hrDesdeMier">
-                    </div>
-
-                    <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
-                    <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeComMierHasta" name="hrHastaMier">
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="form-group row">
-                    <div class="col-sm-6 pr-1">
-                      <label class="switch ">
-                        <input type="checkbox" class="checksDias primary" id="swJueves" name="trJueves">
-                        <span class="slider round"></span>
-                      </label>
-                    </div>
-                    <label for="swJueves" class="col-sm-1 col-form-label">Jueves</label>
-                  </div>
-
-                </td>
-                <td>
-                  <div class="form-group row">
-                    <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
-                    <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeComJueDesde" name="hrDesdeJuev">
-                    </div>
-
-                    <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
-                    <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeComJueHasta" name="hrHastaJuev">
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="form-group row">
-                    <div class="col-sm-6 pr-1">
-                      <label class="switch ">
-                        <input type="checkbox" class="checksDias primary" id="swViernes" name="trViernes">
-                        <span class="slider round"></span>
-                      </label>
-                    </div>
-                    <label for="swViernes" class="col-sm-1 col-form-label">Viernes</label>
-                  </div>
-
-                </td>
-                <td>
-                  <div class="form-group row">
-                    <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
-                    <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeComVierDesde" name="hrDesdeVier">
-                    </div>
-
-                    <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
-                    <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeComVierHasta" name="hrHastaVier">
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="form-group row">
-                    <div class="col-sm-6 pr-1">
-                      <label class="switch ">
-                        <input type="checkbox" class="checksDias primary" id="swSabado"
-                          name="trSabado = models.BooleanField(default=False)">
-                        <span class="slider round"></span>
-                      </label>
-                    </div>
-                    <label for="swSabado" class="col-sm-1 col-form-label">Sábado</label>
-                  </div>
-
-                </td>
-                <td>
-                  <div class="form-group row">
-                    <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
-                    <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeComSabDesde"
-                        name="    hrDesdeSab">
-                    </div>
-
-                    <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
-                    <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeComSabHasta" name="hrHastaSab">
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="form-group row">
-                    <div class="col-sm-6 pr-1">
-                      <label class="switch ">
-                        <input type="checkbox" class="checksDias primary" id="swDomingo" name="trDomingo">
-                        <span class="slider round"></span>
-                      </label>
-                    </div>
-                    <label for="swDomingo" class="col-sm-1 col-form-label">Domingo</label>
-                  </div>
-
-                </td>
-                <td>
-
-                  <div class="form-group row">
-                    <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
-                    <div class="col-3">
-                      <input class="form-control" type="time" value="08:00:00" id="timeComDomDesde" name="hrDesdeDom">
-                    </div>
-
-                    <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
-                    <div class="col-3">
-                      <input class="form-control" type="time" value="12:00:00" id="timeComDomHasta" name="hrHastaDom">
-                    </div>
-                  </div>
-
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <input type="number" name="dias" id="dias" value="0" style="display: none;">
-
-          <hr />
-          <h3 class="eskimo-title-with-border mt-4"><span>Colaboradores:</span></h3>
-          <h5>Registrá a las personas que desarrollan alguna labor en el comedor o merendero.</h5>
-
-          <div class="form-group row">
-            <label for="inputCantColab" class="col-sm-5 col-form-label font-weight-bold">¿Cuántas personas colaboran en
-              el
-              comedor/merendero?</label>
-            <div class="col-sm-1">
-              <input type="number" class="form-control" id="inputCantColab" name="cantColab" value="1">
-            </div>
-          </div>
-          <a href="#" class="btn btn-primary" id="add_colab">Confirmar</a>
-
-          <p>Datos Personales de cada colaborador y colaboradora</p>
-
-          <div id="divColaboradores" class="mt-4">
-
-          </div>
-
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Cuentan con algún tipo de
-              remuneración proveniente del Ministerio de Desarrollo Social?</label>
-            <div class="form-check m-2">
-              <input class="rdRemMinDes form-check-input" type="radio" name="remuneracionDS" id="rdRemMinDes1"
-                value="si">
-              <label class="form-check-label" for="rdRemMinDes1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="rdRemMinDes form-check-input" type="radio" name="remuneracionDS" id="rdRemMinDes2"
-                value="no" checked>
-              <label class="form-check-label" for="rdRemMinDes2">
-                NO
-              </label>
-            </div>
-          </div>
-
-          <div id="RemMinDes" style="display: none;">
-            <div class="form-group row">
-              <label for="inputRemMinDes" class="col-sm-1 col-form-label">¿Cuál? </label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" id="inputRemMinDes" name="tipoRemuneracionDS" placeholder="">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="inputRemMinDes" class="col-sm-1 col-form-label">Monto </label>
-              <div class="col-sm-2">
-                <input type="number" class="form-control" id="inputRemMinDes" name="montoRemuneracionDS" placeholder="">
-              </div>
-            </div>
-          </div>
-
-
-          <hr />
-          <h3 class="eskimo-title-with-border mt-4"><span>Informe Socio Ambiental</span></h3>
-
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label ">¿El comedor/ merendero cuenta con Agua
-              Potable?</label>
-            <div class="form-check m-2">
-              <input class=" form-check-input rdAguaPot" type="radio" name="aguaCM" id="rdAguaPot1" value="si">
-              <label class="form-check-label" for="rdAguaPot1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class=" form-check-input rdAguaPot" type="radio" name="aguaCM" id="rdAguaPot2" value="no" checked>
-              <label class="form-check-label" for="rdAguaPot2">
-                NO
-              </label>
-            </div>
-          </div>
-          <!-- segun radio anterior -->
-          <div class="form-group row mt-1">
-            <label id="tipoConex0" for="rdConexion" class="col-sm-5 col-form-label" style="display: none;">Tipo de
-              Conexión</label>
-            <div id="tipoConex1" class="form-check m-2" style="display: none;">
-              <input class="form-check-input" type="radio" name="tipoConex" id="rdConexion1" value="interna">
-              <label class="form-check-label" for="rdConexion1">
-                Interna
-              </label>
-            </div>
-            <div id="tipoConex2" class="form-check m-2" style="display: none;">
-              <input class="form-check-input" type="radio" name="tipoConex" id="rdConexion2" value="externa" checked>
-              <label class="form-check-label" for="Externa">
-                Externa
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label ">¿Cuenta con instalación eléctrica?</label>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="instElec" id="rdInstElec1" value="si">
-              <label class="form-check-label" for="rdInstElec1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="instElec" id="rdInstElec2" value="no" checked>
-              <label class="form-check-label" for="rdInstElec2">
-                NO
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label ">¿Es un espacio cerrado?</label>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="espacioCerradoCM" id="rdEspCerrado1" value="si">
-              <label class="form-check-label" for="rdEspCerrado1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="espacioCerradoCM" id="rdEspCerrado2" value="no"
-                checked>
-              <label class="form-check-label" for="rdEspCerrado2">
-                NO
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label ">¿Dispone de Instalaciones sanitarias para las personas que
-              asisten?</label>
-            <div class="form-check m-2">
-              <input class="rdInstSanitarias form-check-input" type="radio" name="sanitarioCM" id="rdInstSanitarias1"
-                value="si">
-              <label class="form-check-label" for="rdInstSanitarias1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="rdInstSanitarias form-check-input" type="radio" name="sanitarioCM" id="rdInstSanitarias2"
-                value="no" checked>
-              <label class="form-check-label" for="rdInstSanitarias2">
-                NO
-              </label>
-            </div>
-          </div>
-
-          <!-- Segun respuesta anterior -->
-
-          <div class="form-group row" id="dChkSanitarios1" style="display: none;">
-            <!-- <div class="col-sm-2"></div> -->
-            <div class="col-sm-6">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="" name="banoCM">Baño instalado
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row" id="dChkSanitarios2" style="display: none;">
-            <!-- <div class="col-sm-2"></div> -->
-            <div class="col-sm-6">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="" name="letrinaCM">Letrina
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row" id="dChkSanitarios3" style="display: none;">
-            <!-- <div class="col-sm-2"></div> -->
-            <div class="col-sm-6">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" id="" name="otrosCM">Otros
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label ">¿Cuentan con un espacio o área exclusiva para la elaboración
-              de los alimentos (cocina)?</label>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="cocinaCM" id="rdCocina1" value="si">
-              <label class="form-check-label" for="rdCocina1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="cocinaCM" id="rdCocina2" value="no" checked>
-              <label class="form-check-label" for="rdCocina2">
-                NO
-              </label>
-            </div>
-          </div>
-
-          <hr />
-          <h3 class="eskimo-title-with-border mt-4"><span>Actividades Extras</span></h3>
-
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label ">¿Cuenta con huerta comunitaria para la producción de
-              alimentos?</label>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="huerta" id="rdhuerta1" value="si">
-              <label class="form-check-label" for="rdhuerta1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="huerta" id="rdhuerta2" value="no" checked>
-              <label class="form-check-label" for="rdhuerta2">
-                NO
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label ">¿Realizan actividades recreativas o deportivas?</label>
-            <div class="form-check m-2">
-              <input class="rdDeporte form-check-input" type="radio" name="deporte" id="rdDeportes1" value="si">
-              <label class="form-check-label" for="rdDeportes1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="rdDeporte form-check-input" type="radio" name="deporte" id="rdDeportes2" value="no" checked>
-              <label class="form-check-label" for="rdDeportes2">
-                NO
-              </label>
-            </div>
-          </div>
-
-          <!-- segun anterior -->
-          <div id="dvDeporte" style="display: none;">
-            <div class="form-group row">
-              <label for="inputActDep" class="col-form-label">¿Cuáles? </label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" id="inputActDep" name="tipoDeporte" placeholder="">
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label ">¿Se brinda apoyo escolar?</label>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="apoyoEsc" id="rdApotoEscolar1" value="si">
-              <label class="form-check-label" for="rdApotoEscolar1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="apoyoEsc" id="rdApotoEscolar2" value="no" checked>
-              <label class="form-check-label" for="rdApotoEscolar2">
-                NO
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label ">¿Transmiten información acerca de los cuidados de higiene
-              básicas?</label>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="infoHigiene" id="rdHigiene1" value="si">
-              <label class="form-check-label" for="rdHigiene1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="infoHigiene" id="rdHigiene2" value="no" checked>
-              <label class="form-check-label" for="rdHigiene2">
-                NO
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label ">¿Se dicta algún tipo de curso de Educación Sexual
-              Integral?</label>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="educSex" id="educSex" value="si">
-              <label class="form-check-label" for="rdEdSex1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="educSex" id="educSex" value="no" checked>
-              <label class="form-check-label" for="rdEdSex2">
-                NO
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label ">¿Se dicta algún tipo de curso de Prevención y Erradicación de
-              Violencias?</label>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="prevViolencia" id="rdViolencia1" value="si">
-              <label class="form-check-label" for="rdViolencia1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="prevViolencia" id="rdViolencia2" value="no" checked>
-              <label class="form-check-label" for="rdViolencia2">
-                NO
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group row mt-5">
-            <label for="" class="col-sm-5 col-form-label ">¿Se dicta algún tipo de curso de Prevención Comunitaria de
-              Consumo Problemático de Sustancias?</label>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="prevConsumo" id="rdSustancias1" value="si">
-              <label class="form-check-label" for="rdSustancias1">
-                SI
-              </label>
-            </div>
-            <div class="form-check m-2">
-              <input class="form-check-input" type="radio" name="prevConsumo" id="rdSustancias2" value="no" checked>
-              <label class="form-check-label" for="rdSustancias2">
-                NO
-              </label>
-            </div>
-          </div>
-          <hr />
-          <div class="alert alert-warning" role="alert">
-            <h4 class="alert-heading">Términos y Condiciones</h4>
-            <p>El registro estará a comprobación de los requerimientos solicitados por entidades que corresponda, quien
-              llevará adelante las acciones necesarias para la verificación en el territorio de los datos informados
-              mediante el formulario. El proceso de verificación concluye tras la emisión de una constancia de
-              relevamiento a cargo de un profesional habilitado por el Ministerio de Desarrollo Social quien visitará el
-              espacio en el que se desarrolla el merendero o comedor comunitario.</p>
-            <!-- <hr> -->
-            <!-- <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
-          </div>
-
-
-          <button type="submit" class="btn btn-primary">Enviar formulario</button>
-        </form>
+  <hr />
+  <!-- Georegferencia o ubicación -->
+  <div class="eskimo-widget-title mb-4">
+    <h5 class="eskimo-title-with-border"><span>Georeferencia o Ubicación (Dirección en donde funciona el
+        comedor/merendero):</span></h5">
+  </div>
+
+  <div class="form-group row">
+    <label for="inputCalle" class="col-sm-2 col-form-label">Calle</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="inputCalle" name="calleCM"
+        value="{%if form.errors%}{{form.calleCM.value}}{%endif%}" placeholder="Calle" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputNumCalle" class="col-sm-2 col-form-label">Número</label>
+    <div class="col-sm-2">
+      <input type="number" class="form-control" id="inputNumCalle" name="numeroCM"
+        value="{%if form.errors%}{{form.numeroCM.value}}{%endif%}" placeholder="Número" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputManzana" class="col-sm-2 col-form-label">Manzana - Parcela</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="inputManzana" name="manzanaCM"
+        value="{%if form.errors%}{{form.manzanaCM.value}}{%endif%}" placeholder="Manzana - Parcela" required>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputBarrio" class="col-sm-2 col-form-label">Barrio</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="inputBarrio" name="barrioCM"
+        value="{%if form.errors%}{{form.barrioCM.value}}{%endif%}" placeholder="Barrio" required>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="selProvincias" class="col-sm-2 col-form-label">Provincia</label>
+    <div class="col-sm-6">
+      <select class="form-control" id="selProvincias" name="provinciaCM"></select>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="selLocalidades" class="col-sm-2 col-form-label">Localidad</label>
+    <div class="col-sm-6">
+      <select class="form-control" id="selLocalidades" name="localidadCM"></select>
+    </div>
+  </div>
+
+
+  <hr />
+  <!-- Beneficiarios -->
+  <div class="eskimo-widget-title mb-4">
+    <h5 class="eskimo-title-with-border"><span>Beneficiarios:</span></h5">
+  </div>
+
+  <div class="form-group row">
+    <label for="inputCantAsistentes" class="col-5 col-form-label font-weight-bold">Cantidad de personas que
+      asisten (mínimo 25): </label>
+    <div class="col-1">
+      <input class="form-control" type="number" value="0" min="25" id="inputCantAsistentes" name="cantBenef">
+
+    </div>
+    <a href="#" class="btn btn-primary" id="add_field">Confirmar </a>
+  </div>
+  <div class="mt-4 mb-4">
+
+  </div>
+
+  <p>Grupos etarios que asisten(tildar lo que corresponda)</p>
+
+  <div class="form-group row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" id="" name="grupoAdultos">Adultos y adultas mayores
+        </label>
       </div>
-    </main>
-    {% endblock %}
-    <!-- FOOTER -->
-    <footer id="eskimo-footer" class="bg-dark text-white">
-      <div class="container">
-        <div class="row eskimo-footer-wrapper">
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="card bg-dark text-white">
-                <img class="card-img-top" src="{% static 'images/EPS.png' %}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">
-                    <a href="{% url "contactos" %}">Información de contacto</a>
-                  </p>
-                  <!-- <h5 class="card-title text-white">Subsecretaría de Economía y Políticas Sociales </h5>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" id="" name="grupoMujEmb">Mujeres embarazadas
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" id="" name="grupoJov">Jóvenes
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" id="" name="grupoAdolec">Adolescentes
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" id="" name="grupoNino">Niños y niñas
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" id="" name="grupoCalle">Personas en situación de calle
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" id="" name="grupoDisc">Personas con Discapacidad
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="eskimo-widget-title mt-5 mb-4">
+    <h5 class="eskimo-title-with-border"><span>Completar la nómina de beneficiarios</span></h5">
+  </div>
+
+
+  <!-- FORM BENEFICIARIOS -->
+  <!-- agregar cantidad de campos segun el input cantidad de beneficiarios -->
+  <div id="divBeneficiarios">
+
+  </div>
+
+
+  <hr />
+  <!-- Esquema de Trabajo -->
+  <div class="eskimo-widget-title mt-5">
+    <h3 class="eskimo-title-with-border"><span>Esquema de Trabajo:</span></h3>
+  </div>
+  <p>Días y horarios en los que se brinda el servicio</p>
+
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <!-- <th scope="col">#</th> -->
+        <th scope="col" class="">
+          Dias
+        </th>
+        <th scope="col">
+          Horario
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+
+          <div class="form-group row">
+            <div class="col-sm-6 pr-1">
+              <label class="switch ">
+                <input type="checkbox" class="checksDias primary" id="swLunes" name="trLunes">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <label for="swLunes" class="col-sm-1 col-form-label">Lunes</label>
+          </div>
+
+        </td>
+
+        <td>
+
+          <div class="form-group row">
+            <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
+            <div class="col-3">
+              <input class="form-control" type="time" value="08:00:00" id="timeComLunDesde" name="hrDesdeLun">
+            </div>
+
+            <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
+            <div class="col-3">
+              <input class="form-control" type="time" value="12:00:00" id="timeComLunHasta" name="hrHastaLun">
+            </div>
+          </div>
+
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+
+          <div class="form-group row">
+            <div class="col-sm-6 pr-1">
+              <label class="switch ">
+                <input type="checkbox" class="checksDias primary" id="swMartes" name="trMartes">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <label for="swMartes" class="col-sm-1 col-form-label">Martes</label>
+          </div>
+
+
+        </td>
+        <td>
+          <div class="form-group row">
+            <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
+            <div class="col-3">
+              <input class="form-control" type="time" value="08:00:00" id="timeComMarDesde" name="hrDesdeMar">
+            </div>
+
+            <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
+            <div class="col-3">
+              <input class="form-control" type="time" value="12:00:00" id="timeComMarHasta" name="hrHastaMar">
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="form-group row">
+            <div class="col-sm-6 pr-1">
+              <label class="switch ">
+                <input type="checkbox" class="checksDias primary" id="swMiercoles" name="trMierdoles">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <label for="swMiercoles" class="col-sm-1 col-form-label">Miércoles</label>
+          </div>
+
+        </td>
+        <td>
+          <div class="form-group row">
+            <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
+            <div class="col-3">
+              <input class="form-control" type="time" value="08:00:00" id="timeComMierDesde" name="hrDesdeMier">
+            </div>
+
+            <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
+            <div class="col-3">
+              <input class="form-control" type="time" value="12:00:00" id="timeComMierHasta" name="hrHastaMier">
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="form-group row">
+            <div class="col-sm-6 pr-1">
+              <label class="switch ">
+                <input type="checkbox" class="checksDias primary" id="swJueves" name="trJueves">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <label for="swJueves" class="col-sm-1 col-form-label">Jueves</label>
+          </div>
+
+        </td>
+        <td>
+          <div class="form-group row">
+            <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
+            <div class="col-3">
+              <input class="form-control" type="time" value="08:00:00" id="timeComJueDesde" name="hrDesdeJuev">
+            </div>
+
+            <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
+            <div class="col-3">
+              <input class="form-control" type="time" value="12:00:00" id="timeComJueHasta" name="hrHastaJuev">
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="form-group row">
+            <div class="col-sm-6 pr-1">
+              <label class="switch ">
+                <input type="checkbox" class="checksDias primary" id="swViernes" name="trViernes">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <label for="swViernes" class="col-sm-1 col-form-label">Viernes</label>
+          </div>
+
+        </td>
+        <td>
+          <div class="form-group row">
+            <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
+            <div class="col-3">
+              <input class="form-control" type="time" value="08:00:00" id="timeComVierDesde" name="hrDesdeVier">
+            </div>
+
+            <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
+            <div class="col-3">
+              <input class="form-control" type="time" value="12:00:00" id="timeComVierHasta" name="hrHastaVier">
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="form-group row">
+            <div class="col-sm-6 pr-1">
+              <label class="switch ">
+                <input type="checkbox" class="checksDias primary" id="swSabado"
+                  name="trSabado = models.BooleanField(default=False)">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <label for="swSabado" class="col-sm-1 col-form-label">Sábado</label>
+          </div>
+
+        </td>
+        <td>
+          <div class="form-group row">
+            <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
+            <div class="col-3">
+              <input class="form-control" type="time" value="08:00:00" id="timeComSabDesde" name="    hrDesdeSab">
+            </div>
+
+            <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
+            <div class="col-3">
+              <input class="form-control" type="time" value="12:00:00" id="timeComSabHasta" name="hrHastaSab">
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="form-group row">
+            <div class="col-sm-6 pr-1">
+              <label class="switch ">
+                <input type="checkbox" class="checksDias primary" id="swDomingo" name="trDomingo">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <label for="swDomingo" class="col-sm-1 col-form-label">Domingo</label>
+          </div>
+
+        </td>
+        <td>
+
+          <div class="form-group row">
+            <label for="example-time-input" class="col-1 col-form-label ml-4">Desde</label>
+            <div class="col-3">
+              <input class="form-control" type="time" value="08:00:00" id="timeComDomDesde" name="hrDesdeDom">
+            </div>
+
+            <label for="example-time-input" class="col-1 col-form-label ml-4">Hasta</label>
+            <div class="col-3">
+              <input class="form-control" type="time" value="12:00:00" id="timeComDomHasta" name="hrHastaDom">
+            </div>
+          </div>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <input type="number" name="dias" id="dias" value="0" style="display: none;">
+
+  <hr />
+  <h3 class="eskimo-title-with-border mt-4"><span>Colaboradores:</span></h3>
+  <h5>Registrá a las personas que desarrollan alguna labor en el comedor o merendero.</h5>
+
+  <div class="form-group row">
+    <label for="inputCantColab" class="col-sm-5 col-form-label font-weight-bold">¿Cuántas personas colaboran en
+      el
+      comedor/merendero?</label>
+    <div class="col-sm-1">
+      <input type="number" class="form-control" id="inputCantColab" name="cantColab" value="1">
+    </div>
+  </div>
+  <a href="#" class="btn btn-primary" id="add_colab">Confirmar</a>
+
+  <p>Datos Personales de cada colaborador y colaboradora</p>
+
+  <div id="divColaboradores" class="mt-4">
+
+  </div>
+
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label font-weight-bold">¿Cuentan con algún tipo de
+      remuneración proveniente del Ministerio de Desarrollo Social?</label>
+    <div class="form-check m-2">
+      <input class="rdRemMinDes form-check-input" type="radio" name="remuneracionDS" id="rdRemMinDes1" value="si">
+      <label class="form-check-label" for="rdRemMinDes1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class="rdRemMinDes form-check-input" type="radio" name="remuneracionDS" id="rdRemMinDes2" value="no"
+        checked>
+      <label class="form-check-label" for="rdRemMinDes2">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div id="RemMinDes" style="display: none;">
+    <div class="form-group row">
+      <label for="inputRemMinDes" class="col-sm-1 col-form-label">¿Cuál? </label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="inputRemMinDes" name="tipoRemuneracionDS" placeholder="">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputRemMinDes" class="col-sm-1 col-form-label">Monto </label>
+      <div class="col-sm-2">
+        <input type="number" class="form-control" id="inputRemMinDes" name="montoRemuneracionDS" placeholder="">
+      </div>
+    </div>
+  </div>
+
+
+  <hr />
+  <h3 class="eskimo-title-with-border mt-4"><span>Informe Socio Ambiental</span></h3>
+
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label ">¿El comedor/ merendero cuenta con Agua
+      Potable?</label>
+    <div class="form-check m-2">
+      <input class=" form-check-input rdAguaPot" type="radio" name="aguaCM" id="rdAguaPot1" value="si">
+      <label class="form-check-label" for="rdAguaPot1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class=" form-check-input rdAguaPot" type="radio" name="aguaCM" id="rdAguaPot2" value="no" checked>
+      <label class="form-check-label" for="rdAguaPot2">
+        NO
+      </label>
+    </div>
+  </div>
+  <!-- segun radio anterior -->
+  <div class="form-group row mt-1">
+    <label id="tipoConex0" for="rdConexion" class="col-sm-5 col-form-label" style="display: none;">Tipo de
+      Conexión</label>
+    <div id="tipoConex1" class="form-check m-2" style="display: none;">
+      <input class="form-check-input" type="radio" name="tipoConex" id="rdConexion1" value="interna">
+      <label class="form-check-label" for="rdConexion1">
+        Interna
+      </label>
+    </div>
+    <div id="tipoConex2" class="form-check m-2" style="display: none;">
+      <input class="form-check-input" type="radio" name="tipoConex" id="rdConexion2" value="externa" checked>
+      <label class="form-check-label" for="Externa">
+        Externa
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label ">¿Cuenta con instalación eléctrica?</label>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="instElec" id="rdInstElec1" value="si">
+      <label class="form-check-label" for="rdInstElec1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="instElec" id="rdInstElec2" value="no" checked>
+      <label class="form-check-label" for="rdInstElec2">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label ">¿Es un espacio cerrado?</label>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="espacioCerradoCM" id="rdEspCerrado1" value="si">
+      <label class="form-check-label" for="rdEspCerrado1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="espacioCerradoCM" id="rdEspCerrado2" value="no" checked>
+      <label class="form-check-label" for="rdEspCerrado2">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label ">¿Dispone de Instalaciones sanitarias para las personas que
+      asisten?</label>
+    <div class="form-check m-2">
+      <input class="rdInstSanitarias form-check-input" type="radio" name="sanitarioCM" id="rdInstSanitarias1"
+        value="si">
+      <label class="form-check-label" for="rdInstSanitarias1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class="rdInstSanitarias form-check-input" type="radio" name="sanitarioCM" id="rdInstSanitarias2" value="no"
+        checked>
+      <label class="form-check-label" for="rdInstSanitarias2">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <!-- Segun respuesta anterior -->
+
+  <div class="form-group row" id="dChkSanitarios1" style="display: none;">
+    <!-- <div class="col-sm-2"></div> -->
+    <div class="col-sm-6">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" id="" name="banoCM">Baño instalado
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row" id="dChkSanitarios2" style="display: none;">
+    <!-- <div class="col-sm-2"></div> -->
+    <div class="col-sm-6">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" id="" name="letrinaCM">Letrina
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row" id="dChkSanitarios3" style="display: none;">
+    <!-- <div class="col-sm-2"></div> -->
+    <div class="col-sm-6">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" id="" name="otrosCM">Otros
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label ">¿Cuentan con un espacio o área exclusiva para la elaboración
+      de los alimentos (cocina)?</label>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="cocinaCM" id="rdCocina1" value="si">
+      <label class="form-check-label" for="rdCocina1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="cocinaCM" id="rdCocina2" value="no" checked>
+      <label class="form-check-label" for="rdCocina2">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <hr />
+  <h3 class="eskimo-title-with-border mt-4"><span>Actividades Extras</span></h3>
+
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label ">¿Cuenta con huerta comunitaria para la producción de
+      alimentos?</label>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="huerta" id="rdhuerta1" value="si">
+      <label class="form-check-label" for="rdhuerta1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="huerta" id="rdhuerta2" value="no" checked>
+      <label class="form-check-label" for="rdhuerta2">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label ">¿Realizan actividades recreativas o deportivas?</label>
+    <div class="form-check m-2">
+      <input class="rdDeporte form-check-input" type="radio" name="deporte" id="rdDeportes1" value="si">
+      <label class="form-check-label" for="rdDeportes1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class="rdDeporte form-check-input" type="radio" name="deporte" id="rdDeportes2" value="no" checked>
+      <label class="form-check-label" for="rdDeportes2">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <!-- segun anterior -->
+  <div id="dvDeporte" style="display: none;">
+    <div class="form-group row">
+      <label for="inputActDep" class="col-form-label">¿Cuáles? </label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="inputActDep" name="tipoDeporte" placeholder="">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label ">¿Se brinda apoyo escolar?</label>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="apoyoEsc" id="rdApotoEscolar1" value="si">
+      <label class="form-check-label" for="rdApotoEscolar1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="apoyoEsc" id="rdApotoEscolar2" value="no" checked>
+      <label class="form-check-label" for="rdApotoEscolar2">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label ">¿Transmiten información acerca de los cuidados de higiene
+      básicas?</label>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="infoHigiene" id="rdHigiene1" value="si">
+      <label class="form-check-label" for="rdHigiene1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="infoHigiene" id="rdHigiene2" value="no" checked>
+      <label class="form-check-label" for="rdHigiene2">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label ">¿Se dicta algún tipo de curso de Educación Sexual
+      Integral?</label>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="educSex" id="educSex" value="si">
+      <label class="form-check-label" for="rdEdSex1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="educSex" id="educSex" value="no" checked>
+      <label class="form-check-label" for="rdEdSex2">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label ">¿Se dicta algún tipo de curso de Prevención y Erradicación de
+      Violencias?</label>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="prevViolencia" id="rdViolencia1" value="si">
+      <label class="form-check-label" for="rdViolencia1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="prevViolencia" id="rdViolencia2" value="no" checked>
+      <label class="form-check-label" for="rdViolencia2">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group row mt-5">
+    <label for="" class="col-sm-5 col-form-label ">¿Se dicta algún tipo de curso de Prevención Comunitaria de
+      Consumo Problemático de Sustancias?</label>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="prevConsumo" id="rdSustancias1" value="si">
+      <label class="form-check-label" for="rdSustancias1">
+        SI
+      </label>
+    </div>
+    <div class="form-check m-2">
+      <input class="form-check-input" type="radio" name="prevConsumo" id="rdSustancias2" value="no" checked>
+      <label class="form-check-label" for="rdSustancias2">
+        NO
+      </label>
+    </div>
+  </div>
+  <hr />
+  <div class="alert alert-warning" role="alert">
+    <h4 class="alert-heading">Términos y Condiciones</h4>
+    <p>El registro estará a comprobación de los requerimientos solicitados por entidades que corresponda, quien
+      llevará adelante las acciones necesarias para la verificación en el territorio de los datos informados
+      mediante el formulario. El proceso de verificación concluye tras la emisión de una constancia de
+      relevamiento a cargo de un profesional habilitado por el Ministerio de Desarrollo Social quien visitará el
+      espacio en el que se desarrolla el merendero o comedor comunitario.</p>
+    <!-- <hr> -->
+    <!-- <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Enviar formulario</button>
+</form>
+{%endblock%}
+{%block footer%}
+{%load static%}
+<!-- FOOTER -->
+<footer id="eskimo-footer" class="bg-dark text-white">
+  <div class="container">
+    <div class="row eskimo-footer-wrapper">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card bg-dark text-white">
+            <img class="card-img-top" src="{% static 'images/EPS.png' %}" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">
+                <a href="{% url "contactos" %}">Información de contacto</a>
+              </p>
+              <!-- <h5 class="card-title text-white">Subsecretaría de Economía y Políticas Sociales </h5>
                   <p class="card-text">Dirección: Avenida Juan Manuel Belgrano 550</br>
                     Correo: <a href="mailto:sub.economiaypolsoc@chaco.gob.ar">sub.economiaypolsoc@chaco.gob.ar</a>
                     </br>
@@ -1141,17 +1047,17 @@
                     <br />
                     Facebook/Instagram: @juventudeschaco</p> -->
 
-                </div>
-              </div>
             </div>
-            <div class="col-sm-4">
-              <div class="card bg-dark text-white">
-                <img class="card-img-top" src="{% static 'images/UPSN.png' %}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">
-                    <a href="{% url "contactos" %}">Información de contacto</a>
-                  </p>
-                  <!-- <h5 class="card-title text-white">Unidad Provincial de Seguimiento
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card bg-dark text-white">
+            <img class="card-img-top" src="{% static 'images/UPSN.png' %}" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">
+                <a href="{% url "contactos" %}">Información de contacto</a>
+              </p>
+              <!-- <h5 class="card-title text-white">Unidad Provincial de Seguimiento
                     Nutricional</h5>
                   <p class="card-text">Dirección: Posadas 725</br>
                     Teléfono: 3624873827</br>
@@ -1159,19 +1065,19 @@
                     </br>
                   </p> -->
 
-                </div>
-              </div>
             </div>
-            <div class="col-sm-4">
-              <div class="card bg-dark text-white">
-                <img class="card-img-top" src="{% static 'images/MDS.png' %}" alt="Card image cap">
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card bg-dark text-white">
+            <img class="card-img-top" src="{% static 'images/MDS.png' %}" alt="Card image cap">
 
-                <div class="card-body bg-dark text-white">
-                  <p class="card-text">
-                    <a href="{% url "contactos" %}">Información de contacto</a>
+            <div class="card-body bg-dark text-white">
+              <p class="card-text">
+                <a href="{% url "contactos" %}">Información de contacto</a>
 
-                  </p>
-                  <!-- <h5 class="card-title text-white">Ministerio de Desarrollo Social de
+              </p>
+              <!-- <h5 class="card-title text-white">Ministerio de Desarrollo Social de
                     la Provincia del
                     Chaco</h5>
                   <p class="card-text">Dirección: Avenida 25 de Mayo 855</br>
@@ -1180,12 +1086,12 @@
                       href="mailto:desarrollosocial@chaco.gob.ar">desarrollosocial@chaco.gob.ar</a>
                     </br>
                   </p> -->
-                </div>
-              </div>
             </div>
-            <!-- <div class="col-2 col-lg-2 mb-2 mb-lg-0">            
+          </div>
+        </div>
+        <!-- <div class="col-2 col-lg-2 mb-2 mb-lg-0">            
             </div> -->
-            <!-- <div class="col-4 col-lg-4 mb-4 mb-lg-0">
+        <!-- <div class="col-4 col-lg-4 mb-4 mb-lg-0">
                 <a href="http://www.chaco.gob.ar/" target="_blank">
                   <img class="mt-5" src="{% static 'images/logo-footer.png'%}" alt="desarrollo social" />
                 </a>
@@ -1194,81 +1100,9 @@
                     alt="cuidadores domiciliarios" />
                 </a> 
               </div> -->
-          </div>
-
-        </div>
       </div>
-    </footer>
+
+    </div>
   </div>
-  <!-- GO TO TOP BUTTON -->
-  <a id="eskimo-gototop" href="#"><i class="fa fa-chevron-up"></i></a>
-
-  <!-- JS FILES -->
-  <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
-  <script src="{% static 'js/bootstrap.min.js'%}"></script>
-  <script src="{% static 'js/bootstrap-select.min.js'%}"></script>
-  <!-- <script src="{% static 'js/bootstrap-toggle.min.js'%}"></script> -->
-  <script src="{% static 'js/salvattore.min.js' %}"></script>
-  <script src="{% static 'js/slick.min.js' %}"></script>
-  <script src="{% static 'js/panel.js' %}"></script>
-  <script src="{% static 'js/reading-position-indicator.js' %}"></script>
-  <script src="{% static 'js/custom.js' %}"></script>
-  <script src="{% static 'js/insert.js'%}"></script>
-
-
-
-
-
-  <!-- POST SLIDER -->
-  <script>
-    (function ($) {
-      "use strict";
-      $(document).ready(function () {
-        $('#eskimo-post-slider').slick({
-          autoplay: true,
-          autoplaySpeed: 5000,
-          slidesToScroll: 1,
-          adaptiveHeight: true,
-          slidesToShow: 1,
-          arrows: true,
-          dots: false,
-          fade: true
-        });
-      });
-      $(window).on('load', function () {
-        $('#eskimo-post-slider').css('opacity', '1');
-        $('#eskimo-post-slider').parent().removeClass('eskimo-bg-loader');
-      });
-    })(jQuery);
-  </script>
-  <!-- POST CAROUSEL -->
-  <script>
-    (function ($) {
-      "use strict";
-      $(document).ready(function () {
-        $('#eskimo-post-carousel').slick({
-          infinite: false,
-          slidesToScroll: 1,
-          arrows: true,
-          dots: false,
-          slidesToShow: 3,
-          responsive: [{
-            breakpoint: 992,
-            settings: {
-              slidesToShow: 2
-            }
-          }, {
-            breakpoint: 576,
-            settings: {
-              slidesToShow: 1
-            }
-          }]
-
-        });
-        $('#eskimo-post-carousel').css('opacity', '1');
-      });
-    })(jQuery);
-  </script>
-</body>
-
-</html>
+</footer>
+{%endblock%}

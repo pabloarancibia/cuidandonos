@@ -1,372 +1,207 @@
-<!DOCTYPE html>
-<html lang="en-US">
+{% extends "base.html" %}
+{%block head_content%}
+<title>Cuidandonos</title>
+{%endblock%}
 
-<head>
-    <title>Cuidandonos</title>
-    <!-- META TAGS -->
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <!-- CSS FILES -->
-    {% load static %}
-    <link href="{% static 'css/styleCustom.css'%}" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/bootstrap.min'%}.css" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/fontawesome.css'%}" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/slick.css'%}" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
-</head>
+{%block container%}
+{%load static%}
+<div class="clearfix"></div>
+<!-- SLIDER -->
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="{% static 'images/banner1.jpg' %}" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
 
-<body>
-    <!-- READING POSITION INDICATOR -->
-    <progress value="0" id="eskimo-progress-bar">
-        <span class="eskimo-progress-container">
-            <span class="eskimo-progress-bar"></span>
-        </span>
-    </progress>
-    <!-- SITE WRAPPER -->
-    <div id="eskimo-site-wrapper">
-        <!-- MAIN CONTAINER -->
-        <main id="eskimo-main-container">
-            <!-- NAVBAR HORIZONTAL -->
-            <!-- <ul class="nav justify-content-center"> -->
-            <nav class="navbar navbar-custom navbar-expand-lg navbar-light bg-light">
-                <!-- <nav class="navbar navbar-light navbar-expand-md"> -->
-                <div class="container">
-                    <a class="eskimo-logo-link col-3" href="#">
-                        <img src="{% static 'images/logo_gobierno2020.png'%}" class="eskimo-logo" alt="eskimo" />
-                    </a>
-                    <!-- <a class="navbar-brand" href="#">LOGO</a> -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'images/banner2.jpg' %}" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block">
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link text-light" href="#">INICIO <span
-                                        class="sr-only">(current)</span></a>
-                            </li>
-                            <!-- <li class="nav-item">
-                                                <a class="nav-link" href="#">Link</a>
-                                            </li> -->
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    REGISTRAR
-                                </a>
-                                <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item text-white  bg-primary"
-                                        href="{% url "infocomedores" %}">Comedores y
-                                        Merenderos</a>
-                                    <a class="dropdown-item text-white  bg-primary"
-                                        href="{% url "infocuidadores" %}">Cuidadores
-                                        Domiciliarios</a>
-                                    <a class="dropdown-item text-white  bg-primary"
-                                        href="{% url "infovoluntarios" %}">Voluntarios
-                                        Sociales</a>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'images/voluntariado/1.jpg' %}" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
 
-                                </div>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link text-white" href="#">MAPA <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link text-white" href="{% url "contactos" %}">INFORMACIÓN<span
-                                        class="sr-only">(current)</span></a>
-                            </li>
-                            <!-- <li class="nav-item">
-                                                <a class="nav-link disabled" href="#">Disabled</a>
-                                            </li> -->
-                        </ul>
-                        <!-- <form class="form-inline my-2 my-lg-0">
-                                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                                        </form> -->
-                    </div>
-                </div>
-            </nav>
-            <!-- </ul> -->
-            <!-- FIN NAVBAR HORIZONTAL -->
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'images/voluntariado/2.jpg' %}" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
 
-            <div class="container">
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'images/voluntariado/3.jpg' %}" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
 
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
-                <!-- TOP ICONS -->
-                <!-- <ul class="eskimo-top-icons">
-                    <li id="eskimo-panel-icon">
-                        <a href="#eskimo-panel" class="eskimo-panel-open"><i class="fa fa-bars"></i></a>
-                    </li>
-                    <li id="eskimo-search-icon">
-                        <a id="eskimo-open-search" href="#"><i class="fa fa-search"></i></a>
-                    </li>
-                </ul> -->
-                <div class="clearfix"></div>
-                <!-- SLIDER -->
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="{% static 'images/banner1.jpg' %}" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
+<!-- DIVIDER -->
+<!-- <hr class="section-divider" /> -->
 
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{% static 'images/banner2.jpg' %}" alt="Second slide">
-                            <div class="carousel-caption d-none d-md-block">
+<!-- CAROUSEL -->
+<div class="eskimo-widget-title mt-5">
+    <!-- <h3 class="eskimo-carousel-title"><span>REGISTRAR:</span></h3> -->
+    <h3 class="eskimo-title-with-border"><span>REGISTRAR:</span></h3>
+</div>
 
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{% static 'images/voluntariado/1.jpg' %}" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{% static 'images/voluntariado/2.jpg' %}" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{% static 'images/voluntariado/3.jpg' %}" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-
-                            </div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-
-                <!-- DIVIDER -->
-                <!-- <hr class="section-divider" /> -->
-
-                <!-- CAROUSEL -->
-                <div class="eskimo-widget-title mt-5">
-                    <!-- <h3 class="eskimo-carousel-title"><span>REGISTRAR:</span></h3> -->
-                    <h3 class="eskimo-title-with-border"><span>REGISTRAR:</span></h3>
-                </div>
-
-                <div class="eskimo-carousel-container">
-                    <!-- <div class="eskimo-carousel-view-more">
+<div class="eskimo-carousel-container">
+    <!-- <div class="eskimo-carousel-view-more">
                         <a href="blog.html">VIEW ALL</a>
                     </div> -->
 
-                    <div id="eskimo-post-carousel" class="eskimo-carousel">
-                        <!-- CAROUSEL ITEM 1 -->
-                        <div>
-                            <div class="card-masonry card-small">
-                                <div class="card">
-                                    <a href="{%url "infocomedores"%}">
-                                        <img class="card-vertical-img"
-                                            src="{% static 'images/merenderos_comedores.jpg'%}"
-                                            alt="Comedores y Merenderos Comunitarios" />
-                                    </a>
-                                    <div class="card-border">
-                                        <div class="card-body">
-                                            <!-- <div class="card-category">
+    <div id="eskimo-post-carousel" class="eskimo-carousel">
+        <!-- CAROUSEL ITEM 1 -->
+        <div>
+            <div class="card-masonry card-small">
+                <div class="card">
+                    <a href="{%url "infocomedores"%}">
+                        <img class="card-vertical-img" src="{% static 'images/merenderos_comedores.jpg'%}"
+                            alt="Comedores y Merenderos Comunitarios" />
+                    </a>
+                    <div class="card-border">
+                        <div class="card-body">
+                            <!-- <div class="card-category">
                                                 <a href="single-post.html">May 28, 2018</a>
                                             </div> -->
-                                            <h5 class="card-title"><a href="{%url "infocomedores"%}">Comedores y
-                                                    Merenderos</a>
-                                            </h5>
-                                            <p class="card-text">Registro para comedores y merenderos comunitarios.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <h5 class="card-title"><a href="{%url "infocomedores"%}">Comedores y
+                                    Merenderos</a>
+                            </h5>
+                            <p class="card-text">Registro para comedores y merenderos comunitarios.</p>
                         </div>
-                        <!-- CAROUSEL ITEM 2 -->
-                        <div>
-                            <div class="card-masonry card-small">
-                                <div class="card">
-                                    <a href="{%url "infocuidadores"%}">
-                                        <img class="card-vertical-img"
-                                            src="{% static 'images/cuidado_domiciliario.jpg'%}"
-                                            alt="Cuidadores Domiciliarios" />
-                                    </a>
-                                    <div class="card-border">
-                                        <div class="card-body">
-                                            <!-- <div class="card-category">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CAROUSEL ITEM 2 -->
+        <div>
+            <div class="card-masonry card-small">
+                <div class="card">
+                    <a href="{%url "infocuidadores"%}">
+                        <img class="card-vertical-img" src="{% static 'images/cuidado_domiciliario.jpg'%}"
+                            alt="Cuidadores Domiciliarios" />
+                    </a>
+                    <div class="card-border">
+                        <div class="card-body">
+                            <!-- <div class="card-category">
                                                 <a href="single-post.html">May 27, 2018</a>
                                             </div> -->
-                                            <h5 class="card-title"><a href="{%url "infocuidadores"%}">Cuidadores
-                                                    Domiciliarios</a></h5>
-                                            <p class="card-text">El cuidador domiciliario es aquel que provee cuidados
-                                                específicos para satisfacer las necesidades diarias de otra persona,
-                                                quien se desempeña en domicilios particulares..</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <h5 class="card-title"><a href="{%url "infocuidadores"%}">Cuidadores
+                                    Domiciliarios</a></h5>
+                            <p class="card-text">El cuidador domiciliario es aquel que provee cuidados
+                                específicos para satisfacer las necesidades diarias de otra persona,
+                                quien se desempeña en domicilios particulares..</p>
                         </div>
-                        <!-- CAROUSEL ITEM 3 -->
-                        <div>
-                            <div class="card-masonry card-small">
-                                <div class="card">
-                                    <a href="{% url "infovoluntarios" %}">
-                                        <img class="card-vertical-img" src="{% static 'images/voluntarios.jpg'%}"
-                                            alt="Voluntariado Social" />
-                                    </a>
-                                    <div class="card-border">
-                                        <div class="card-body">
-                                            <!-- <div class="card-category">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CAROUSEL ITEM 3 -->
+        <div>
+            <div class="card-masonry card-small">
+                <div class="card">
+                    <a href="{% url "infovoluntarios" %}">
+                        <img class="card-vertical-img" src="{% static 'images/voluntarios.jpg'%}"
+                            alt="Voluntariado Social" />
+                    </a>
+                    <div class="card-border">
+                        <div class="card-body">
+                            <!-- <div class="card-category">
                                                 <a href="infovoluntarios.html">May 25, 2018</a>
                                             </div> -->
-                                            <h5 class="card-title"><a href="{% url "infovoluntarios" %}">Voluntariado
-                                                    Social</a>
-                                            </h5>
-                                            <p class="card-text">Se define por voluntariado social a la actividad
-                                                voluntaria, solidaria, que desarrollan las personas en entidades sin
-                                                fines de lucro, como decisión libre, gratuita, apoyada por motivaciones
-                                                personales y como elemento de desarrollo personal.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!--  fin item 3 -->
-                    </div>
-                </div>
-                <div class="dropdown-divider mt-5 mb-5"></div>
-                <div class="mapa-container">
-                    <div class="eskimo-widget-title">
-                        <h3 class="eskimo-title-with-border"><span>MAPA:</span></h3>
-                    </div>
-                    <div class="col-6 col-lg-6 mt-3 mb-4 mb-lg-0">
-                        <a href="#">
-                            <img class="img-thumbnail" src="{% static 'images/mapares.PNG'%}"
-                                alt="Mapa comedores comunitarios" />
-                        </a>
-                    </div>
-                </div>
-                <div class="dropdown-divider mt-5 mb-5"></div>
-                <div class="eskimo-widget-title mb-3">
-                    <h3 class="eskimo-title-with-border"><span>INFORMACIÓN:</span></h3>
-                </div>
-                <div class="col-12 col-lg-12 mb-5 mb-lg-0 list-group">
-                    <h5>Para más información podés descargar:</h5>
-
-                    <a href="#" class="list-group-item list-group-item-action">Ley Nacional del voluntariado social
-                        n°25.855 </a>
-                    <a href="#" class="list-group-item list-group-item-action">Adhesión, Ley Provincial de Voluntariado
-                        Social Ley n° 1230-C (antes Ley 5134)</a>
-                    <a href="#" class="list-group-item list-group-item-action"> Ley 2490-G que establece y regula el
-                        Régimen de Cuidadores Domiciliarios y/o Polivalentes
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action"> Ley Nacional de Protección de los
-                        Derechos Humanos de los Adultos Mayores Ley 27.360</a>
-                    <a href="#" class="list-group-item list-group-item-action"> Ley Nª 2761-G que nuestra provincia
-                        adhiere a la Ley Nacionalde Protección de los Derechos
-                        Humanos de los Adultos Mayores</a>
-                    <a href="#" class="list-group-item list-group-item-action"> Ley 2553-B “Ley de Promoción y
-                        Protección Integral de las Personas Adultas Mayores</a>
-                    <a href="#" class="list-group-item list-group-item-action"> Ley Nacional 26.061 de Protección
-                        Integral de los Derechos de las Niñas, Niños y
-                        Adolescentes.
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action"> Ley Provincial 2086-C. Protección
-                        Integral de Derecho de Niñas, Niños y Adolescentes</a>
-
-                </div>
-            </div>
-        </main>
-        <!-- FOOTER -->
-        <footer id="eskimo-footer" class="bg-dark text-white">
-            <div class="container">
-                <div class="row eskimo-footer-wrapper">
-                    <!-- FOOTER WIDGET 1 -->
-                    <div class="col-8 col-lg-8 mb-4 mb-lg-0">
-                        <h5 class="eskimo-title-with-border"><span class="text-white">Ministerio de Desarrollo Social de
-                                la Provincia del
-                                Chaco</span></h5>
-                        <p>Dirección: Avenida 25 de Mayo 855</br>
-                            Teléfono: 3624688384</br>
-                            Correo: <a target="_blank"
-                                href="mailto:desarrollosocial@chaco.gob.ar">desarrollosocial@chaco.gob.ar</a> </br>
-                        </p>
-                    </div>
-                    <div class="col-4 col-lg-4 mb-4 mb-lg-0">
-                        <a href="#">
-                            <img class="card-vertical-img" src="{%static 'images/MDS.png'%}"
-                                alt="ministerio de desarrollo social" />
-                        </a>
+                            <h5 class="card-title"><a href="{% url "infovoluntarios" %}">Voluntariado
+                                    Social</a>
+                            </h5>
+                            <p class="card-text">Se define por voluntariado social a la actividad
+                                voluntaria, solidaria, que desarrollan las personas en entidades sin
+                                fines de lucro, como decisión libre, gratuita, apoyada por motivaciones
+                                personales y como elemento de desarrollo personal.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </footer>
+        </div><!--  fin item 3 -->
     </div>
-    <!-- GO TO TOP BUTTON -->
-    <a id="eskimo-gototop" href="#"><i class="fa fa-chevron-up"></i></a>
+</div>
+<div class="dropdown-divider mt-5 mb-5"></div>
+<div class="mapa-container">
+    <div class="eskimo-widget-title">
+        <h3 class="eskimo-title-with-border"><span>MAPA:</span></h3>
+    </div>
+    <div class="col-6 col-lg-6 mt-3 mb-4 mb-lg-0">
+        <a href="#">
+            <img class="img-thumbnail" src="{% static 'images/mapares.PNG'%}" alt="Mapa comedores comunitarios" />
+        </a>
+    </div>
+</div>
+<div class="dropdown-divider mt-5 mb-5"></div>
+<div class="eskimo-widget-title mb-3">
+    <h3 class="eskimo-title-with-border"><span>INFORMACIÓN:</span></h3>
+</div>
+<div class="col-12 col-lg-12 mb-5 mb-lg-0 list-group">
+    <h5>Para más información podés descargar:</h5>
 
-    <!-- JS FILES -->
-    <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
-    <script src="{% static 'js/bootstrap.min.js'%}"></script>
-    <script src="{% static 'js/salvattore.min.js'%}"></script>
-    <script src="{% static 'js/slick.min.js'%}"></script>
-    <script src="{% static 'js/panel.js'%}"></script>
-    <script src="{% static 'js/reading-position-indicator.js'%}"></script>
-    <script src="{% static 'js/custom.js'%}"></script>
-    <!-- POST SLIDER -->
-    <script>
-        (function ($) {
-            "use strict";
-            $(document).ready(function () {
-                $('#eskimo-post-slider').slick({
-                    autoplay: true,
-                    autoplaySpeed: 5000,
-                    slidesToScroll: 1,
-                    adaptiveHeight: true,
-                    slidesToShow: 1,
-                    arrows: true,
-                    dots: false,
-                    fade: true
-                });
-            });
-            $(window).on('load', function () {
-                $('#eskimo-post-slider').css('opacity', '1');
-                $('#eskimo-post-slider').parent().removeClass('eskimo-bg-loader');
-            });
-        })(jQuery);
-    </script>
-    <!-- POST CAROUSEL -->
-    <script>
-        (function ($) {
-            "use strict";
-            $(document).ready(function () {
-                $('#eskimo-post-carousel').slick({
-                    infinite: false,
-                    slidesToScroll: 1,
-                    arrows: true,
-                    dots: false,
-                    slidesToShow: 3,
-                    responsive: [{
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: 2
-                        }
-                    }, {
-                        breakpoint: 576,
-                        settings: {
-                            slidesToShow: 1
-                        }
-                    }]
+    <a href="#" class="list-group-item list-group-item-action">Ley Nacional del voluntariado social
+        n°25.855 </a>
+    <a href="#" class="list-group-item list-group-item-action">Adhesión, Ley Provincial de Voluntariado
+        Social Ley n° 1230-C (antes Ley 5134)</a>
+    <a href="#" class="list-group-item list-group-item-action"> Ley 2490-G que establece y regula el
+        Régimen de Cuidadores Domiciliarios y/o Polivalentes
+    </a>
+    <a href="#" class="list-group-item list-group-item-action"> Ley Nacional de Protección de los
+        Derechos Humanos de los Adultos Mayores Ley 27.360</a>
+    <a href="#" class="list-group-item list-group-item-action"> Ley Nª 2761-G que nuestra provincia
+        adhiere a la Ley Nacionalde Protección de los Derechos
+        Humanos de los Adultos Mayores</a>
+    <a href="#" class="list-group-item list-group-item-action"> Ley 2553-B “Ley de Promoción y
+        Protección Integral de las Personas Adultas Mayores</a>
+    <a href="#" class="list-group-item list-group-item-action"> Ley Nacional 26.061 de Protección
+        Integral de los Derechos de las Niñas, Niños y
+        Adolescentes.
+    </a>
+    <a href="#" class="list-group-item list-group-item-action"> Ley Provincial 2086-C. Protección
+        Integral de Derecho de Niñas, Niños y Adolescentes</a>
 
-                });
-                $('#eskimo-post-carousel').css('opacity', '1');
-            });
-        })(jQuery);
-    </script>
-</body>
-
-</html>
+</div>
+{%endblock%}
+{%block footer%}
+{%load static%}
+<!-- FOOTER -->
+<footer id="eskimo-footer" class="bg-dark text-white">
+    <div class="container">
+        <div class="row eskimo-footer-wrapper">
+            <!-- FOOTER WIDGET 1 -->
+            <div class="col-8 col-lg-8 mb-4 mb-lg-0">
+                <h5 class="eskimo-title-with-border"><span class="text-white">Ministerio de Desarrollo Social de
+                        la Provincia del
+                        Chaco</span></h5>
+                <p>Dirección: Avenida 25 de Mayo 855</br>
+                    Teléfono: 3624688384</br>
+                    Correo: <a target="_blank"
+                        href="mailto:desarrollosocial@chaco.gob.ar">desarrollosocial@chaco.gob.ar</a> </br>
+                </p>
+            </div>
+            <div class="col-4 col-lg-4 mb-4 mb-lg-0">
+                <a href="#">
+                    <img class="card-vertical-img" src="{%static 'images/MDS.png'%}"
+                        alt="ministerio de desarrollo social" />
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+{%endblock%}
