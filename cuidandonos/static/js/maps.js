@@ -1,4 +1,4 @@
-var mymap = L.map('mapid').setView([-27.45, -58.97], 13);
+var mymap = L.map('mapid').setView([-27.45, -58.97], 9);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -11,6 +11,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 
 var marker= new L.Marker(-27.45, -58.97, {draggable:true});
+
 function onMapClick(e) {
     mymap.removeLayer(marker)
     marker = new L.Marker(e.latlng, {draggable:true});
