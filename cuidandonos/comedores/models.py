@@ -16,7 +16,7 @@ class comedores (models.Model):
     nombreRes = models.CharField(max_length=60)
     apellidoRes = models.CharField(max_length=60)
     dniRes = models.BigIntegerField()
-    cuilRes = models.BigIntegerField(max_length=11)
+    cuilRes = models.BigIntegerField()
     contactoRes = models.BigIntegerField()
     emailRes = models.EmailField()
 
@@ -37,6 +37,9 @@ class comedores (models.Model):
     barrioCM = models.CharField(max_length=60)
     provinciaCM = models.CharField(max_length=60)
     localidadCM = models.CharField(max_length=60)
+
+    latitud = models.CharField(max_length=40)
+    longitud = models.CharField(max_length=40)
 
     cantBenef = models.IntegerField()
     grupoAdultos = models.BooleanField(default=False)

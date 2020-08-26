@@ -10,14 +10,36 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(mymap);
 
 
-var marker= new L.Marker(-27.45, -58.97, {draggable:true});
+// var marker = new L.Marker([-27.45, -58.97], { draggable: true });
+var marker = new L.Marker([-27.45, -58.97]);
+mymap.addLayer(marker);
 
 function onMapClick(e) {
     mymap.removeLayer(marker)
-    marker = new L.Marker(e.latlng, {draggable:true});
+    marker = new L.Marker(e.latlng);
     mymap.addLayer(marker);
-    marker.bindPopup("<b>Nombre Comedor/Merendero</b><br>Dirección.").openPopup();
+    marker.bindPopup("<b>Nombre Comedor/Merendero</b>.").openPopup();
+
+    $('#lat').val(e.latlng.lat);
+    $('#long').val(e.latlng.lng);
 }
 mymap.on('click', onMapClick);
+
+// marker.on('dragend', function (event) {
+//     mymap.removeLayer(marker)
+//     var latlng = event.target.getLatLng();
+//     marker = new L.Marker(latlng, { draggable: true });
+//     mymap.addLayer(marker);
+//     marker.bindPopup("<b>Nombre Comedor/Merendero</b>.").openPopup();
+
+//     $('#lat').val(latlng.lat);
+//     $('#long').val(latlng.lng);
+
+    // var latlng = event.target.getLatLng();
+    // console.log('algo');
+    // this.bindPopup(event.toString()).openPopup();
+    // $('#lat').val(latlng.lat);
+    // $('#long').val(latlng.lng);
+// });
 
 
