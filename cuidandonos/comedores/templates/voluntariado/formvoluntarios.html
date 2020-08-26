@@ -470,12 +470,19 @@
   </table>
 
   <hr />
-
-  <div class="form-group">
-    <label for="txtVolComentario">Contanos ¿Cómo te gustaría colaborar con nosotros?</label>
-    <div class="col-8">
-      <textarea class="form-control" id="txtVolComentario" name="comentario"
-        value="{%if form.errors%}{{form.comentario.value}}{%endif%}" rows="5" required></textarea>
+  <label for="selGenero" class=" col-form-label">¿En qué Área te gustaría desarrollar tu voluntariado? </label>
+  <div class="form-group row">
+    
+    <div class="col-sm-8">
+      <select class="form-control" id="selArea" name="areaVoluntariado">
+        <option value="violenciadegenero" selected>Violencia de Género</option>
+        <option value="personascalle">Abordaje y Acompañamiento a personas en situación de calle</option>
+        <option value="prevencionconsumo">Prevención en consumo problemático de sustancias psicoadictivas</option>
+        <option value="seguridadalimentaria"> Seguridad Alimentaria- Intervenciones Comunitarias en Merenderos/Comedores</option>
+        <option value="personasadultas">Acompañamiento y Asistencia a Personas Adultas Mayores</option>
+        <option value="juventudes">Juventudes y diversidad</option>
+        <option value="infancias">Infancias y Adolescencias en especial situación de vulnerabilidad</option>
+      </select>
     </div>
   </div>
 
@@ -501,6 +508,13 @@
     </div>
   </div>
 
+  <div class="alert alert-warning" role="alert">
+    <h4 class="alert-heading">Términos y Condiciones</h4>
+    <p>La Subsecretaría de Participación Ciudadana tendrá a su cargo el funcionamiento del Registro Provincial de Voluntariado Social, y tal fin, establecerá las bases y condiciones para la convalidación de la inscripción al Registro de cada postulante. </p>
+    <!-- <hr> -->
+    <!-- <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
+  </div>
+
 
 
   <button type="submit" class="btn btn-primary">Enviar formulario</button>
@@ -515,27 +529,7 @@
   <div class="container">
     <div class="row eskimo-footer-wrapper">
       <div class="row">
-        <div class="col-sm-4">
-          <div class="card bg-dark text-white">
-            <img class="card-img-top" src="{% static 'images/JD.png' %}" alt="Card image cap">
-
-            <div class="card-body">
-              <p class="card-text">
-                <a href="{% url "contactos" %}">Información de contacto</a>
-
-              </p>
-              <!-- <h5 class="card-title text-white">Subsecretaría de Juventudes y Diversidades</h5>
-                              <p class="card-text">Dirección: Salta 63</br>
-                                  Celular: 3624658825 <br />
-                                  Teléfono: 3624453188 <br />
-                                  Correo: <a target="_blank"
-                                      href="mailto:sub.juventud@chaco.gov.ar">sub.juventud@chaco.gov.ar</a>
-                                  </br>
-                                  Facebook/Instagram: @juventudeschaco</p> -->
-
-            </div>
-          </div>
-        </div>
+         
         <div class="col-sm-4">
           <div class="card bg-dark text-white">
             <img class="card-img-top" src="{% static 'images/PC.png' %}" alt="Card image cap">
@@ -545,18 +539,7 @@
                 <a href="{% url "contactos" %}">Información de contacto</a>
 
               </p>
-              <!-- <h5 class="card-title text-white">Subsecretaría de Participación Ciudadana </h5>
-                              <p class="card-text">Dirección: Formosa 634 <br />
-                                  Celular: 3625270273<br />
-                                  Teléfono: 3624762741<br />
-
-                                  Correo: <a
-                                      href="mailto:sub.participacion@chaco.gob.ar">sub.participacion@chaco.gob.ar</a>
-                                  </br>
-                                  Facebook: Subsecretaría de Participación Ciudadana</br>
-                                  Instagram : @participacion_ciudadana2020
-                              </p> -->
-
+              
             </div>
           </div>
         </div>
@@ -569,26 +552,12 @@
                 <a href="{% url "contactos" %}">Información de contacto</a>
 
               </p>
-              <!-- <h5 class="card-title text-white">Ministerio de Desarrollo Social de
-                                  la Provincia del
-                                  Chaco</h5>
-                              <p class="card-text">Dirección: Avenida 25 de Mayo 855</br>
-                                  Líneas rotativas: (0362)4452620 / 4452621 / 4433005 / 4452986 / 4437456 /
-                                  4428319</br>
-                                  Correo: <a target="_blank"
-                                      href="mailto:desarrollosocial@chaco.gob.ar">desarrollosocial@chaco.gob.ar</a>
-                                  </br>
-                              </p> -->
+              
             </div>
           </div>
         </div>
 
-        <!-- <div class="col-4 col-lg-4 mb-4 mb-lg-0">
-                      <a href="http://www.chaco.gob.ar/" target="_blank">
-                          <img class="mt-5" src="{% static 'images/MDS.png'%}" alt="desarrollo social" />
-                      </a>
-                      
-                  </div> -->
+     
       </div>
 
     </div>

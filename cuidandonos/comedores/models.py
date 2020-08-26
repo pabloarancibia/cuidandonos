@@ -11,7 +11,7 @@ class comedores (models.Model):
     srvComedor = models.BooleanField(default=False)
     srvMerendero = models.BooleanField(default=False)
     nombreCM = models.CharField(
-        max_length=60, help_text="Debe ingresar un nombre para el comedor/merendero")
+        max_length=100, help_text="Debe ingresar un nombre para el comedor/merendero")
 
     nombreRes = models.CharField(max_length=60)
     apellidoRes = models.CharField(max_length=60)
@@ -215,5 +215,5 @@ class voluntarios(models.Model):
     hrDesdeDom = models.TimeField()
     hrHastaDom = models.TimeField()
 
-    comentario = models.CharField(max_length=800)
+    areaVoluntariado = models.CharField(max_length=40)
     rdLeyVol = models.CharField(max_length=2)
