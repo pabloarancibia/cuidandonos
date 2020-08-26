@@ -126,7 +126,8 @@
 
   <div class="form-group row">
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="nombreCM" placeholder="Nombre" required>
+      <input type="text" class="form-control" name="nombreCM" value="{%if form.errors%}{{form.nombreCM.value}}{%endif%}"
+        placeholder="Nombre" required>
     </div>
   </div>
 
@@ -366,8 +367,10 @@
   <h5>Indique la ubicación del comedor/merendero en el mapa:</h5>
   <p>Haga click para agregar el marcador</p>
   <div id="mapid"></div>
-  <input type="text" class="lat" id="lat" name="latitud" value=0 style="display: none;">
-  <input type="text" class="long" id="long" name="longitud" value=0 style="display: none;">
+  <input type="text" class="lat" id="lat" name="latitud" value="{%if form.errors%}{{form.latitud.value}}{%endif%}"
+    style="display: none;">
+  <input type="text" class="long" id="long" name="longitud" value="{%if form.errors%}{{form.longitud.value}}{%endif%}"
+    style="display: none;">
 
 
   <hr />
@@ -383,7 +386,7 @@
       <input class="form-control" type="number" value="0" min="25" id="inputCantAsistentes" name="cantBenef">
 
     </div>
-    <a href="#" class="btn btn-primary" id="add_field">Confirmar </a>
+    <!-- <a href="#" class="btn btn-primary" id="add_field">Confirmar </a> -->
   </div>
   <div class="mt-4 mb-4">
 
@@ -706,15 +709,37 @@
       el
       comedor/merendero?</label>
     <div class="col-sm-1">
-      <input type="number" class="form-control" id="inputCantColab" name="cantColab" value="1">
+      <input type="number" class="form-control" id="inputCantColab" name="cantColab" value="1" min="1">
     </div>
   </div>
-  <a href="#" class="btn btn-primary" id="add_colab">Confirmar</a>
+  <!-- <a href="#" class="btn btn-primary" id="add_colab">Confirmar</a> -->
 
   <p>Datos Personales de cada colaborador y colaboradora</p>
 
   <div id="divColaboradores" class="mt-4">
-
+    <div>
+      <div class="form-group row">
+        <label for="inNomColab" class="col-sm-1 col-form-label">Nombre</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="0-nomCol" id="inNomColab" placeholder="Nombre" required>
+        </div>
+        <label for="inApColab" class="col-sm-1 col-form-label">Apellido</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="0-apCol" id="inApColab" placeholder="Apellido" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inDniColab" class="col-sm-1 col-form-label">Dni</label>
+        <div class="col-sm-4">
+          <input type="number" class="form-control" name="0-dniCol" id="inDniColab" placeholder="Dni" required>
+        </div>
+        <label for="inCuilColab" class="col-sm-1 col-form-label">Cuil</label>
+        <div class="col-sm-4">
+          <input type="number" class="form-control" name="0-cuilCol" id="inCuilColab" placeholder="000000000000"
+            required>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="form-group row mt-5">

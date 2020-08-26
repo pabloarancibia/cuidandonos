@@ -110,7 +110,7 @@
     <label for="inputBarrio" class="col-sm-2 col-form-label">Barrio</label>
     <div class="col-sm-6">
       <input type="text" class="form-control" id="inputBarrio" name="barrio"
-        value="{%if form.errors%}{{form.inputBarrio.value}}{%endif%}" placeholder="Barrio" required>
+        value="{%if form.errors%}{{form.barrio.value}}{%endif%}" placeholder="Barrio" required>
     </div>
   </div>
 
@@ -472,13 +472,14 @@
   <hr />
   <label for="selGenero" class=" col-form-label">¿En qué Área te gustaría desarrollar tu voluntariado? </label>
   <div class="form-group row">
-    
+
     <div class="col-sm-8">
       <select class="form-control" id="selArea" name="areaVoluntariado">
         <option value="violenciadegenero" selected>Violencia de Género</option>
         <option value="personascalle">Abordaje y Acompañamiento a personas en situación de calle</option>
         <option value="prevencionconsumo">Prevención en consumo problemático de sustancias psicoadictivas</option>
-        <option value="seguridadalimentaria"> Seguridad Alimentaria- Intervenciones Comunitarias en Merenderos/Comedores</option>
+        <option value="seguridadalimentaria"> Seguridad Alimentaria- Intervenciones Comunitarias en Merenderos/Comedores
+        </option>
         <option value="personasadultas">Acompañamiento y Asistencia a Personas Adultas Mayores</option>
         <option value="juventudes">Juventudes y diversidad</option>
         <option value="infancias">Infancias y Adolescencias en especial situación de vulnerabilidad</option>
@@ -510,7 +511,9 @@
 
   <div class="alert alert-warning" role="alert">
     <h4 class="alert-heading">Términos y Condiciones</h4>
-    <p>La Subsecretaría de Participación Ciudadana tendrá a su cargo el funcionamiento del Registro Provincial de Voluntariado Social, y tal fin, establecerá las bases y condiciones para la convalidación de la inscripción al Registro de cada postulante. </p>
+    <p>La Subsecretaría de Participación Ciudadana tendrá a su cargo el funcionamiento del Registro Provincial de
+      Voluntariado Social, y tal fin, establecerá las bases y condiciones para la convalidación de la inscripción al
+      Registro de cada postulante. </p>
     <!-- <hr> -->
     <!-- <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
   </div>
@@ -529,7 +532,7 @@
   <div class="container">
     <div class="row eskimo-footer-wrapper">
       <div class="row">
-         
+
         <div class="col-sm-4">
           <div class="card bg-dark text-white">
             <img class="card-img-top" src="{% static 'images/PC.png' %}" alt="Card image cap">
@@ -539,7 +542,7 @@
                 <a href="{% url "contactos" %}">Información de contacto</a>
 
               </p>
-              
+
             </div>
           </div>
         </div>
@@ -552,12 +555,12 @@
                 <a href="{% url "contactos" %}">Información de contacto</a>
 
               </p>
-              
+
             </div>
           </div>
         </div>
 
-     
+
       </div>
 
     </div>

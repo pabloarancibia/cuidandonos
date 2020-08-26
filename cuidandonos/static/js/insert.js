@@ -1,4 +1,5 @@
-$('#add_field').click(function (e) {
+// $('#add_field').click(function (e) {
+$('#inputCantAsistentes').on('input', function (e) {
         e.preventDefault();     //prevenir nuevos clicks
 
         // eliminar campos actuales
@@ -26,7 +27,7 @@ $('#add_field').click(function (e) {
         }
 
 });
-$('#add_colab').click(function (e) {
+$('#inputCantColab').on('input', function (e) {
         e.preventDefault();     //prevenir nuevos clicks
         // eliminar campos actuales
         $('#divColaboradores').empty();
