@@ -53,32 +53,6 @@
             }
         },
         {
-            "nombre_completo": "Provincia de Entre Ríos",
-            "fuente": "IGN",
-            "iso_id": "AR-E",
-            "nombre": "Entre Ríos",
-            "id": "30",
-            "categoria": "Provincia",
-            "iso_nombre": "Entre Ríos",
-            "centroide": {
-                "lat": -32.0588735436448,
-                "lon": -59.2014475514635
-            }
-        },
-        {
-            "nombre_completo": "Provincia de Santa Cruz",
-            "fuente": "IGN",
-            "iso_id": "AR-Z",
-            "nombre": "Santa Cruz",
-            "id": "78",
-            "categoria": "Provincia",
-            "iso_nombre": "Santa Cruz",
-            "centroide": {
-                "lat": -48.8154851827063,
-                "lon": -69.9557621671973
-            }
-        },
-        {
             "nombre_completo": "Provincia de Río Negro",
             "fuente": "IGN",
             "iso_id": "AR-R",
@@ -170,19 +144,6 @@
             }
         },
         {
-            "nombre_completo": "Provincia de Santiago del Estero",
-            "fuente": "IGN",
-            "iso_id": "AR-G",
-            "nombre": "Santiago del Estero",
-            "id": "86",
-            "categoria": "Provincia",
-            "iso_nombre": "Santiago del Estero",
-            "centroide": {
-                "lat": -27.7824116550944,
-                "lon": -63.2523866568588
-            }
-        },
-        {
             "nombre_completo": "Provincia de Corrientes",
             "fuente": "IGN",
             "iso_id": "AR-W",
@@ -271,19 +232,6 @@
             "centroide": {
                 "lat": -23.3200784211351,
                 "lon": -65.7642522180337
-            }
-        },
-        {
-            "nombre_completo": "Ciudad Autónoma de Buenos Aires",
-            "fuente": "IGN",
-            "iso_id": "AR-C",
-            "nombre": "Ciudad Autónoma de Buenos Aires",
-            "id": "02",
-            "categoria": "Ciudad Autónoma",
-            "iso_nombre": "Ciudad Autónoma de Buenos Aires",
-            "centroide": {
-                "lat": -34.6144934119689,
-                "lon": -58.4458563545429
             }
         },
         {

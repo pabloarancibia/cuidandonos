@@ -38,6 +38,8 @@ urlpatterns = [
     path('informacion/contactos/',
          views.contactos, name='contactos'),
 
+    path('mapa/', views.mapa, name='mapa'),
+
 
 
 

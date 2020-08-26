@@ -105,3 +105,7 @@ def contactos(request):
 
 def inicio(request):
     return render(request, 'index.html')
+
+
+def mapa(request):
+    return render(request, 'mapa/mapa.html')
