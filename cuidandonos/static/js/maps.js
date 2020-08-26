@@ -18,7 +18,7 @@ function onMapClick(e) {
     mymap.removeLayer(marker)
     marker = new L.Marker(e.latlng);
     mymap.addLayer(marker);
-    marker.bindPopup("<b>Nombre Comedor/Merendero</b>.").openPopup();
+    marker.bindPopup("<b>Ubicación asignada</b>.").openPopup();
 
     $('#lat').val(e.latlng.lat);
     $('#long').val(e.latlng.lng);
