@@ -21,8 +21,8 @@ class comedores (models.Model):
     emailRes = models.EmailField()
 
     perteneceOrg = models.CharField(max_length=2, default='no')
-    personeria = models.CharField(max_length=60, blank=True, null=True)
-    cuitPersoneria = models.BigIntegerField(blank=True, null=True)
+    personeria = models.CharField(max_length=60, blank=True, default='')
+    cuitPersoneria = models.BigIntegerField(default=0, blank=True, null=True)
 
     benefDS = models.CharField(max_length=2, default='no')
     tipoModulos = models.BooleanField(default=False)
@@ -78,7 +78,8 @@ class comedores (models.Model):
     cantColab = models.IntegerField()
 
     remuneracionDS = models.CharField(max_length=2, default='no')
-    tipoRemuneracionDS = models.CharField(max_length=60, blank=True, null=True)
+    tipoRemuneracionDS = models.CharField(
+        max_length=60, blank=True, default='')
     montoRemuneracionDS = models.IntegerField(blank=True, null=True)
 
     aguaCM = models.CharField(max_length=2, default='no')
@@ -93,7 +94,7 @@ class comedores (models.Model):
 
     huerta = models.CharField(max_length=2, default='no')
     deporte = models.CharField(max_length=2, default='no')
-    tipoDeporte = models.CharField(max_length=60, blank=True, null=True)
+    tipoDeporte = models.CharField(max_length=60, blank=True, default='')
     apoyoEsc = models.CharField(max_length=2, default='no')
     infoHigiene = models.CharField(max_length=2, default='no')
     educSex = models.CharField(max_length=2, default='no')
@@ -145,15 +146,16 @@ class cuidadores (models.Model):
     rdLeyDH = models.CharField(max_length=80)
     rdCapEdSex = models.CharField(max_length=80)
     rdExperiencia = models.CharField(max_length=80)
-    rdLugarExperiencia = models.CharField(max_length=80, blank=True, null=True)
-    nombreInst = models.CharField(max_length=80, blank=True, null=True)
-    direcInst = models.CharField(max_length=80, blank=True, null=True)
-    contactoInst = models.CharField(max_length=80, blank=True, null=True)
-    contactoDom = models.CharField(max_length=80, blank=True, null=True)
-    nombreClinica = models.CharField(max_length=80, blank=True, null=True)
-    direcClinica = models.CharField(max_length=80, blank=True, null=True)
-    contactoClinica = models.CharField(max_length=80, blank=True, null=True)
-    contactoFamiliar = models.CharField(max_length=80, blank=True, null=True)
+    rdLugarExperiencia = models.CharField(
+        max_length=80, blank=True, default='')
+    nombreInst = models.CharField(max_length=80, blank=True, default='')
+    direcInst = models.CharField(max_length=80, blank=True, default='')
+    contactoInst = models.CharField(max_length=80, blank=True, default='')
+    contactoDom = models.CharField(max_length=80, blank=True, default='')
+    nombreClinica = models.CharField(max_length=80, blank=True, default='')
+    direcClinica = models.CharField(max_length=80, blank=True, default='')
+    contactoClinica = models.CharField(max_length=80, blank=True, default='')
+    contactoFamiliar = models.CharField(max_length=80, blank=True, default='')
     rdCoopTr = models.CharField(max_length=80)
     nombreCoop = models.CharField(max_length=80, blank=True, null=True)
     archivoDniAsp = models.FileField(
@@ -185,13 +187,13 @@ class voluntarios(models.Model):
     email = models.EmailField()
 
     rdEstudiante = models.CharField(max_length=2)
-    estudios = models.CharField(max_length=80, blank=True, null=True)
+    estudios = models.CharField(max_length=80, blank=True, default='')
     rdOrg = models.CharField(max_length=2)
-    nomOrg = models.CharField(max_length=80, blank=True, null=True)
+    nomOrg = models.CharField(max_length=80, blank=True, default='')
     rdTrabaja = models.CharField(max_length=2)
-    lugarTrab = models.CharField(max_length=80, blank=True, null=True)
+    lugarTrab = models.CharField(max_length=80, blank=True, default='')
     rdProfesion = models.CharField(max_length=2)
-    profestion = models.CharField(max_length=80, blank=True, null=True)
+    profestion = models.CharField(max_length=80, blank=True, default='')
 
     trLunes = models.BooleanField(default=False)
     hrDesdeLun = models.TimeField()
