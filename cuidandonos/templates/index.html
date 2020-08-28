@@ -64,78 +64,105 @@
                         <a href="blog.html">VIEW ALL</a>
                     </div> -->
 
-    <div id="eskimo-post-carousel" class="eskimo-carousel">
-        <!-- CAROUSEL ITEM 1 -->
-        <div>
-            <div class="card-masonry card-small">
-                <div class="card">
-                    <a href="{%url "infocomedores"%}">
-                        <img class="card-vertical-img" src="{% static 'images/merenderos_comedores.jpg'%}"
-                            alt="Comedores y Merenderos Comunitarios" />
-                    </a>
-                    <div class="card-border">
-                        <div class="card-body">
-                            <!-- <div class="card-category">
+    <!-- <div id="eskimo-post-carousel" class="eskimo-carousel"> -->
+    <!-- CAROUSEL ITEM 1 -->
+    <div class="card-group">
+        <!-- <div class="col-sm-3"> -->
+        <!-- <div class="card-masonry card-small"> -->
+        <div class="card">
+            <a href="{%url "infocomedores"%}">
+                <img class="card-vertical-img" src="{% static 'images/merenderos_comedores.jpg'%}"
+                    alt="Comedores y Merenderos Comunitarios" />
+            </a>
+            <!-- <div class="card-border"> -->
+            <div class="card-body">
+                <!-- <div class="card-category">
                                                 <a href="single-post.html">May 28, 2018</a>
                                             </div> -->
-                            <h5 class="card-title"><a href="{%url "infocomedores"%}">Comedores y
-                                    Merenderos</a>
-                            </h5>
-                            <p class="card-text">Registro para comedores y merenderos comunitarios.</p>
-                        </div>
-                    </div>
-                </div>
+                <h5 class="card-title"><a href="{%url "infocomedores"%}">Comedores y
+                        Merenderos</a>
+                </h5>
+                <p class="card-text">Registro para comedores y merenderos comunitarios.</p>
             </div>
+            <!-- </div> -->
         </div>
+        <!-- </div> -->
+        <!-- </div> -->
         <!-- CAROUSEL ITEM 2 -->
-        <div>
-            <div class="card-masonry card-small">
-                <div class="card">
-                    <a href="{%url "infocuidadores"%}">
-                        <img class="card-vertical-img" src="{% static 'images/cuidado_domiciliario.jpg'%}"
-                            alt="Cuidadores Domiciliarios" />
-                    </a>
-                    <div class="card-border">
-                        <div class="card-body">
-                            <!-- <div class="card-category">
+        <!-- <div class="col-sm-3"> -->
+        <!-- <div class="card-masonry card-small"> -->
+        <div class="card">
+            <a href="{%url "infocuidadores"%}">
+                <img class="card-vertical-img" src="{% static 'images/cuidado_domiciliario.jpg'%}"
+                    alt="Cuidadores Domiciliarios" />
+            </a>
+            <!-- <div class="card-border"> -->
+            <div class="card-body">
+                <!-- <div class="card-category">
                                                 <a href="single-post.html">May 27, 2018</a>
                                             </div> -->
-                            <h5 class="card-title"><a href="{%url "infocuidadores"%}">Cuidadores
-                                    Domiciliarios</a></h5>
-                            <p class="card-text">El cuidador domiciliario es aquel que provee cuidados
-                                específicos para satisfacer las necesidades diarias de otra persona,
-                                quien se desempeña en domicilios particulares..</p>
-                        </div>
-                    </div>
-                </div>
+                <h5 class="card-title"><a href="{%url "infocuidadores"%}">Cuidadores
+                        Domiciliarios</a></h5>
+                <p class="card-text">El cuidador domiciliario es aquel que provee cuidados
+                    específicos para satisfacer las necesidades diarias de otra persona,
+                    quien se desempeña en domicilios particulares..</p>
             </div>
+            <!-- </div> -->
         </div>
+        <!-- </div> -->
+        <!-- </div> -->
         <!-- CAROUSEL ITEM 3 -->
-        <div>
-            <div class="card-masonry card-small">
-                <div class="card">
-                    <a href="{% url "infovoluntarios" %}">
-                        <img class="card-vertical-img" src="{% static 'images/voluntarios.jpg'%}"
-                            alt="Voluntariado Social" />
-                    </a>
-                    <div class="card-border">
-                        <div class="card-body">
-                            <!-- <div class="card-category">
+        <!-- <div class="col-sm-3"> -->
+        <!-- <div class="card-masonry card-small"> -->
+        <div class="card">
+            <a href="{% url "infovoluntarios" %}">
+                <img class="card-vertical-img" src="{% static 'images/voluntarios.jpg'%}" alt="Voluntariado Social" />
+            </a>
+            <!-- <div class="card-border"> -->
+            <div class="card-body">
+                <!-- <div class="card-category">
                                                 <a href="infovoluntarios.html">May 25, 2018</a>
                                             </div> -->
-                            <h5 class="card-title"><a href="{% url "infovoluntarios" %}">Voluntariado
-                                    Social</a>
-                            </h5>
-                            <p class="card-text">Se define por voluntariado social a la actividad
-                                voluntaria, solidaria, que desarrollan las personas en entidades sin
-                                fines de lucro, como decisión libre, gratuita, apoyada por motivaciones
-                                personales y como elemento de desarrollo personal.</p>
-                        </div>
-                    </div>
-                </div>
+                <h5 class="card-title"><a href="{% url "infovoluntarios" %}">Voluntariado
+                        Social</a>
+                </h5>
+                <p class="card-text">Se define por voluntariado social a la actividad
+                    voluntaria, solidaria, que desarrollan las personas en entidades sin
+                    fines de lucro, como decisión libre, gratuita, apoyada por motivaciones
+                    personales y como elemento de desarrollo personal.</p>
             </div>
-        </div><!--  fin item 3 -->
+            <!-- </div> -->
+        </div>
+        <!-- </div> -->
+        <!-- </div> fin item 3 -->
+        <!-- <div class="col-sm-3"> -->
+        <!-- <div class="card-masonry card-small"> -->
+        <div class="card">
+            <a href="https://osc.chaco.gob.ar/" target="_blank">
+                <img class="card-vertical-img" src="{% static 'images/organizaciones2.jpg'%}"
+                    alt="Organizaciones de la Sociedad Civil" />
+            </a>
+            <!-- <div class="card-border"> -->
+            <div class="card-body">
+                <!-- <div class="card-category">
+                                                <a href="infovoluntarios.html">May 25, 2018</a>
+                                            </div> -->
+                <h5 class="card-title"><a href="https://osc.chaco.gob.ar/" target="_blank">Organizaciones de
+                        la Sociedad
+                        Civil</a>
+                </h5>
+                <p class="card-text">Registro de Organizaciones de la Sociedad Civil que tiene el objetivo
+                    de generar un espacio de interacción y comunicación que les facilite a las
+                    organizaciones que se registran, tener conocimiento de otras organizaciones existentes,
+                    las temáticas que abordan, su localización e impacto, como así también las distintas
+                    acciones gubernamentales.</p>
+            </div>
+            <!-- </div> -->
+        </div>
+        <!-- </div> -->
+        <!-- </div> -->
     </div>
+    <!-- </div> -->
 </div>
 <div class="dropdown-divider mt-5 mb-5"></div>
 <div class="mapa-container">
@@ -155,30 +182,33 @@
 <div class="col-12 col-lg-12 mb-5 mb-lg-0 list-group">
     <h5>Para más información podés descargar:</h5>
 
-    <a href="#"  target="_blank" class="list-group-item list-group-item-action">Ley Nacional del voluntariado social
+    <a href="#" target="_blank" class="list-group-item list-group-item-action">Ley Nacional del voluntariado social
         n°25.855 </a>
-    <a href="#"  target="_blank" class="list-group-item list-group-item-action">Adhesión, Ley Provincial de Voluntariado
+    <a href="#" target="_blank" class="list-group-item list-group-item-action">Adhesión, Ley Provincial de Voluntariado
         Social Ley n° 1230-C (antes Ley 5134)</a>
-    <a href="#"  target="_blank" class="list-group-item list-group-item-action"> Ley 2490-G que establece y regula el
+    <a href="#" target="_blank" class="list-group-item list-group-item-action"> Ley 2490-G que establece y regula el
         Régimen de Cuidadores Domiciliarios y/o Polivalentes
     </a>
-    <a href="#"  target="_blank" class="list-group-item list-group-item-action"> Ley Nacional de Protección de los
+    <a href="#" target="_blank" class="list-group-item list-group-item-action"> Ley Nacional de Protección de los
         Derechos Humanos de los Adultos Mayores Ley 27.360</a>
-    <a href="#"  target="_blank" class="list-group-item list-group-item-action"> Ley Nª 2761-G que nuestra provincia
+    <a href="#" target="_blank" class="list-group-item list-group-item-action"> Ley Nª 2761-G que nuestra provincia
         adhiere a la Ley Nacionalde Protección de los Derechos
         Humanos de los Adultos Mayores</a>
-    <a href="#"  target="_blank" class="list-group-item list-group-item-action"> Ley 2553-B “Ley de Promoción y
+    <a href="#" target="_blank" class="list-group-item list-group-item-action"> Ley 2553-B “Ley de Promoción y
         Protección Integral de las Personas Adultas Mayores</a>
-    <a href="#"  target="_blank" class="list-group-item list-group-item-action"> Ley Nacional 26.061 de Protección
+    <a href="#" target="_blank" class="list-group-item list-group-item-action"> Ley Nacional 26.061 de Protección
         Integral de los Derechos de las Niñas, Niños y
         Adolescentes.
     </a>
-    <a href="#"  target="_blank" class="list-group-item list-group-item-action"> Ley Provincial 2086-C. Protección
+    <a href="#" target="_blank" class="list-group-item list-group-item-action"> Ley Provincial 2086-C. Protección
         Integral de Derecho de Niñas, Niños y Adolescentes</a>
 
-    <a href="{%static 'files/LEY_VOLUNTARIADO_3174-C.pdf'%}" target="_blank" class="list-group-item list-group-item-action"> Modificación a la Ley Provincial de Voluntariado Social a través de la Ley 3174-C</a>
+    <a href="{%static 'files/LEY_VOLUNTARIADO_3174-C.pdf'%}" target="_blank"
+        class="list-group-item list-group-item-action"> Modificación a la Ley Provincial de Voluntariado Social a través
+        de la Ley 3174-C</a>
 
-    <a href="{%static 'files/ESTRATEGIA_2030.pdf'%}"  target="_blank" class="list-group-item list-group-item-action"> Plan Provincial de Voluntariado Social</a>
+    <a href="{%static 'files/ESTRATEGIA_2030.pdf'%}" target="_blank" class="list-group-item list-group-item-action">
+        Plan Provincial de Voluntariado Social</a>
 
 </div>
 {%endblock%}
