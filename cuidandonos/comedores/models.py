@@ -101,6 +101,8 @@ class comedores (models.Model):
     prevViolencia = models.CharField(max_length=2, default='no')
     prevConsumo = models.CharField(max_length=2, default='no')
 
+    activo = models.BooleanField(default=False)
+
     creado = models.DateTimeField(auto_now_add=True)
     modificado = models.DateTimeField(auto_now=True)
 

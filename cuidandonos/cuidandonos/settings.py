@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # local
     'comedores',
-    'users'
+    'users',
+    # otros
+    'snowpenguin.django.recaptcha2',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,7 @@ STATICFILES_DIRS = [
 ]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Variables reCaptcha
+RECAPTCHA_PRIVATE_KEY = '6LfIp8QZAAAAAP0Acwl-VbuH1KHgmWY0idr6kU5m'
+RECAPTCHA_PUBLIC_KEY = '6LfIp8QZAAAAAPUsHVDkTn3qmUzgtqDCWjksoMk-'

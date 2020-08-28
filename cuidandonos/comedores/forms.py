@@ -3,6 +3,9 @@
 # Django
 from django import forms
 from django.utils.translation import gettext_lazy as _
+# Captcha
+from snowpenguin.django.recaptcha2.fields import ReCaptchaField
+from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
 
 # Models
 from comedores.models import comedores, beneficiarios, colaboradores, cuidadores, voluntarios
@@ -13,6 +16,9 @@ from comedores.models import comedores, beneficiarios, colaboradores, cuidadores
 # nombreCM = forms.CharField(max_length=60, required=False)
 class comedoresForm(forms.ModelForm):
     """Form definition for comedores."""
+
+    captcha = ReCaptchaField(widget=ReCaptchaWidget())
+
     class Meta:
         """Form settings."""
         model = comedores
@@ -69,6 +75,8 @@ class colaboradoresForm(forms.ModelForm):
 
 class cuidadoresForm(forms.ModelForm):
     """Form definition for cuidadores."""
+    captcha = ReCaptchaField(widget=ReCaptchaWidget())
+
     class Meta:
         """Form settings."""
         model = cuidadores
@@ -93,6 +101,8 @@ class cuidadoresForm(forms.ModelForm):
 
 class voluntariosForm(forms.ModelForm):
     """Form definition for vountarios."""
+
+    captcha = ReCaptchaField(widget=ReCaptchaWidget())
 
     class Meta:
         """Form settings."""
