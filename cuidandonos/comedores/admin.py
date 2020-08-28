@@ -1,3 +1,8 @@
 from django.contrib import admin
+from comedores.models import voluntarios
 
-# Register your models here.
+
+@admin.register(voluntarios)
+class voluntariosAdmin(admin.ModelAdmin):
+    """voluntarios Admin"""
+    pass

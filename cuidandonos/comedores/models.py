@@ -101,6 +101,9 @@ class comedores (models.Model):
     prevViolencia = models.CharField(max_length=2, default='no')
     prevConsumo = models.CharField(max_length=2, default='no')
 
+    creado = models.DateTimeField(auto_now_add=True)
+    modificado = models.DateTimeField(auto_now=True)
+
 
 class beneficiarios (models.Model):
     """ Beneficiarios de Comedores/Merenderos Model"""
@@ -108,6 +111,9 @@ class beneficiarios (models.Model):
     inputDniBenef = models.BigIntegerField()
     comMerBenef = models.ForeignKey(
         comedores, on_delete=models.SET_NULL, null=True)
+
+    creado = models.DateTimeField(auto_now_add=True)
+    modificado = models.DateTimeField(auto_now=True)
 
 
 class colaboradores (models.Model):
@@ -118,6 +124,9 @@ class colaboradores (models.Model):
     cuilCol = models.BigIntegerField()
     comMerCol = models.ForeignKey(
         comedores, on_delete=models.SET_NULL, null=True)
+
+    creado = models.DateTimeField(auto_now_add=True)
+    modificado = models.DateTimeField(auto_now=True)
 
 
 class cuidadores (models.Model):
@@ -169,6 +178,9 @@ class cuidadores (models.Model):
     archivoCertReinc = models.FileField(
         upload_to='archivos/cuidadores', validators=[file_size])
 
+    creado = models.DateTimeField(auto_now_add=True)
+    modificado = models.DateTimeField(auto_now=True)
+
 
 class voluntarios(models.Model):
     """ voluntarios model"""
@@ -219,3 +231,6 @@ class voluntarios(models.Model):
 
     areaVoluntariado = models.CharField(max_length=40)
     rdLeyVol = models.CharField(max_length=2)
+
+    creado = models.DateTimeField(auto_now_add=True)
+    modificado = models.DateTimeField(auto_now=True)
