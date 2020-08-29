@@ -23,6 +23,7 @@ from comedores import views
 urlpatterns = [
     path('inicio/', views.inicio, name="inicio"),
     path('admin/', admin.site.urls),
+    path('login/', views.login, name="login"),
     path('comedores/infocomedores/',
          views.infocomedores, name='infocomedores'),
     path('comedores/formcomedores/',

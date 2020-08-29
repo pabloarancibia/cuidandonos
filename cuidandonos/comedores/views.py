@@ -109,3 +109,7 @@ def inicio(request):
 
 def mapa(request):
     return render(request, 'mapa/mapa.html')
+
+
+def login(request):
+    return render(request, 'login.html')
